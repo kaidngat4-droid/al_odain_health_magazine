@@ -1,0 +1,54 @@
+{
+    "magazine": {
+        "name": "مجلة العودين الصحية",
+        "issn": "1234-5678",
+        "publisher": "دار العودين للنشر",
+        "language": "arabic"
+    },
+    "issues": [
+        {
+            "id": "issue-2024-01",
+            "number": 1,
+            "volume": 1,
+            "year": 2024,
+            "month": "يناير",
+            "releaseDate": "2024-01-15",
+            "status": "published",
+            "coverImage": "cover.jpg",
+            "pdfUrl": "issue-2024-01.pdf",
+            "pages": 64,
+            "articlesCount": 8,
+            "description": "العدد الافتتاحي لمجلة العودين الصحية",
+            "articles": [
+                {
+                    "title": "أحدث التطورات في علاج السكري",
+                    "author": "د.  صلاح الأهدل",
+                    "pages": "12-18",
+                    "url": "../../content/articles/article-001.html"
+                },
+                {
+                    "title": "فوائد الرياضة للصحة النفسية",
+                    "author": "أ. سارة علي",
+                    "pages": "20-25",
+                    "url": "../../content/articles/article-002.html"
+                }
+            ]
+        },
+        {
+            "id": "issue-2024-02",
+            "number": 2,
+            "volume": 1,
+            "year": 2024,
+            "month": "فبراير",
+            "releaseDate": "2024-02-25",
+            "status": "upcoming",
+            "coverImage": "cover.jpg",
+            "pdfUrl": null,
+            "pages": 72,
+            "articlesCount": 10,
+            "description": "عدد خاص عن الصحة النفسية"
+        }
+    ],
+    "totalIssues": 2,
+    "lastUpdated": "2024-01-20"
+}
