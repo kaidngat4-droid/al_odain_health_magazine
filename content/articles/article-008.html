@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>الدعامات القلبية: أنواعها وفوائدها | آفاق الصحية</title>
+    <meta name="description" content="دليل شامل للدعامات القلبية: أنواعها، فوائدها، كيفية التركيب، المخاطر، والعناية بعد الدعامة - مقال علمي محكم">
+    <meta name="keywords" content="الدعامات القلبية, الدعامات التاجية, قسطرة قلبية, أمراض القلب, تصلب الشرايين">
+    <meta name="author" content="د. خالد المنصوري">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            color: #880e4f;
+            line-height: 1.8;
+        }
+        
+        .article-wrapper {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Header */
+        .article-header {
+            background: linear-gradient(135deg, #c2185b, #880e4f);
+            color: white;
+            padding: 3rem 2.5rem;
+            text-align: center;
+        }
+        
+        .article-header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .article-header .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+        
+        .article-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Featured Image */
+        .featured-image {
+            width: 100%;
+            height: 380px;
+            background: linear-gradient(135deg, #c2185b, #880e4f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .featured-image i {
+            font-size: 6rem;
+            color: rgba(255, 255, 255, 0.2);
+            animation: pulse 2s infinite ease-in-out;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.1); opacity: 0.3; }
+        }
+        
+        /* Content */
+        .article-content {
+            padding: 2.5rem;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            font-size: 1.05rem;
+            color: #4a148c;
+        }
+        
+        .article-content h2 {
+            color: #c2185b;
+            border-right: 4px solid #c2185b;
+            padding-right: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.6rem;
+        }
+        
+        .article-content h3 {
+            color: #d81b60;
+            margin: 1.5rem 0 0.8rem 0;
+            font-size: 1.3rem;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 1rem 2rem 1rem 0;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Info Boxes */
+        .info-box {
+            background: #fce4ec;
+            border-right: 4px solid #c2185b;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-right: 4px solid #ff9800;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .danger-box {
+            background: #ffebee;
+            border-right: 4px solid #e74c3c;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .success-box {
+            background: #e8f5e9;
+            border-right: 4px solid #4caf50;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        /* Statistics Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #c2185b, #880e4f);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        
+        /* Types Grid */
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .type-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        
+        .type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .type-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .type-card h4 {
+            color: #c2185b;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Steps List */
+        .steps-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .steps-list li {
+            background: #fce4ec;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .steps-list li i {
+            font-size: 1.5rem;
+            color: #c2185b;
+        }
+        
+        /* Precautions List */
+        .precautions-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .precautions-list li {
+            background: #e8f5e9;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .precautions-list li i {
+            font-size: 1.5rem;
+            color: #c2185b;
+        }
+        
+        /* Article Footer */
+        .article-footer-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 24px;
+            margin-top: 2rem;
+        }
+        
+        /* Tags */
+        .article-tags {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .article-tags span {
+            font-weight: 600;
+            margin-left: 0.8rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #fce4ec;
+            color: #c2185b;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            margin: 0.2rem;
+            transition: all 0.3s;
+        }
+        
+        .tag:hover {
+            background: #c2185b;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Share Buttons */
+        .share-buttons {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .share-buttons p {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        
+        .share-btn-group {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.05);
+        }
+        
+        .share-twitter { background: #1DA1F2; color: white; }
+        .share-facebook { background: #1877F2; color: white; }
+        .share-whatsapp { background: #25D366; color: white; }
+        .share-linkedin { background: #0077B5; color: white; }
+        .share-copy { background: #6c757d; color: white; }
+        
+        /* Author Box */
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 20px;
+            margin-top: 1.5rem;
+        }
+        
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #c2185b, #880e4f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .author-info h4 {
+            color: #c2185b;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+        }
+        
+        .rating i {
+            color: #ffc107;
+        }
+        
+        /* Back Button */
+        .back-button {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #c2185b, #880e4f);
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(194,24,91,0.3);
+        }
+        
+        /* Footer */
+        .site-footer {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #c2185b, #880e4f);
+            color: white;
+            margin-top: 2rem;
+            border-radius: 28px 28px 0 0;
+        }
+        
+        @media (max-width: 768px) {
+            .article-header h1 { font-size: 1.5rem; }
+            .article-content { padding: 1.5rem; }
+            .featured-image { height: 200px; }
+            .author-box { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="article-wrapper">
+    <div class="article-card">
+        
+        <!-- Header -->
+        <div class="article-header">
+            <h1><i class="fas fa-stethoscope"></i> الدعامات القلبية</h1>
+            <div class="subtitle">أنواعها، فوائدها، وكيفية العناية بعد التركيب</div>
+            <div class="article-meta">
+                <span><i class="fas fa-user-md"></i> د. خالد المنصوري</span>
+                <span><i class="fas fa-calendar-alt"></i> 10 مارس 2026</span>
+                <span><i class="fas fa-clock"></i> وقت القراءة: 9 دقائق</span>
+                <span><i class="fas fa-chart-line"></i> مستوى متوسط</span>
+            </div>
+        </div>
+        
+        <!-- Featured Image -->
+        <div class="featured-image">
+            <img src="../assets/images/articles/article-008.jpg" alt="الدعامات القلبية" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-stethoscope\'></i>';">
+        </div>
+        
+        <!-- Content -->
+        <div class="article-content">
+            
+            <!-- Introduction -->
+            <p>الدعامة القلبية (Cardiac Stent) هي أنبوب شبكي صغير جداً مصنوع من المعدن أو البوليمر، يتم زراعته داخل الشريان التاجي بعد توسيعه بالبالون، وذلك لإبقائه مفتوحاً وضمان تدفق الدم بشكل جيد إلى عضلة القلب. تعتبر الدعامات القلبية من أعظم إنجازات الطب الحديث في مجال علاج أمراض القلب التاجية، حيث أنقذت حياة الملايين حول العالم.</p>
+            
+            <!-- Statistics -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">نسبة نجاح التركيب</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1M+</div>
+                    <div class="stat-label">دعامة سنوياً</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6-12</div>
+                    <div class="stat-label">شهراً مميعات الدم</div>
+                </div>
+            </div>
+            
+            <!-- Section 1 -->
+            <h2><i class="fas fa-microscope"></i> ما هي الدعامة القلبية؟</h2>
+            <p>الدعامة القلبية عبارة عن أنبوب معدني صغير شبكي الشكل يتم تركيبه داخل الشريان التاجي بعد توسيعه بالبالون، لإبقائه مفتوحاً وضمان تدفق الدم بشكل جيد إلى عضلة القلب. تعمل الدعامة كدعامة داخلية تمنع الشريان من الانهيار أو الانسداد مرة أخرى.</p>
+            
+            <div class="info-box">
+                <i class="fas fa-lightbulb"></i>
+                <strong>معلومة مهمة:</strong> أول دعامة قلبية تم زراعها في عام 1986، ومنذ ذلك الحين تطورت الدعامات بشكل كبير وأصبحت أكثر أماناً وفعالية.
+            </div>
+            
+            <!-- Section 2 - Types -->
+            <h2><i class="fas fa-tags"></i> أنواع الدعامات القلبية</h2>
+            
+            <div class="types-grid">
+                <div class="type-card">
+                    <div class="type-icon">🔩</div>
+                    <h4>الدعامات المعدنية العارية (BMS)</h4>
+                    <p>الجيل الأول من الدعامات، مصنوعة من المعدن فقط. تستخدم في الحالات البسيطة. تحتاج إلى أدوية مميعة للدم لمدة شهر واحد. أقل تكلفة ولكن نسبة إعادة التضيق أعلى.</p>
+                </div>
+                <div class="type-card">
+                    <div class="type-icon">💊</div>
+                    <h4>الدعامات الدوائية (DES)</h4>
+                    <p>تطلق دواء يمنع تكاثر الخلايا وإعادة التضيق. تعتبر المعيار الذهبي حالياً. تحتاج إلى أدوية مميعة للدم لمدة 6-12 شهراً. نسبة إعادة التضيق أقل من 10%.</p>
+                </div>
+                <div class="type-card">
+                    <div class="type-icon">🌱</div>
+                    <h4>الدعامات القابلة للامتصاص (BVS)</h4>
+                    <p>تذوب تدريجياً بعد فترة (2-3 سنوات). لا تترك أي أثر في الجسم. ليست مناسبة لجميع المرضى. تحتاج إلى خبرة عالية للتركيب.</p>
+                </div>
+            </div>
+            
+            <!-- Section 3 - When Needed -->
+            <h2><i class="fas fa-question-circle"></i> متى يحتاج المريض إلى دعامة قلبية؟</h2>
+            <ul>
+                <li>انسداد شريان تاجي بنسبة تزيد عن 70%</li>
+                <li>الذبحة الصدرية غير المستقرة (عدم استجابة للعلاج الدوائي)</li>
+                <li>النوبة القلبية الحادة (لإعادة فتح الشريان المسدود)</li>
+                <li>نتائج غير طبيعية في اختبار الجهد</li>
+                <li>تضيق الشريان بعد القسطرة التشخيصية</li>
+            </ul>
+            
+            <!-- Section 4 - Procedure -->
+            <h2><i class="fas fa-chart-line"></i> خطوات تركيب الدعامة القلبية</h2>
+            
+            <ul class="steps-list">
+                <li><i class="fas fa-syringe"></i> <strong>التخدير الموضعي:</strong> تخدير منطقة الإدخال (الفخذ أو الرسغ)</li>
+                <li><i class="fas fa-arrow-right"></i> <strong>إدخال القثطار:</strong> إدخال أنبوب رفيع عبر الشريان إلى القلب</li>
+                <li><i class="fas fa-camera"></i> <strong>تصوير الشرايين:</strong> حقن صبغة لتحديد موقع الانسداد</li>
+                <li><i class="fas fa-balloon"></i> <strong>توسيع الشريان بالبالون:</strong> فتح الانسداد باستخدام بالون صغير</li>
+                <li><i class="fas fa-tools"></i> <strong>تركيب الدعامة:</strong> وضع الدعامة في مكان الانسداد</li>
+                <li><i class="fas fa-check-circle"></i> <strong>التحقق من النتيجة:</strong> تصوير نهائي للتأكد من نجاح العملية</li>
+            </ul>
+            
+            <div class="success-box">
+                <i class="fas fa-check-circle"></i>
+                <strong>نسبة النجاح:</strong> تصل نسبة نجاح تركيب الدعامات القلبية إلى أكثر من 95% في المراكز المتخصصة.
+            </div>
+            
+            <!-- Section 5 - After Procedure -->
+            <h2><i class="fas fa-bed"></i> ما بعد تركيب الدعامة</h2>
+            
+            <h3>في المستشفى (24-48 ساعة)</h3>
+            <ul>
+                <li>الراحة في السرير لمدة 4-6 ساعات</li>
+                <li>مراقبة مكان الإدخال لمنع النزيف</li>
+                <li>مراقبة العلامات الحيوية</li>
+                <li>شرب السوائل للتخلص من الصبغة</li>
+                <li>بدء الأدوية المميعة للدم (الأسبرين وكلوبيدوجريل)</li>
+            </ul>
+            
+            <h3>في المنزل</h3>
+            <ul>
+                <li>تجنب رفع الأثقال لمدة أسبوع</li>
+                <li>تجنب القيادة لمدة 48 ساعة</li>
+                <li>الالتزام بالأدوية بدقة (مهم جداً)</li>
+                <li>مراقبة مكان الإدخال</li>
+                <li>الرجوع إلى النشاط الطبيعي تدريجياً</li>
+            </ul>
+            
+            <!-- Section 6 - Medications -->
+            <h2><i class="fas fa-prescription-bottle"></i> الأدوية بعد الدعامة</h2>
+            <div class="warning-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>⚠️ تنبيه مهم جداً:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>الأسبرين مدى الحياة</li>
+                    <li>كلوبيدوجريل أو تيكاجريلول لمدة 6-12 شهراً (حسب نوع الدعامة)</li>
+                    <li>الستاتينات لخفض الكوليسترول</li>
+                    <li>أدوية الضغط إذا لزم الأمر</li>
+                    <li><strong>لا تتوقف عن أي دواء دون استشارة الطبيب!</strong></li>
+                </ul>
+            </div>
+            
+            <!-- Section 7 - Risks -->
+            <h2><i class="fas fa-exclamation-triangle"></i> المخاطر والمضاعفات المحتملة</h2>
+            <ul>
+                <li><strong>تجلط الدعامة:</strong> أخطر مضاعفة، تحدث عند التوقف المبكر عن الأدوية</li>
+                <li><strong>إعادة التضيق:</strong> تضيق الشريان مرة أخرى (أقل مع الدعامات الدوائية)</li>
+                <li><strong>نزيف:</strong> في مكان إدخال القثطار</li>
+                <li><strong>رد فعل تحسسي:</strong> للصبغة أو الدواء</li>
+                <li><strong>عدوى:</strong> نادرة</li>
+            </ul>
+            
+            <div class="danger-box">
+                <i class="fas fa-ambulance"></i>
+                <strong>⚠️ علامات خطيرة تستدعي مراجعة الطوارئ:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>ألم مفاجئ وشديد في الصدر</li>
+                    <li>ضيق مفاجئ في التنفس</li>
+                    <li>نزيف أو تورم في مكان الإدخال</li>
+                    <li>حمى أو قشعريرة</li>
+                    <li>خدر أو ضعف في الساق أو الذراع</li>
+                </ul>
+            </div>
+            
+            <!-- Section 8 - Lifestyle -->
+            <h2><i class="fas fa-heartbeat"></i> تغييرات نمط الحياة بعد الدعامة</h2>
+            <ul class="precautions-list">
+                <li><i class="fas fa-smoking-ban"></i> <strong>الإقلاع عن التدخين:</strong> أهم خطوة لحماية الدعامة</li>
+                <li><i class="fas fa-apple-alt"></i> <strong>اتباع نظام غذائي صحي:</strong> قليل الدهون، غني بالخضروات والفواكه</li>
+                <li><i class="fas fa-running"></i> <strong>ممارسة الرياضة:</strong> 30 دقيقة يومياً</li>
+                <li><i class="fas fa-weight-scale"></i> <strong>الحفاظ على وزن صحي</strong></li>
+                <li><i class="fas fa-heartbeat"></i> <strong>التحكم بالضغط والسكري والكوليسترول</strong></li>
+                <li><i class="fas fa-calendar-check"></i> <strong>المتابعة الدورية مع طبيب القلب</strong></li>
+            </ul>
+            
+            <!-- Section 9 - Myths -->
+            <h2><i class="fas fa-question-circle"></i> حقائق وأخطاء شائعة عن الدعامات</h2>
+            <ul>
+                <li><strong>❌ خرافة:</strong> الدعامة تحتاج إلى تغيير كل فترة<br>
+                <strong>✅ حقيقة:</strong> الدعامة تدوم مدى الحياة ولا تحتاج إلى تغيير</li>
+                <li><strong>❌ خرافة:</strong> لا يمكن ممارسة الرياضة بعد الدعامة<br>
+                <strong>✅ حقيقة:</strong> الرياضة مفيدة وتقلل خطر إعادة التضيق</li>
+                <li><strong>❌ خرافة:</strong> الدعامات تسبب السرطان<br>
+                <strong>✅ حقيقة:</strong> لا توجد أدلة علمية على ذلك</li>
+                <li><strong>✅ حقيقة:</strong> يجب الاستمرار على الأسبرين مدى الحياة</li>
+            </ul>
+            
+            <!-- Section 10 - Conclusion -->
+            <h2><i class="fas fa-clipboard-list"></i> خلاصة</h2>
+            <p>الدعامات القلبية هي ثورة في علاج أمراض القلب التاجية، حيث أنقذت حياة الملايين حول العالم. النجاح يعتمد على الالتزام بالأدوية وتغيير نمط الحياة والمتابعة المنتظمة مع طبيب القلب. إذا كنت تعاني من أعراض انسداد الشرايين، استشر طبيبك فوراً.</p>
+            
+            <!-- ====== ARTICLE FOOTER ====== -->
+            <div class="article-footer-section">
+                
+                <!-- Tags -->
+                <div class="article-tags">
+                    <span><i class="fas fa-tags"></i> الوسوم:</span>
+                    <a href="#" class="tag">#الدعامات_القلبية</a>
+                    <a href="#" class="tag">#أمراض_القلب</a>
+                    <a href="#" class="tag">#القسطرة_القلبية</a>
+                    <a href="#" class="tag">#صحة_القلب</a>
+                </div>
+                
+                <!-- Share Buttons -->
+                <div class="share-buttons">
+                    <p><i class="fas fa-share-alt"></i> شارك هذا المقال:</p>
+                    <div class="share-btn-group">
+                        <button class="share-btn share-twitter" onclick="shareOnTwitter()">
+                            <i class="fab fa-twitter"></i> تويتر
+                        </button>
+                        <button class="share-btn share-facebook" onclick="shareOnFacebook()">
+                            <i class="fab fa-facebook-f"></i> فيسبوك
+                        </button>
+                        <button class="share-btn share-whatsapp" onclick="shareOnWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="share-btn share-linkedin" onclick="shareOnLinkedIn()">
+                            <i class="fab fa-linkedin-in"></i> لينكد إن
+                        </button>
+                        <button class="share-btn share-copy" onclick="copyLink()">
+                            <i class="fas fa-link"></i> نسخ الرابط
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Author Box -->
+                <div class="author-box">
+                    <div class="author-avatar">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="author-info">
+                        <h4>د. خالد المنصوري</h4>
+                        <p>استشاري أمراض القلب والأوعية الدموية</p>
+                        <p>نائب رئيس قسم القلب - مستشفى العدين المركزي</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span style="margin-right: 0.5rem; color: #666;">4.9 (278 تقييم)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back Button -->
+            <div class="back-button">
+                <a href="../../index.html" class="btn-back">
+                    <i class="fas fa-arrow-right"></i> العودة إلى المجلة
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Site Footer -->
+    <div class="site-footer">
+        <p>© 2026 مجلة آفاق الصحية - مكتب الصحة والبيئة | مديرية العدين</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem;">بإشراف د. خالد المنصوري - استشاري أمراض القلب</p>
+    </div>
+</div>
+
+<script>
+    function shareOnTwitter() {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent('الدعامات القلبية: أنواعها وفوائدها');
+        window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnFacebook() {
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnWhatsApp() {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent('الدعامات القلبية');
+        window.open(`https://wa.me/?text=${title}%20${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnLinkedIn() {
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function copyLink() {
+        navigator.clipboard.writeText(window.location.href);
+        alert('✅ تم نسخ رابط المقال بنجاح');
+    }
+</script>
+
+</body>
+</html>

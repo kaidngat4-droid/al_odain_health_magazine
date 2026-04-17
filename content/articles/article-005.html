@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>الوعي البيئي في المدارس - آفاق الصحية</title>
+    <meta name="description" content="برامج توعوية لتعزيز الثقافة البيئية لدى الطلاب في مدارس مديرية العدين">
+    <meta name="author" content="أ. خالد النهاري">
+    <meta name="keywords" content="الوعي البيئي, المدارس, التربية البيئية, الطلاب, البيئة, التدوير">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            color: #004d40;
+            line-height: 1.8;
+        }
+        
+        .article-wrapper {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Header */
+        .article-header {
+            background: linear-gradient(135deg, #00695c 0%, #004d40 100%);
+            color: white;
+            padding: 3rem 2.5rem;
+            text-align: center;
+        }
+        
+        .article-header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .article-header .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+        
+        .article-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Featured Image */
+        .featured-image {
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(135deg, #26a69a, #00695c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-image i {
+            font-size: 6rem;
+            color: rgba(255, 255, 255, 0.2);
+            animation: spin 4s infinite linear;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Content */
+        .article-content {
+            padding: 2.5rem;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            font-size: 1.05rem;
+            color: #004d40;
+        }
+        
+        .article-content h2 {
+            color: #00695c;
+            border-right: 4px solid #00695c;
+            padding-right: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.6rem;
+        }
+        
+        .article-content h3 {
+            color: #00897b;
+            margin: 1.5rem 0 0.8rem 0;
+            font-size: 1.3rem;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 1rem 2rem 1rem 0;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Info Boxes */
+        .success-box {
+            background: #e8f5e9;
+            border-right: 4px solid #4caf50;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-right: 4px solid #ff9800;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .info-box {
+            background: #e0f2f1;
+            border-right: 4px solid #00695c;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        /* Statistics Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #00695c, #004d40);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        
+        /* Programs Grid */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .program-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .program-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .program-card h4 {
+            color: #00695c;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Activities List */
+        .activities-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .activities-list li {
+            background: #f8f9fa;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .activities-list li i {
+            font-size: 1.5rem;
+            color: #00695c;
+        }
+        
+        /* Article Footer */
+        .article-footer-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 24px;
+            margin-top: 2rem;
+        }
+        
+        /* Tags */
+        .article-tags {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .article-tags span {
+            font-weight: 600;
+            margin-left: 0.8rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #e0f2f1;
+            color: #00695c;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            margin: 0.2rem;
+            transition: all 0.3s;
+        }
+        
+        .tag:hover {
+            background: #00695c;
+            color: white;
+        }
+        
+        /* Share Buttons */
+        .share-buttons {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .share-btn-group {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.05);
+        }
+        
+        .share-twitter { background: #1DA1F2; color: white; }
+        .share-facebook { background: #1877F2; color: white; }
+        .share-whatsapp { background: #25D366; color: white; }
+        .share-linkedin { background: #0077B5; color: white; }
+        .share-copy { background: #6c757d; color: white; }
+        
+        /* Author Box */
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 20px;
+            margin-top: 1.5rem;
+        }
+        
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00695c, #004d40);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .author-info h4 {
+            color: #00695c;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+        }
+        
+        .rating i {
+            color: #ffc107;
+        }
+        
+        /* Back Button */
+        .back-button {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #00695c, #004d40);
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,105,92,0.3);
+        }
+        
+        /* Footer */
+        .site-footer {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #00695c, #004d40);
+            color: white;
+            margin-top: 2rem;
+            border-radius: 28px 28px 0 0;
+        }
+        
+        @media (max-width: 768px) {
+            .article-header h1 { font-size: 1.5rem; }
+            .article-content { padding: 1.5rem; }
+            .featured-image { height: 200px; }
+            .author-box { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="article-wrapper">
+    <div class="article-card">
+        
+        <!-- Header -->
+        <div class="article-header">
+            <h1><i class="fas fa-school"></i> الوعي البيئي في المدارس</h1>
+            <div class="subtitle">برامج توعوية لتعزيز الثقافة البيئية لدى الطلاب</div>
+            <div class="article-meta">
+                <span><i class="fas fa-user-md"></i> أ. خالد النهاري</span>
+                <span><i class="fas fa-calendar-alt"></i> 10 فبراير 2026</span>
+                <span><i class="fas fa-clock"></i> وقت القراءة: 7 دقائق</span>
+                <span><i class="fas fa-chart-line"></i> مستوى متوسط</span>
+            </div>
+        </div>
+        
+        <!-- Featured Image -->
+        <div class="featured-image">
+            <i class="fas fa-recycle"></i>
+        </div>
+        
+        <!-- Content -->
+        <div class="article-content">
+            
+            <!-- Introduction -->
+            <p>يعتبر الوعي البيئي من أهم الركائز التي تساهم في حماية البيئة والحفاظ على الموارد الطبيعية للأجيال القادمة. ومن هنا، أطلق مكتب الصحة والبيئة بالتعاون مع مكتب التربية والتعليم برنامجاً طموحاً لتعزيز الوعي البيئي لدى طلاب المدارس في مديرية العدين.</p>
+            
+            <!-- Statistics -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">مدرسة مستهدفة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">40</div>
+                    <div class="stat-label">معلماً مدرباً</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2,500</div>
+                    <div class="stat-label">طالباً مشاركاً</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">90%</div>
+                    <div class="stat-label">رضا المشاركين</div>
+                </div>
+            </div>
+            
+            <!-- Section 1 - Vision -->
+            <h2><i class="fas fa-eye"></i> رؤية البرنامج وأهدافه</h2>
+            <p>يهدف البرنامج إلى بناء جيل واعٍ بيئياً قادر على حماية موارده الطبيعية والمساهمة في حل المشكلات البيئية. وتسعى الرؤية إلى جعل المدارس بيئات نموذجية في الحفاظ على النظافة والوعي البيئي.</p>
+            
+            <div class="info-box">
+                <i class="fas fa-bullseye"></i>
+                <strong>الأهداف الاستراتيجية:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>نشر الثقافة البيئية بين الطلاب والمعلمين</li>
+                    <li>تحويل المدارس إلى نماذج بيئية مستدامة</li>
+                    <li>إعداد قادة بيئيين من بين الطلاب</li>
+                    <li>ربط المناهج الدراسية بالقضايا البيئية المحلية</li>
+                </ul>
+            </div>
+            
+            <!-- Section 2 - Programs -->
+            <h2><i class="fas fa-project-diagram"></i> البرامج المنفذة في المدارس</h2>
+            
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-icon">🗑️</div>
+                    <h4>فرق النظافة المدرسية</h4>
+                    <p>تشكيل فرق طلابية للإشراف على نظافة المدرسة والفصول</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">♻️</div>
+                    <h4>مسابقات إعادة التدوير</h4>
+                    <p>تحويل المخلفات البلاستيكية والورقية إلى أعمال فنية مفيدة</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">🌱</div>
+                    <h4>الحدائق المدرسية</h4>
+                    <p>إنشاء حدائق صغيرة داخل المدارس لزراعة الخضروات والأزهار</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">🎭</div>
+                    <h4>المسرح البيئي</h4>
+                    <p>عروض مسرحية توعوية عن أهمية الحفاظ على البيئة</p>
+                </div>
+            </div>
+            
+            <!-- Section 3 -->
+            <h2><i class="fas fa-chalkboard-user"></i> تدريب المعلمين والكوادر التعليمية</h2>
+            <p>تم تدريب <strong>40 معلماً ومعلمة</strong> على أساليب التربية البيئية الحديثة، وتوزيع أدلة تعليمية متخصصة. كما تم تزويد المدارس بمواد توعوية ومناهج مساندة للتربية البيئية.</p>
+            
+            <div class="success-box">
+                <i class="fas fa-check-circle"></i>
+                <strong>نتائج التدريب:</strong> تحسن ملحوظ في أداء المعلمين بنسبة 85%، وزيادة في الأنشطة البيئية المدرسية بنسبة 120% مقارنة بالعام السابق.
+            </div>
+            
+            <!-- Section 4 - Activities -->
+            <h2><i class="fas fa-calendar-alt"></i> الأنشطة والفعاليات المنفذة</h2>
+            <ul class="activities-list">
+                <li><i class="fas fa-broom"></i> <strong>حملات النظافة الأسبوعية:</strong> مشاركة طلابية في تنظيف المدارس والمناطق المحيطة</li>
+                <li><i class="fas fa-palette"></i> <strong>مسابقات الرسم والكتابة:</strong> حول موضوعات البيئة والتغير المناخي</li>
+                <li><i class="fas fa-tree"></i> <strong>أيام التشجير:</strong> زراعة 500 شتلة داخل المدارس وفي الساحات العامة</li>
+                <li><i class="fas fa-chalkboard"></i> <strong>المحاضرات التوعوية:</strong> استضافة خبراء بيئيين للتحدث مع الطلاب</li>
+                <li><i class="fas fa-tv"></i> <strong>عروض الأفلام الوثائقية:</strong> عن القضايا البيئية المحلية والعالمية</li>
+            </ul>
+            
+            <!-- Section 5 -->
+            <h2><i class="fas fa-trophy"></i> المدارس النموذجية والإنجازات</h2>
+            <p>تم تكريم <strong>5 مدارس</strong> كـ "مدارس نموذجية في الوعي البيئي" لتميزها في تنفيذ البرامج والأنشطة. كما حصلت مدرسة العدين الثانوية على جائزة أفضل مدرسة صديقة للبيئة على مستوى المحافظة.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">مدارس نموذجية</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1,500</div>
+                    <div class="stat-label">شتلة مزروعة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">25</div>
+                    <div class="stat-label">مبادرة طلابية</div>
+                </div>
+            </div>
+            
+            <!-- Section 6 -->
+            <h2><i class="fas fa-chart-line"></i> أثر البرنامج على سلوك الطلاب</h2>
+            <p>أظهرت دراسة أجراها مكتب الصحة والبيئة تحسناً كبيراً في سلوك الطلاب تجاه البيئة:</p>
+            <ul>
+                <li><strong>انخفاض نسبة رمي النفايات في الشوارع</strong> بنسبة 65% بين الطلاب المشاركين</li>
+                <li><strong>زيادة الوعي بأهمية التدوير</strong> بنسبة 80%</li>
+                <li><strong>تحسن المظهر العام للمدارس</strong> ونظافتها بشكل ملحوظ</li>
+                <li><strong>انتقال أثر البرنامج إلى الأسر</strong> من خلال الطلاب</li>
+            </ul>
+            
+            <div class="warning-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>تحديات واجهت البرنامج:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>نقص التمويل لدعم بعض الأنشطة</li>
+                    <li>الحاجة إلى مزيد من المتطوعين والمدربين</li>
+                    <li>ضعف البنية التحتية في بعض المدارس الريفية</li>
+                </ul>
+            </div>
+            
+            <!-- Section 7 -->
+            <h2><i class="fas fa-lightbulb"></i> توصيات لتوسيع البرنامج</h2>
+            <ul>
+                <li>إدراج التربية البيئية كمادة أساسية في المناهج الدراسية</li>
+                <li>إنشاء أندية بيئية في جميع مدارس المديرية</li>
+                <li>تنظيم زيارات ميدانية للطلاب إلى المحميات الطبيعية</li>
+                <li>توفير ميزانية سنوية للأنشطة البيئية في المدارس</li>
+                <li>إقامة شراكات مع منظمات المجتمع المدني المهتمة بالبيئة</li>
+            </ul>
+            
+            <div class="info-box">
+                <i class="fas fa-quote-right"></i>
+                <strong>شهادة طالب:</strong> "بعد مشاركتي في برنامج الوعي البيئي، أصبحت أفكر مرتين قبل أن ألقي أي نفاية في الشارع. تعلمت أن الأرض أمانة في أعناقنا."
+                <div style="margin-top: 0.5rem;">— أحمد، طالب في الصف التاسع</div>
+            </div>
+            
+            <!-- ====== ARTICLE FOOTER ====== -->
+            <div class="article-footer-section">
+                
+                <!-- Tags -->
+                <div class="article-tags">
+                    <span><i class="fas fa-tags"></i> الوسوم:</span>
+                    <a href="#" class="tag">#الوعي_البيئي</a>
+                    <a href="#" class="tag">#المدارس</a>
+                    <a href="#" class="tag">#التربية_البيئية</a>
+                    <a href="#" class="tag">#الطلاب</a>
+                    <a href="#" class="tag">#البيئة</a>
+                    <a href="#" class="tag">#التدوير</a>
+                </div>
+                
+                <!-- Share Buttons -->
+                <div class="share-buttons">
+                    <p><i class="fas fa-share-alt"></i> شارك هذا المقال:</p>
+                    <div class="share-btn-group">
+                        <button class="share-btn share-twitter" onclick="shareOnTwitter()">
+                            <i class="fab fa-twitter"></i> تويتر
+                        </button>
+                        <button class="share-btn share-facebook" onclick="shareOnFacebook()">
+                            <i class="fab fa-facebook-f"></i> فيسبوك
+                        </button>
+                        <button class="share-btn share-whatsapp" onclick="shareOnWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="share-btn share-linkedin" onclick="shareOnLinkedIn()">
+                            <i class="fab fa-linkedin-in"></i> لينكد إن
+                        </button>
+                        <button class="share-btn share-copy" onclick="copyLink()">
+                            <i class="fas fa-link"></i> نسخ الرابط
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Author Box -->
+                <div class="author-box">
+                    <div class="author-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="author-info">
+                        <h4>أ. خالد النهاري</h4>
+                        <p>مدير البرامج التوعوية - مكتب الصحة والبيئة</p>
+                        <p>خبير في التربية البيئية وتنمية المجتمع</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span style="margin-right: 0.5rem; color: #666;">4.8 (278 تقييم)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back Button -->
+            <div class="back-button">
+                <a href="../../index.html" class="btn-back">
+                    <i class="fas fa-arrow-right"></i> العودة إلى المجلة
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Site Footer -->
+    <div class="site-footer">
+        <p>© 2026 مجلة آفاق الصحية - مكتب الصحة والبيئة | مديرية العدين</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem;">بإشراف أ. خالد النهاري - البرامج التوعوية</p>
+    </div>
+</div>
+
+<script>
+    function shareOnTwitter() {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent('الوعي البيئي في المدارس');
+        window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnFacebook() {
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnWhatsApp() {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent('الوعي البيئي في المدارس');
+        window.open(`https://wa.me/?text=${title}%20${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnLinkedIn() {
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function copyLink() {
+        navigator.clipboard.writeText(window.location.href);
+        alert('✅ تم نسخ رابط المقال بنجاح');
+    }
+</script>
+
+</body>
+</html>

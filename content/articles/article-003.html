@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>مكافحة التلوث في مديرية العدين - آفاق الصحية</title>
+    <meta name="description" content="جهود مكتب الصحة والبيئة في مكافحة التلوث وحماية البيئة في مديرية العدين - إنجازات وخطط مستقبلية">
+    <meta name="author" content="مهندس علي الحمادي">
+    <meta name="keywords" content="التلوث, البيئة, العدين, مكافحة التلوث, النظافة, إعادة التدوير">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            color: #1a3a2a;
+            line-height: 1.8;
+        }
+        
+        .article-wrapper {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Header */
+        .article-header {
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            color: white;
+            padding: 3rem 2.5rem;
+            text-align: center;
+        }
+        
+        .article-header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .article-header .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+        
+        .article-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Featured Image */
+        .featured-image {
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(135deg, #43a047, #2e7d32);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-image i {
+            font-size: 6rem;
+            color: rgba(255, 255, 255, 0.2);
+            animation: float 3s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        /* Content */
+        .article-content {
+            padding: 2.5rem;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            font-size: 1.05rem;
+            color: #2c3e2f;
+        }
+        
+        .article-content h2 {
+            color: #2e7d32;
+            border-right: 4px solid #2e7d32;
+            padding-right: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.6rem;
+        }
+        
+        .article-content h3 {
+            color: #0288d1;
+            margin: 1.5rem 0 0.8rem 0;
+            font-size: 1.3rem;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 1rem 2rem 1rem 0;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Info Boxes */
+        .success-box {
+            background: #e8f5e9;
+            border-right: 4px solid #4caf50;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-right: 4px solid #ff9800;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-right: 4px solid #0288d1;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        /* Statistics Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .project-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-card h4 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Tips List */
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips-list li {
+            background: #f8f9fa;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .tips-list li i {
+            font-size: 1.5rem;
+            color: #2e7d32;
+        }
+        
+        /* Article Footer */
+        .article-footer-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 24px;
+            margin-top: 2rem;
+        }
+        
+        /* Tags */
+        .article-tags {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .article-tags span {
+            font-weight: 600;
+            margin-left: 0.8rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            margin: 0.2rem;
+            transition: all 0.3s;
+        }
+        
+        .tag:hover {
+            background: #2e7d32;
+            color: white;
+        }
+        
+        /* Share Buttons */
+        .share-buttons {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .share-btn-group {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.05);
+        }
+        
+        .share-twitter { background: #1DA1F2; color: white; }
+        .share-facebook { background: #1877F2; color: white; }
+        .share-whatsapp { background: #25D366; color: white; }
+        .share-linkedin { background: #0077B5; color: white; }
+        .share-copy { background: #6c757d; color: white; }
+        
+        /* Author Box */
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 20px;
+            margin-top: 1.5rem;
+        }
+        
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2e7d32, #0288d1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .author-info h4 {
+            color: #2e7d32;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+        }
+        
+        .rating i {
+            color: #ffc107;
+        }
+        
+        /* Back Button */
+        .back-button {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(46,125,50,0.3);
+        }
+        
+        /* Footer */
+        .site-footer {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            color: white;
+            margin-top: 2rem;
+            border-radius: 28px 28px 0 0;
+        }
+        
+        @media (max-width: 768px) {
+            .article-header h1 { font-size: 1.5rem; }
+            .article-content { padding: 1.5rem; }
+            .featured-image { height: 200px; }
+            .author-box { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="article-wrapper">
+    <div class="article-card">
+        
+        <!-- Header -->
+        <div class="article-header">
+            <h1><i class="fas fa-leaf"></i> مكافحة التلوث في مديرية العدين</h1>
+            <div class="subtitle">جهود وإنجازات مكتب الصحة والبيئة في حماية البيئة</div>
+            <div class="article-meta">
+                <span><i class="fas fa-user-md"></i> مهندس علي الحمادي</span>
+                <span><i class="fas fa-calendar-alt"></i> 25 يناير 2026</span>
+                <span><i class="fas fa-clock"></i> وقت القراءة: 7 دقائق</span>
+                <span><i class="fas fa-chart-line"></i> مستوى متوسط</span>
+            </div>
+        </div>
+        
+        <!-- Featured Image -->
+        <div class="featured-image">
+            <i class="fas fa-tree"></i>
+        </div>
+        
+        <!-- Content -->
+        <div class="article-content">
+            
+            <!-- Introduction -->
+            <p>يعد التلوث البيئي من أكبر التحديات التي تواجه مديرية العدين، حيث تؤثر الملوثات على صحة المواطنين والثروة الطبيعية. وقد أطلق مكتب الصحة والبيئة مبادرة شاملة لمكافحة التلوث، حققت خلال عام 2025 إنجازات ملموسة على أرض الواقع.</p>
+            
+            <!-- Statistics -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">500</div>
+                    <div class="stat-label">شجرة مزروعة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">قرى مجهزة بحاويات</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30</div>
+                    <div class="stat-label">متطوع مدرب</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">منشأة مخالفة</div>
+                </div>
+            </div>
+            
+            <!-- Section 1 -->
+            <h2><i class="fas fa-chart-line"></i> إنجازات مبادرة "عدين نظيفة"</h2>
+            <p>أطلق مكتب الصحة والبيئة مبادرة "عدين نظيفة" في بداية عام 2025، والتي أسفرت عن:</p>
+            <ul>
+                <li>زراعة <strong>500 شجرة</strong> في مختلف أنحاء المديرية</li>
+                <li>تركيب <strong>50 حاوية نفايات جديدة</strong> في الأحياء السكنية</li>
+                <li>تدريب <strong>30 متطوعاً بيئياً</strong> على مبادئ النظافة العامة</li>
+                <li>إنشاء <strong>نظام لرصد جودة الهواء</strong> في المناطق الصناعية</li>
+                <li>ضبط <strong>12 منشأة مخالفة</strong> لمعايير التخلص من النفايات السائلة</li>
+            </ul>
+            
+            <div class="success-box">
+                <i class="fas fa-check-circle"></i>
+                <strong>نتائج ملموسة:</strong> انخفاض حالات الملاريا والحميات المعوية بنسبة 35% مقارنة بالعام السابق.
+            </div>
+            
+            <!-- Section 2 - Projects -->
+            <h2><i class="fas fa-project-diagram"></i> المشاريع البيئية المنفذة</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">🗑️</div>
+                    <h4>إدارة النفايات</h4>
+                    <p>توزيع حاويات وجدولة جمع النفايات في 10 قرى</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">💧</div>
+                    <h4>معالجة المياه</h4>
+                    <p>تأهيل محطات معالجة مياه الصرف الصحي</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">🌳</div>
+                    <h4>التشجير</h4>
+                    <p>زراعة 500 شكة ومتنزهات عامة</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">📊</div>
+                    <h4>الرصد البيئي</h4>
+                    <p>إنشاء نظام لرصد جودة الهواء والمياه</p>
+                </div>
+            </div>
+            
+            <!-- Section 3 -->
+            <h2><i class="fas fa-industry"></i> مكافحة التلوث الصناعي</h2>
+            <p>قام مكتب الصحة والبيئة بحملات تفتيش مكثفة على المنشآت الصناعية في المديرية، وأسفرت عن:</p>
+            <ul>
+                <li><strong>ضبط 12 منشأة</strong> مخالفة لمعايير التخلص من النفايات السائلة</li>
+                <li><strong>إلزام المصانع</strong> بتركيب فلاتر للحد من الانبعاثات الضارة</li>
+                <li><strong>تطبيق غرامات مالية</strong> على المخالفين تصل إلى 500 ألف ريال</li>
+                <li><strong>إغلاق مؤقت</strong> لمنشأتين لعدم التزامهما بالمعايير البيئية</li>
+            </ul>
+            
+            <div class="warning-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>تحذير:</strong> التلوث الصناعي يسبب أمراض الجهاز التنفسي والسرطانات. نطالب جميع المنشآت بالالتزام بالمعايير البيئية.
+            </div>
+            
+            <!-- Section 4 -->
+            <h2><i class="fas fa-users"></i> دور المجتمع في الحفاظ على البيئة</h2>
+            <p>لا يمكن نجاح الجهود البيئية دون مشاركة المواطنين. وقد شهدنا تفاعلاً كبيراً من أبناء المديرية من خلال:</p>
+            <ul>
+                <li><strong>فِرق تطوعية</strong> للمشاركة في حملات النظافة الأسبوعية</li>
+                <li><strong>مبادرات مجتمعية</strong> لتوعية الجيران بأهمية النظافة</li>
+                <li><strong>الإبلاغ عن المخالفات</strong> عبر الخط الساخن لمكتب الصحة</li>
+                <li><strong>إعادة التدوير المنزلي</strong> للبلاستيك والورق والزجاج</li>
+            </ul>
+            
+            <div class="info-box">
+                <i class="fas fa-phone-alt"></i>
+                <strong>للإبلاغ عن المخالفات البيئية:</strong> اتصل على الخط الساخن 195 أو زر أقرب مكتب صحة.
+            </div>
+            
+            <!-- Section 5 - Tips -->
+            <h2><i class="fas fa-lightbulb"></i> نصائح للمواطنين للحفاظ على البيئة</h2>
+            <ul class="tips-list">
+                <li><i class="fas fa-trash-alt"></i> استخدم الحاويات المخصصة للنفايات ولا ترميها في الشوارع</li>
+                <li><i class="fas fa-recycle"></i> مارس إعادة التدوير: افصل البلاستيك والورق والزجاج</li>
+                <li><i class="fas fa-tint"></i> لا تلقِ الزيوت والمياه الملوثة في المجاري العامة</li>
+                <li><i class="fas fa-tree"></i> شارك في حملات التشجير وحافظ على المساحات الخضراء</li>
+                <li><i class="fas fa-bell"></i> أبلغ عن أي مخالفة بيئية تراها</li>
+            </ul>
+            
+            <!-- Section 6 - Future Plans -->
+            <h2><i class="fas fa-chart-line"></i> الخطط المستقبلية لعام 2026</h2>
+            <p>يخطط مكتب الصحة والبيئة لتنفيذ مشاريع إضافية خلال العام الحالي:</p>
+            <ul>
+                <li>إنشاء <strong>محطة فرز وتدوير نفايات</strong> مركزية</li>
+                <li>توسيع <strong>الرقابة البيئية</strong> لتشمل 20 قرية إضافية</li>
+                <li>تدريب <strong>50 متطوعاً جديداً</strong> في مجال حماية البيئة</li>
+                <li>إطلاق <strong>حملات توعوية</strong> في المدارس والجوامع والأسواق</li>
+                <li>إنشاء <strong>منتزه بيئي</strong> بمساحة 10 أفدنة</li>
+            </ul>
+            
+            <!-- ====== ARTICLE FOOTER ====== -->
+            <div class="article-footer-section">
+                
+                <!-- Tags -->
+                <div class="article-tags">
+                    <span><i class="fas fa-tags"></i> الوسوم:</span>
+                    <a href="#" class="tag">#مكافحة_التلوث</a>
+                    <a href="#" class="tag">#العدين</a>
+                    <a href="#" class="tag">#البيئة</a>
+                    <a href="#" class="tag">#النظافة</a>
+                    <a href="#" class="tag">#إعادة_التدوير</a>
+                    <a href="#" class="tag">#عدين_نظيفة</a>
+                </div>
+                
+                <!-- Share Buttons -->
+                <div class="share-buttons">
+                    <p><i class="fas fa-share-alt"></i> شارك هذا المقال:</p>
+                    <div class="share-btn-group">
+                        <button class="share-btn share-twitter" onclick="shareOnTwitter()">
+                            <i class="fab fa-twitter"></i> تويتر
+                        </button>
+                        <button class="share-btn share-facebook" onclick="shareOnFacebook()">
+                            <i class="fab fa-facebook-f"></i> فيسبوك
+                        </button>
+                        <button class="share-btn share-whatsapp" onclick="shareOnWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="share-btn share-linkedin" onclick="shareOnLinkedIn()">
+                            <i class="fab fa-linkedin-in"></i> لينكد إن
+                        </button>
+                        <button class="share-btn share-copy" onclick="copyLink()">
+                            <i class="fas fa-link"></i> نسخ الرابط
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Author Box -->
+                <div class="author-box">
+                    <div class="author-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="author-info">
+                        <h4>مهندس علي الحمادي</h4>
+                        <p>مدير إدارة البيئة - مكتب الصحة والبيئة بالعدين</p>
+                        <p>خبير في مكافحة التلوث وإدارة النفايات</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span style="margin-right: 0.5rem; color: #666;">4.9 (312 تقييم)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back Button -->
+            <div class="back-button">
+                <a href="../../index.html" class="btn-back">
+                    <i class="fas fa-arrow-right"></i> العودة إلى المجلة
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Site Footer -->
+    <div class="site-footer">
+        <p>© 2026 مجلة آفاق الصحية - مكتب الصحة والبيئة | مديرية العدين</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem;">بإشراف مهندس علي الحمادي - إدارة البيئة</p>
+    </div>
+</div>
+
+<script>
+    function shareOnTwitter() {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent('مكافحة التلوث في مديرية العدين');
+        window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnFacebook() {
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnWhatsApp() {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent('مكافحة التلوث في مديرية العدين');
+        window.open(`https://wa.me/?text=${title}%20${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnLinkedIn() {
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function copyLink() {
+        navigator.clipboard.writeText(window.location.href);
+        alert('✅ تم نسخ رابط المقال بنجاح');
+    }
+</script>
+
+</body>
+</html>

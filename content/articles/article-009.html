@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>انسداد الشرايين: الأسباب والعلاج | آفاق الصحية</title>
+    <meta name="description" content="دليل شامل لانسداد الشرايين: الأسباب، الأعراض، طرق التشخيص، العلاج، والوقاية - مقال علمي محكم">
+    <meta name="keywords" content="انسداد الشرايين, تصلب الشرايين, أمراض القلب, الجلطات, الوقاية من أمراض القلب">
+    <meta name="author" content="د. ياسر القحطاني">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            color: #1a1a1a;
+            line-height: 1.8;
+        }
+        
+        .article-wrapper {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Header */
+        .article-header {
+            background: linear-gradient(135deg, #c62828, #8e0000);
+            color: white;
+            padding: 3rem 2.5rem;
+            text-align: center;
+        }
+        
+        .article-header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .article-header .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+        
+        .article-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Featured Image - صورة العنوان */
+        .featured-image {
+            width: 100%;
+            height: 380px;
+            background: linear-gradient(135deg, #c62828, #8e0000);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .featured-image i {
+            font-size: 6rem;
+            color: rgba(255, 255, 255, 0.2);
+            animation: pulse 2s infinite ease-in-out;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.1); opacity: 0.3; }
+        }
+        
+        /* Content */
+        .article-content {
+            padding: 2.5rem;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            font-size: 1.05rem;
+            color: #2c3e2f;
+        }
+        
+        .article-content h2 {
+            color: #c62828;
+            border-right: 4px solid #c62828;
+            padding-right: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.6rem;
+        }
+        
+        .article-content h3 {
+            color: #d32f2f;
+            margin: 1.5rem 0 0.8rem 0;
+            font-size: 1.3rem;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 1rem 2rem 1rem 0;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Info Boxes */
+        .warning-box {
+            background: #fff3e0;
+            border-right: 4px solid #ff9800;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-right: 4px solid #0288d1;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .danger-box {
+            background: #ffebee;
+            border-right: 4px solid #e74c3c;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .success-box {
+            background: #e8f5e9;
+            border-right: 4px solid #4caf50;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        /* Statistics Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #c62828, #8e0000);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        
+        /* Symptoms Grid */
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .symptom-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .symptom-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .symptom-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Prevention List */
+        .prevention-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .prevention-list li {
+            background: #f8f9fa;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .prevention-list li i {
+            font-size: 1.5rem;
+            color: #c62828;
+        }
+        
+        /* Stages Grid */
+        .stages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stage-card {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        /* Article Footer */
+        .article-footer-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 24px;
+            margin-top: 2rem;
+        }
+        
+        /* Tags */
+        .article-tags {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .article-tags span {
+            font-weight: 600;
+            margin-left: 0.8rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #ffebee;
+            color: #c62828;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            margin: 0.2rem;
+            transition: all 0.3s;
+        }
+        
+        .tag:hover {
+            background: #c62828;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Share Buttons */
+        .share-buttons {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .share-buttons p {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        
+        .share-btn-group {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.05);
+        }
+        
+        .share-twitter { background: #1DA1F2; color: white; }
+        .share-facebook { background: #1877F2; color: white; }
+        .share-whatsapp { background: #25D366; color: white; }
+        .share-linkedin { background: #0077B5; color: white; }
+        .share-copy { background: #6c757d; color: white; }
+        
+        /* Author Box */
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 20px;
+            margin-top: 1.5rem;
+        }
+        
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #c62828, #8e0000);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .author-info h4 {
+            color: #c62828;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+        }
+        
+        .rating i {
+            color: #ffc107;
+        }
+        
+        /* Back Button */
+        .back-button {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #c62828, #8e0000);
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(198,40,40,0.3);
+        }
+        
+        /* Footer */
+        .site-footer {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #c62828, #8e0000);
+            color: white;
+            margin-top: 2rem;
+            border-radius: 28px 28px 0 0;
+        }
+        
+        @media (max-width: 768px) {
+            .article-header h1 { font-size: 1.5rem; }
+            .article-content { padding: 1.5rem; }
+            .featured-image { height: 200px; }
+            .author-box { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="article-wrapper">
+    <div class="article-card">
+        
+        <!-- Header -->
+        <div class="article-header">
+            <h1><i class="fas fa-heart"></i> انسداد الشرايين</h1>
+            <div class="subtitle">الأسباب، الأعراض، طرق التشخيص والعلاج - دليل علمي شامل</div>
+            <div class="article-meta">
+                <span><i class="fas fa-user-md"></i> د. ياسر القحطاني</span>
+                <span><i class="fas fa-calendar-alt"></i> 15 مارس 2026</span>
+                <span><i class="fas fa-clock"></i> وقت القراءة: 9 دقائق</span>
+                <span><i class="fas fa-chart-line"></i> مستوى متوسط</span>
+            </div>
+        </div>
+        
+        <!-- Featured Image - صورة العنوان -->
+        <div class="featured-image">
+            <img src="../assets/images/articles/article-009.jpg" alt="انسداد الشرايين" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-heartbeat\'></i>';">
+        </div>
+        
+        <!-- Content -->
+        <div class="article-content">
+            
+            <!-- Introduction -->
+            <p>انسداد الشرايين (Arterial Occlusion) هو حالة طبية خطيرة تحدث عندما تتراكم الدهون والكوليسترول والكالسيوم على جدران الشرايين، مكونة ما يعرف بـ "تصلب الشرايين" (Atherosclerosis). هذه الحالة تعيق تدفق الدم إلى الأعضاء الحيوية مثل القلب والدماغ، مما قد يؤدي إلى مضاعفات خطيرة كالنوبات القلبية والسكتات الدماغية.</p>
+            
+            <!-- Statistics -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">17.9M</div>
+                    <div class="stat-label">وفيات سنوياً</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50%</div>
+                    <div class="stat-label">انخفاض الخطر بالرياضة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">80%</div>
+                    <div class="stat-label">يمكن الوقاية منها</div>
+                </div>
+            </div>
+            
+            <!-- Section 1 -->
+            <h2><i class="fas fa-microscope"></i> ما هو انسداد الشرايين؟</h2>
+            <p>انسداد الشرايين يحدث عندما تتراكم اللويحات الدهنية (Plaques) على الجدران الداخلية للشرايين. تتكون هذه اللويحات من الكوليسترول، المواد الدهنية، الكالسيوم، والفيبرين. مع مرور الوقت، تصبح الشرايين أضيق وأقل مرونة، مما يعيق تدفق الدم الغني بالأكسجين إلى الأعضاء الحيوية.</p>
+            
+            <div class="info-box">
+                <i class="fas fa-lightbulb"></i>
+                <strong>معلومة مهمة:</strong> تصلب الشرايين عملية تدريجية قد تبدأ في سن مبكرة، وتتطور على مدى عقود قبل ظهور الأعراض.
+            </div>
+            
+            <!-- Section 2 - Stages -->
+            <h2><i class="fas fa-chart-line"></i> مراحل تطور انسداد الشرايين</h2>
+            <div class="stages-grid">
+                <div class="stage-card">
+                    <strong>المرحلة 1</strong><br>
+                    تكوّن الخطوط الدهنية
+                </div>
+                <div class="stage-card">
+                    <strong>المرحلة 2</strong><br>
+                    تكوّن اللويحات
+                </div>
+                <div class="stage-card">
+                    <strong>المرحلة 3</strong><br>
+                    تضيق الشريان
+                </div>
+                <div class="stage-card">
+                    <strong>المرحلة 4</strong><br>
+                    الانسداد الكامل
+                </div>
+            </div>
+            
+            <!-- Section 3 - Symptoms -->
+            <h2><i class="fas fa-stethoscope"></i> أعراض انسداد الشرايين</h2>
+            
+            <div class="symptoms-grid">
+                <div class="symptom-card">
+                    <div class="symptom-icon">💔</div>
+                    <h4>ألم في الصدر</h4>
+                    <p>ذبحة صدرية، شعور بالضغط أو الانقباض</p>
+                </div>
+                <div class="symptom-card">
+                    <div class="symptom-icon">😮‍💨</div>
+                    <h4>ضيق التنفس</h4>
+                    <p>خاصة عند بذل المجهود</p>
+                </div>
+                <div class="symptom-card">
+                    <div class="symptom-icon">😫</div>
+                    <h4>التعب والإرهاق</h4>
+                    <p>غير عادي وغير مبرر</p>
+                </div>
+                <div class="symptom-card">
+                    <div class="symptom-icon">🦵</div>
+                    <h4>ألم في الساقين</h4>
+                    <p>عند المشي (العرج المتقطع)</p>
+                </div>
+            </div>
+            
+            <!-- Section 4 - Risk Factors -->
+            <h2><i class="fas fa-chart-line"></i> عوامل الخطر</h2>
+            <div class="warning-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>عوامل الخطر الرئيسية:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>التدخين - يزيد الخطر 2-4 مرات</li>
+                    <li>ارتفاع ضغط الدم</li>
+                    <li>ارتفاع الكوليسترول الضار (LDL)</li>
+                    <li>داء السكري</li>
+                    <li>السمنة وقلة النشاط البدني</li>
+                    <li>التاريخ العائلي</li>
+                    <li>التقدم في العمر</li>
+                </ul>
+            </div>
+            
+            <!-- Section 5 - Diagnosis -->
+            <h2><i class="fas fa-microscope"></i> طرق التشخيص</h2>
+            <ul>
+                <li><strong>تحاليل الدم:</strong> قياس الكوليسترول والدهون الثلاثية والسكر</li>
+                <li><strong>تخطيط القلب (ECG):</strong> لقياس النشاط الكهربائي للقلب</li>
+                <li><strong>اختبار الجهد:</strong> لمراقبة القلب أثناء التمرين</li>
+                <li><strong>الإيكو:</strong> تصوير القلب بالموجات فوق الصوتية</li>
+                <li><strong>القثطرة القلبية:</strong> تصوير الشرايين التاجية</li>
+                <li><strong>الأشعة المقطعية:</strong> تصوير الشرايين بدقة عالية</li>
+            </ul>
+            
+            <!-- Section 6 - Treatment -->
+            <h2><i class="fas fa-prescription-bottle"></i> خيارات العلاج</h2>
+            
+            <h3>تغيير نمط الحياة</h3>
+            <ul>
+                <li>الإقلاع عن التدخين</li>
+                <li>اتباع نظام غذائي صحي (DASH أو البحر الأبيض المتوسط)</li>
+                <li>ممارسة الرياضة 30 دقيقة يومياً</li>
+                <li>الحفاظ على وزن صحي</li>
+            </ul>
+            
+            <h3>الأدوية</h3>
+            <ul>
+                <li><strong>الستاتينات (Statins):</strong> لخفض الكوليسترول</li>
+                <li><strong>الأسبرين:</strong> لمنع تكوّن الجلطات</li>
+                <li><strong>أدوية الضغط:</strong> مثبطات ACE، حاصرات بيتا</li>
+                <li><strong>الأدوية المضادة للسكري:</strong> للتحكم بمستوى السكر</li>
+            </ul>
+            
+            <h3>الإجراءات الطبية</h3>
+            <ul>
+                <li><strong>القثطرة والدعامات:</strong> فتح الشرايين المسدودة</li>
+                <li><strong>جراحة تحويل مسار الشرايين (CABG):</strong> للحالات المتقدمة</li>
+                <li><strong>استئصال بطانة الشريان (Endarterectomy):</strong> إزالة اللويحات</li>
+            </ul>
+            
+            <div class="success-box">
+                <i class="fas fa-check-circle"></i>
+                <strong>نسبة النجاح:</strong> تصل نسبة نجاح علاج انسداد الشرايين إلى أكثر من 90% عند الالتزام بالعلاج وتغيير نمط الحياة.
+            </div>
+            
+            <!-- Section 7 - Prevention -->
+            <h2><i class="fas fa-shield-heart"></i> نصائح للوقاية</h2>
+            
+            <ul class="prevention-list">
+                <li><i class="fas fa-smoking-ban"></i> <strong>الإقلاع عن التدخين</strong> - أهم خطوة للوقاية</li>
+                <li><i class="fas fa-apple-alt"></i> <strong>اتباع نظام غذائي صحي</strong> - غني بالخضروات والفواكه والحبوب الكاملة</li>
+                <li><i class="fas fa-running"></i> <strong>ممارسة الرياضة</strong> - 30 دقيقة يومياً على الأقل</li>
+                <li><i class="fas fa-weight-scale"></i> <strong>الحفاظ على وزن صحي</strong> - مؤشر كتلة الجسم أقل من 25</li>
+                <li><i class="fas fa-heartbeat"></i> <strong>فحوصات دورية</strong> - قياس الضغط والكوليسترول والسكر سنوياً</li>
+            </ul>
+            
+            <!-- Section 8 - When to See Doctor -->
+            <div class="danger-box">
+                <i class="fas fa-ambulance"></i>
+                <strong>⚠️ متى يجب مراجعة الطبيب فوراً؟</strong>
+                <ul style="margin-top: 10px;">
+                    <li>ألم مفاجئ وشديد في الصدر</li>
+                    <li>ضيق مفاجئ في التنفس</li>
+                    <li>خدر أو ضعف مفاجئ في جانب واحد من الجسم</li>
+                    <li>صعوبة في الكلام أو فهم الكلام</li>
+                    <li>فقدان مفاجئ للرؤية</li>
+                </ul>
+            </div>
+            
+            <!-- ====== ARTICLE FOOTER ====== -->
+            <div class="article-footer-section">
+                
+                <!-- Tags -->
+                <div class="article-tags">
+                    <span><i class="fas fa-tags"></i> الوسوم:</span>
+                    <a href="#" class="tag">#انسداد_الشرايين</a>
+                    <a href="#" class="tag">#أمراض_القلب</a>
+                    <a href="#" class="tag">#تصلب_الشرايين</a>
+                    <a href="#" class="tag">#الوقاية</a>
+                    <a href="#" class="tag">#صحة_القلب</a>
+                </div>
+                
+                <!-- Share Buttons -->
+                <div class="share-buttons">
+                    <p><i class="fas fa-share-alt"></i> شارك هذا المقال:</p>
+                    <div class="share-btn-group">
+                        <button class="share-btn share-twitter" onclick="shareOnTwitter()">
+                            <i class="fab fa-twitter"></i> تويتر
+                        </button>
+                        <button class="share-btn share-facebook" onclick="shareOnFacebook()">
+                            <i class="fab fa-facebook-f"></i> فيسبوك
+                        </button>
+                        <button class="share-btn share-whatsapp" onclick="shareOnWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="share-btn share-linkedin" onclick="shareOnLinkedIn()">
+                            <i class="fab fa-linkedin-in"></i> لينكد إن
+                        </button>
+                        <button class="share-btn share-copy" onclick="copyLink()">
+                            <i class="fas fa-link"></i> نسخ الرابط
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Author Box -->
+                <div class="author-box">
+                    <div class="author-avatar">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="author-info">
+                        <h4>د. ياسر القحطاني</h4>
+                        <p>استشاري أمراض القلب والأوعية الدموية</p>
+                        <p>رئيس قسم القلب - مستشفى العدين المركزي</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span style="margin-right: 0.5rem; color: #666;">4.8 (312 تقييم)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back Button -->
+            <div class="back-button">
+                <a href="../../index.html" class="btn-back">
+                    <i class="fas fa-arrow-right"></i> العودة إلى المجلة
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Site Footer -->
+    <div class="site-footer">
+        <p>© 2026 مجلة آفاق الصحية - مكتب الصحة والبيئة | مديرية العدين</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem;">بإشراف د. ياسر القحطاني - استشاري أمراض القلب</p>
+    </div>
+</div>
+
+<script>
+    function shareOnTwitter() {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent('انسداد الشرايين: الأسباب والعلاج');
+        window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnFacebook() {
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnWhatsApp() {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent('انسداد الشرايين');
+        window.open(`https://wa.me/?text=${title}%20${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnLinkedIn() {
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function copyLink() {
+        navigator.clipboard.writeText(window.location.href);
+        alert('✅ تم نسخ رابط المقال بنجاح');
+    }
+</script>
+
+</body>
+</html>
