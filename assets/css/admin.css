@@ -1,0 +1,292 @@
+/* ============================================
+   Admin Panel Styles - لوحة التحكم
+   ============================================ */
+
+:root {
+    --sidebar-width: 280px;
+    --sidebar-collapsed: 80px;
+    --header-height: 70px;
+    --admin-primary: #0d9488;
+    --admin-secondary: #f97316;
+    --admin-dark: #1e293b;
+    --admin-light: #f8fafc;
+}
+
+/* Admin Layout */
+.admin-body {
+    background: var(--admin-light);
+    font-family: var(--font-family);
+}
+
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.admin-sidebar {
+    width: var(--sidebar-width);
+    background: var(--admin-dark);
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: var(--z-fixed);
+    transition: var(--transition-base);
+    padding: var(--spacing-6);
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    padding-bottom: var(--spacing-6);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: var(--spacing-6);
+}
+
+.sidebar-logo {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--admin-primary), var(--admin-secondary));
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+}
+
+.sidebar-title {
+    color: white;
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+}
+
+.sidebar-nav {
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin-bottom: var(--spacing-2);
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3) var(--spacing-4);
+    color: rgba(255,255,255,0.7);
+    border-radius: var(--radius-lg);
+    transition: var(--transition-fast);
+    text-decoration: none;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+.sidebar-nav i {
+    width: 24px;
+    text-align: center;
+}
+
+/* Main Content */
+.admin-main {
+    flex: 1;
+    margin-right: var(--sidebar-width);
+    padding: var(--spacing-6);
+    padding-top: calc(var(--header-height) + var(--spacing-6));
+}
+
+.admin-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: var(--sidebar-width);
+    height: var(--header-height);
+    background: white;
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--spacing-6);
+    z-index: var(--z-sticky);
+}
+
+.header-search {
+    position: relative;
+    width: 300px;
+}
+
+.header-search input {
+    width: 100%;
+    padding: var(--spacing-2) var(--spacing-4);
+    padding-right: var(--spacing-10);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-full);
+    background: var(--gray-50);
+}
+
+.header-search i {
+    position: absolute;
+    right: var(--spacing-3);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-400);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+}
+
+/* Stats Cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--spacing-6);
+    margin-bottom: var(--spacing-8);
+}
+
+.stat-card {
+    background: white;
+    padding: var(--spacing-6);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.stat-icon.blue { background: #dbeafe; color: #1e40af; }
+.stat-icon.green { background: #d1fae5; color: #065f46; }
+.stat-icon.orange { background: #ffedd5; color: #c2410c; }
+.stat-icon.purple { background: #e9d5ff; color: #7c3aed; }
+
+.stat-info h3 {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    color: var(--gray-900);
+    margin: 0;
+}
+
+.stat-info p {
+    color: var(--gray-500);
+    font-size: var(--font-size-sm);
+    margin: 0;
+}
+
+/* Data Table */
+.data-table-container {
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.table-header {
+    padding: var(--spacing-6);
+    border-bottom: 1px solid var(--gray-100);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+    padding: var(--spacing-4) var(--spacing-6);
+    text-align: right;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.data-table th {
+    background: var(--gray-50);
+    font-weight: 600;
+    color: var(--gray-700);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.data-table tr:hover {
+    background: var(--gray-50);
+}
+
+.table-actions {
+    display: flex;
+    gap: var(--spacing-2);
+}
+
+.btn-icon-sm {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    border: none;
+    background: transparent;
+    color: var(--gray-500);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon-sm:hover {
+    background: var(--gray-100);
+    color: var(--gray-900);
+}
+
+.btn-icon-sm.edit:hover { background: #dbeafe; color: #1e40af; }
+.btn-icon-sm.delete:hover { background: #fee2e2; color: #991b1b; }
+
+/* Charts Placeholder */
+.chart-container {
+    background: white;
+    padding: var(--spacing-6);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-400);
+}
+
+/* Responsive Admin */
+@media (max-width: 1024px) {
+    .admin-sidebar {
+        transform: translateX(100%);
+    }
+    
+    .admin-sidebar.open {
+        transform: translateX(0);
+    }
+    
+    .admin-main {
+        margin-right: 0;
+    }
+    
+    .admin-header {
+        right: 0;
+    }
+}
