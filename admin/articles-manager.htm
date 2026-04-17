@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>إدارة المقالات</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: right; }
+        th { background: #4CAF50; color: white; }
+        button { margin: 5px; padding: 5px 10px; cursor: pointer; }
+        .add-btn { background: green; color: white; padding: 10px; }
+        .edit { background: orange; }
+        .delete { background: red; color: white; }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            z-index: 1000;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+        input, select, textarea {
+            width: 100%;
+            margin: 5px 0;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>📝 إدارة المقالات - آفاق الصحية</h1>
+<button class="add-btn" onclick="openModal()">+ إضافة مقال جديد</button>
+
+<table id="articlesTable">
+    <thead>
+        <tr><th>ID</th><th>العنوان</th><th>التصنيف</th><th>الكاتب</th><th>التاريخ</th><th>الإجراءات</th></tr>
+    </thead>
+    <tbody id="articlesBody"></tbody>
+</table>
+
+<div id="overlay" class="overlay"></div>
+<div id="modal" class="modal">
+    <h3 id="modalTitle">إضافة مقال</h3>
+    <input type="hidden" id="articleId">
+    <input type="text" id="title" placeholder="عنوان المقال">
+    <select id="category">
+        <option value="صحة">صحة</option>
+        <option value="بيئة">بيئة</option>
+        <option value="قلب">قلب</option>
+    </select>
+    <input type="text" id="author" placeholder="الكاتب">
+    <input type="date" id="date">
+    <textarea id="excerpt" placeholder="الملخص" rows="3"></textarea>
+    <textarea id="content" placeholder="المحتوى" rows="5"></textarea>
+    <button onclick="saveArticle()">💾 حفظ</button>
+    <button onclick="closeModal()">❌ إلغاء</button>
+</div>
+
+<script>
+    let articles = [];
+
+    // بيانات افتراضية
+    const defaultData = [
+        { id: 1, title: "النظافة البيئية", category: "بيئة", author: "د. أحمد", date: "2026-01-15", excerpt: "عن النظافة", content: "محتوى..." },
+        { id: 2, title: "التطعيمات", category: "صحة", author: "د. منى", date: "2026-01-20", excerpt: "عن التطعيمات", content: "محتوى..." }
+    ];
+
+    function loadData() {
+        let saved = localStorage.getItem('my_articles');
+        if (!saved) {
+            articles = defaultData;
+            localStorage.setItem('my_articles', JSON.stringify(articles));
+        } else {
+            articles = JSON.parse(saved);
+        }
+        showTable();
+    }
+
+    function showTable() {
+        let html = '';
+        for (let i = 0; i < articles.length; i++) {
+            html += `<tr>
+                        <td>${articles[i].id}</td>
+                        <td>${articles[i].title}</td>
+                        <td>${articles[i].category}</td>
+                        <td>${articles[i].author}</td>
+                        <td>${articles[i].date}</td>
+                        <td>
+                            <button class="edit" onclick="editArticle(${articles[i].id})">✏️ تعديل</button>
+                            <button class="delete" onclick="deleteArticle(${articles[i].id})">🗑️ حذف</button>
+                        </td>
+                    </tr>`;
+        }
+        document.getElementById('articlesBody').innerHTML = html;
+    }
+
+    function openModal() {
+        document.getElementById('modalTitle').innerText = 'إضافة مقال جديد';
+        document.getElementById('articleId').value = '';
+        document.getElementById('title').value = '';
+        document.getElementById('category').value = 'صحة';
+        document.getElementById('author').value = '';
+        document.getElementById('date').value = new Date().toISOString().split('T')[0];
+        document.getElementById('excerpt').value = '';
+        document.getElementById('content').value = '';
+        document.getElementById('overlay').style.display = 'block';
+        document.getElementById('modal').style.display = 'block';
+    }
+
+    function editArticle(id) {
+        let article = articles.find(a => a.id === id);
+        if (article) {
+            document.getElementById('modalTitle').innerText = 'تعديل المقال';
+            document.getElementById('articleId').value = article.id;
+            document.getElementById('title').value = article.title;
+            document.getElementById('category').value = article.category;
+            document.getElementById('author').value = article.author;
+            document.getElementById('date').value = article.date;
+            document.getElementById('excerpt').value = article.excerpt;
+            document.getElementById('content').value = article.content;
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('modal').style.display = 'block';
+        }
+    }
+
+    function saveArticle() {
+        let id = document.getElementById('articleId').value;
+        let newArticle = {
+            id: id ? parseInt(id) : Date.now(),
+            title: document.getElementById('title').value,
+            category: document.getElementById('category').value,
+            author: document.getElementById('author').value,
+            date: document.getElementById('date').value,
+            excerpt: document.getElementById('excerpt').value,
+            content: document.getElementById('content').value
+        };
+
+        if (id) {
+            let index = articles.findIndex(a => a.id == id);
+            if (index !== -1) articles[index] = newArticle;
+        } else {
+            articles.push(newArticle);
+        }
+
+        localStorage.setItem('my_articles', JSON.stringify(articles));
+        closeModal();
+        showTable();
+        alert('تم الحفظ');
+    }
+
+    function deleteArticle(id) {
+        if (confirm('هل تريد الحذف؟')) {
+            articles = articles.filter(a => a.id !== id);
+            localStorage.setItem('my_articles', JSON.stringify(articles));
+            showTable();
+            alert('تم الحذف');
+        }
+    }
+
+    function closeModal() {
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById('modal').style.display = 'none';
+    }
+
+    // تشغيل
+    loadData();
+</script>
+</body>
+</html>

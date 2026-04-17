@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدير المقالات - آفاق الصحية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: #f0f2f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .header-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .btn-add {
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+        .btn-add:hover {
+            transform: scale(1.02);
+        }
+        .search-box {
+            display: flex;
+            gap: 10px;
+        }
+        .search-box input, .search-box select {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-family: 'Tajawal', sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: right;
+        }
+        th {
+            background: #e8f5e9;
+            color: #1b5e20;
+            font-weight: 600;
+        }
+        tr:hover {
+            background: #f5fbf5;
+        }
+        .image-cell {
+            font-size: 1.8rem;
+            text-align: center;
+        }
+        .actions {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        .btn-edit {
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .btn-delete {
+            background: #d32f2f;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .btn-view {
+            background: #0288d1;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 25px;
+            padding: 25px;
+        }
+        .modal-content h3 {
+            color: #1b5e20;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        .modal-content input,
+        .modal-content select,
+        .modal-content textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.95rem;
+        }
+        .modal-content textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .image-upload {
+            border: 2px dashed #2e7d32;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+            background: #f9fff9;
+            transition: background 0.3s;
+        }
+        .image-upload:hover {
+            background: #e8f5e9;
+        }
+        .image-preview {
+            font-size: 3rem;
+            margin-bottom: 5px;
+        }
+        .image-preview img {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 10px;
+        }
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 15px;
+        }
+        .btn-save {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+        .btn-cancel {
+            background: #9e9e9e;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .logout-btn {
+            background: #d32f2f;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            th, td { padding: 8px; font-size: 0.85rem; }
+            .actions button { padding: 4px 8px; font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <h1><span>📝</span> إدارة المقالات - آفاق الصحية</h1>
+        <button class="logout-btn" onclick="logout()">🚪 تسجيل الخروج</button>
+    </div>
+    
+    <!-- الإحصائيات -->
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-number" id="totalCount">0</div>
+            <div>إجمالي المقالات</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="categoriesCount">0</div>
+            <div>التصنيفات</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="viewsCount">0</div>
+            <div>إجمالي المشاهدات</div>
+        </div>
+    </div>
+    
+    <div class="header-actions">
+        <button class="btn-add" onclick="openAddModal()">➕ إضافة مقال جديد</button>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 بحث بالعنوان أو الكاتب">
+            <select id="categoryFilter">
+                <option value="">كل التصنيفات</option>
+                <option value="صحة">صحة</option>
+                <option value="بيئة">بيئة</option>
+                <option value="قلب وأوعية دموية">قلب وأوعية دموية</option>
+                <option value="صحة نفسية">صحة نفسية</option>
+            </select>
+        </div>
+    </div>
+    
+    <div style="overflow-x: auto;">
+        <table>
+            <thead>
+                <tr><th>#</th><th>الصورة</th><th>العنوان</th><th>التصنيف</th><th>الكاتب</th><th>التاريخ</th><th>المشاهدات</th><th>الإجراءات</th></tr>
+            </thead>
+            <tbody id="articlesTable"></tbody>
+        </table>
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <div class="empty-state-icon">📭</div>
+            <p>لا توجد مقالات متاحة</p>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Add/Edit -->
+<div id="articleModal" class="modal">
+    <div class="modal-content">
+        <h3 id="modalTitle">إضافة مقال جديد</h3>
+        <input type="hidden" id="articleId">
+        
+        <div class="image-upload" onclick="document.getElementById('imageFile').click()">
+            <div class="image-preview" id="imagePreview">🖼️</div>
+            <p>اضغط لرفع صورة المقال</p>
+            <input type="file" id="imageFile" accept="image/*" style="display:none">
+        </div>
+        
+        <input type="text" id="articleTitle" placeholder="عنوان المقال *">
+        <select id="articleCategory">
+            <option value="صحة">صحة</option>
+            <option value="بيئة">بيئة</option>
+            <option value="قلب وأوعية دموية">قلب وأوعية دموية</option>
+            <option value="صحة نفسية">صحة نفسية</option>
+        </select>
+        <input type="text" id="articleAuthor" placeholder="اسم الكاتب *">
+        <input type="date" id="articleDate">
+        <textarea id="articleExcerpt" placeholder="ملخص المقال (150-200 حرف)"></textarea>
+        <textarea id="articleContent" placeholder="المقال كامل (نص طويل)"></textarea>
+        
+        <div class="form-actions">
+            <button class="btn-save" onclick="saveArticle()">💾 حفظ المقال</button>
+            <button class="btn-cancel" onclick="closeModal()">إلغاء</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ==========================================
+    // المتغيرات العامة
+    // ==========================================
+    let articles = [];
+    let currentImage = null;
+    let nextId = 1; // متغير لتتبع ID المقال التالي
+    
+    // ==========================================
+    // البيانات الافتراضية
+    // ==========================================
+    const defaultArticles = [
+        { id: 1, title: "دليلك الشامل للقسطرة القلبية", category: "قلب وأوعية دموية", author: "د. صلاح الأهدل", date: "2026-01-15", excerpt: "دليل شامل للقسطرة القلبية...", content: "المقال الكامل...", image: "🫀", views: 120 },
+        { id: 2, title: "التطعيمات الوقائية: حماية للمجتمع", category: "صحة", author: "د. منى الشرعبي", date: "2026-01-20", excerpt: "أهمية التطعيمات...", content: "المقال الكامل...", image: "💉", views: 95 },
+        { id: 3, title: "مكافحة التلوث في مديرية العدين", category: "بيئة", author: "مهندس علي الحمادي", date: "2026-01-25", excerpt: "جهود مكافحة التلوث...", content: "المقال الكامل...", image: "🏭", views: 200 },
+        { id: 4, title: "التغذية السليمة للأطفال", category: "صحة", author: "أ. فاطمة عباس", date: "2026-02-01", excerpt: "نصائح غذائية للأطفال...", content: "المقال الكامل...", image: "🍎", views: 310 },
+        { id: 5, title: "الوعي البيئي في المدارس", category: "بيئة", author: "أ. خالد النهاري", date: "2026-02-10", excerpt: "برامج توعوية...", content: "المقال الكامل...", image: "📚", views: 150 },
+        { id: 6, title: "أمراض الجهاز التنفسي الموسمية", category: "صحة", author: "د. سميرة عبدالله", date: "2026-02-15", excerpt: "الوقاية من نزلات البرد...", content: "المقال الكامل...", image: "🤧", views: 280 },
+        { id: 7, title: "أمراض وعلامات أمراض الجهاز البولي", category: "صحة", author: "د. ياسر القحطاني", date: "2026-04-16", excerpt: "دليل شامل لأمراض الجهاز البولي...", content: "ما هو الجهاز البولي؟ الجهاز البولي هو المسؤول عن تصفية الدم...", image: "🩺", views: 0 }
+    ];
+    
+    // ==========================================
+    // تحميل البيانات
+    // ==========================================
+    function loadArticles() {
+        console.log('📥 جاري تحميل المقالات...');
+        
+        let stored = localStorage.getItem('articles');
+        
+        if (!stored) {
+            console.log('⚠️ لا توجد بيانات مخزنة، استخدام البيانات الافتراضية');
+            articles = JSON.parse(JSON.stringify(defaultArticles)); // نسخ عميقة
+            nextId = Math.max(...articles.map(a => a.id)) + 1;
+            saveArticles();
+        } else {
+            try {
+                articles = JSON.parse(stored);
+                // التأكد من أن المصفوفة صالحة
+                if (!Array.isArray(articles)) {
+                    throw new Error('البيانات المخزنة ليست مصفوفة');
+                }
+                // حساب ID التالي
+                nextId = articles.length > 0 ? Math.max(...articles.map(a => a.id || 0)) + 1 : 1;
+                console.log('✅ تم تحميل', articles.length, 'مقال');
+            } catch (e) {
+                console.error('❌ خطأ في تحميل البيانات:', e);
+                articles = JSON.parse(JSON.stringify(defaultArticles));
+                nextId = Math.max(...articles.map(a => a.id)) + 1;
+                saveArticles();
+            }
+        }
+        
+        renderTable();
+        updateStats();
+    }
+    
+    // ==========================================
+    // حفظ البيانات
+    // ==========================================
+    function saveArticles() {
+        try {
+            localStorage.setItem('articles', JSON.stringify(articles));
+            console.log('💾 تم حفظ', articles.length, 'مقال في localStorage');
+            updateStats();
+            return true;
+        } catch (e) {
+            console.error('❌ خطأ في حفظ البيانات:', e);
+            alert('⚠️ خطأ في حفظ البيانات: ' + e.message);
+            return false;
+        }
+    }
+    
+    // ==========================================
+    // تحديث الإحصائيات
+    // ==========================================
+    function updateStats() {
+        document.getElementById('totalCount').innerText = articles.length;
+        let cats = [...new Set(articles.map(a => a.category).filter(Boolean))];
+        document.getElementById('categoriesCount').innerText = cats.length;
+        let totalViews = articles.reduce((sum, a) => sum + (parseInt(a.views) || 0), 0);
+        document.getElementById('viewsCount').innerText = totalViews;
+    }
+    
+    // ==========================================
+    // عرض الجدول
+    // ==========================================
+    function renderTable() {
+        let search = (document.getElementById('searchInput').value || '').toLowerCase();
+        let filterCat = document.getElementById('categoryFilter').value;
+        
+        let filtered = articles.filter(a => {
+            let matchSearch = (a.title || '').toLowerCase().includes(search) || 
+                             (a.author || '').toLowerCase().includes(search);
+            let matchCat = !filterCat || a.category === filterCat;
+            return matchSearch && matchCat;
+        });
+        
+        let tbody = document.getElementById('articlesTable');
+        let emptyState = document.getElementById('emptyState');
+        
+        if (filtered.length === 0) {
+            tbody.innerHTML = '';
+            emptyState.style.display = 'block';
+            return;
+        }
+        
+        emptyState.style.display = 'none';
+        
+        let html = '';
+        for (let i = 0; i < filtered.length; i++) {
+            let a = filtered[i];
+            // التأكد من وجود قيم افتراضية
+            let image = a.image || '📰';
+            let title = (a.title || 'بدون عنوان').substring(0, 50);
+            if ((a.title || '').length > 50) title += '...';
+            let category = a.category || 'غير مصنف';
+            let author = a.author || 'مجهول';
+            let date = a.date || '-';
+            let views = parseInt(a.views) || 0;
+            
+            html += `<tr>
+                <td>${a.id}</td>
+                <td class="image-cell">${image}</td>
+                <td><strong>${title}</strong></td>
+                <td><span style="background:#e8f5e9; padding:4px 12px; border-radius:20px;">${category}</span></td>
+                <td>${author}</td>
+                <td>${date}</td>
+                <td>${views}</td>
+                <td class="actions">
+                    <button class="btn-view" onclick="viewArticle(${a.id})">👁️</button>
+                    <button class="btn-edit" onclick="editArticle(${a.id})">✏️</button>
+                    <button class="btn-delete" onclick="deleteArticle(${a.id})">🗑️</button>
+                </td>
+            </tr>`;
+        }
+        tbody.innerHTML = html;
+    }
+    
+    // ==========================================
+    // عرض مقال
+    // ==========================================
+    function viewArticle(id) {
+        let a = articles.find(x => x.id === id);
+        if (a) {
+            alert(`📖 ${a.title || 'بدون عنوان'}\n\n✍️ ${a.author || 'مجهول'} | ${a.date || '-'}\n📂 ${a.category || 'غير مصنف'}\n👁️ ${a.views || 0} مشاهدة\n\n📝 ${a.excerpt || 'لا يوجد ملخص'}`);
+        }
+    }
+    
+    // ==========================================
+    // فتح نموذج الإضافة
+    // ==========================================
+    function openAddModal() {
+        document.getElementById('modalTitle').innerText = 'إضافة مقال جديد';
+        document.getElementById('articleId').value = '';
+        document.getElementById('articleTitle').value = '';
+        document.getElementById('articleCategory').value = 'صحة';
+        document.getElementById('articleAuthor').value = '';
+        document.getElementById('articleDate').value = new Date().toISOString().split('T')[0];
+        document.getElementById('articleExcerpt').value = '';
+        document.getElementById('articleContent').value = '';
+        document.getElementById('imagePreview').innerHTML = '🖼️';
+        currentImage = null;
+        document.getElementById('articleModal').style.display = 'flex';
+    }
+    
+    // ==========================================
+    // تعديل مقال
+    // ==========================================
+    function editArticle(id) {
+        let a = articles.find(x => x.id === id);
+        if (a) {
+            document.getElementById('modalTitle').innerText = 'تعديل المقال';
+            document.getElementById('articleId').value = a.id;
+            document.getElementById('articleTitle').value = a.title || '';
+            document.getElementById('articleCategory').value = a.category || 'صحة';
+            document.getElementById('articleAuthor').value = a.author || '';
+            document.getElementById('articleDate').value = a.date || '';
+            document.getElementById('articleExcerpt').value = a.excerpt || '';
+            document.getElementById('articleContent').value = a.content || '';
+            
+            // معالجة الصورة
+            if (a.image && a.image.startsWith('data:')) {
+                document.getElementById('imagePreview').innerHTML = `<img src="${a.image}" style="max-width:80px; border-radius:10px;">`;
+                currentImage = a.image;
+            } else {
+                document.getElementById('imagePreview').innerHTML = a.image || '🖼️';
+                currentImage = null;
+            }
+            
+            document.getElementById('articleModal').style.display = 'flex';
+        }
+    }
+    
+    // ==========================================
+    // حفظ المقال
+    // ==========================================
+    function saveArticle() {
+        console.log('💾 جاري حفظ المقال...');
+        
+        let id = document.getElementById('articleId').value;
+        let title = document.getElementById('articleTitle').value.trim();
+        
+        if (!title) {
+            alert('⚠️ يرجى إدخال عنوان المقال');
+            return;
+        }
+        
+        // تحديد ID
+        let articleId;
+        let isNew = false;
+        
+        if (id) {
+            articleId = parseInt(id);
+            console.log('📝 تعديل مقال موجود:', articleId);
+        } else {
+            articleId = nextId++;
+            isNew = true;
+            console.log('➕ إضافة مقال جديد:', articleId);
+        }
+        
+        // إنشاء كائن المقال
+        let newArticle = {
+            id: articleId,
+            title: title,
+            category: document.getElementById('articleCategory').value || 'صحة',
+            author: document.getElementById('articleAuthor').value.trim() || 'محرر آفاق',
+            date: document.getElementById('articleDate').value || new Date().toISOString().split('T')[0],
+            excerpt: document.getElementById('articleExcerpt').value || 'لا يوجد ملخص',
+            content: document.getElementById('articleContent').value || 'المقال قيد الإعداد...',
+            image: currentImage || '📰',
+            views: isNew ? 0 : (articles.find(x => x.id === articleId)?.views || 0)
+        };
+        
+        console.log('📄 بيانات المقال:', newArticle);
+        
+        // تحديث أو إضافة
+        if (id) {
+            let index = articles.findIndex(x => x.id === articleId);
+            if (index !== -1) {
+                articles[index] = newArticle;
+                console.log('✏️ تم تحديث المقال في الفهرس:', index);
+            } else {
+                articles.push(newArticle);
+                console.log('⚠️ لم يتم العثور على المقال، تمت الإضافة كجديد');
+            }
+        } else {
+            articles.push(newArticle);
+            console.log('➕ تم إضافة مقال جديد، العدد الكلي:', articles.length);
+        }
+        
+        // حفظ وتحديث
+        if (saveArticles()) {
+            closeModal();
+            renderTable();
+            alert('✅ تم حفظ المقال بنجاح');
+        }
+    }
+    
+    // ==========================================
+    // حذف مقال
+    // ==========================================
+    function deleteArticle(id) {
+        if (confirm('هل أنت متأكد من حذف هذا المقال؟')) {
+            let initialLength = articles.length;
+            articles = articles.filter(x => x.id !== id);
+            
+            if (articles.length < initialLength) {
+                saveArticles();
+                renderTable();
+                alert('🗑️ تم حذف المقال');
+            } else {
+                alert('⚠️ لم يتم العثور على المقال');
+            }
+        }
+    }
+    
+    // ==========================================
+    // إغلاق النموذج
+    // ==========================================
+    function closeModal() {
+        document.getElementById('articleModal').style.display = 'none';
+        currentImage = null;
+    }
+    
+    // ==========================================
+    // إغلاق النموذج عند النقر خارج المحتوى
+    // ==========================================
+    document.getElementById('articleModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+    
+    // ==========================================
+    // رفع الصور
+    // ==========================================
+    document.getElementById('imageFile').addEventListener('change', function(e) {
+        let file = e.target.files[0];
+        if (file) {
+            // التحقق من حجم الملف (أقل من 2MB)
+            if (file.size > 2 * 1024 * 1024) {
+                alert('⚠️ حجم الصورة كبير جداً. الحد الأقصى 2MB');
+                return;
+            }
+            
+            let reader = new FileReader();
+            reader.onload = function(event) {
+                currentImage = event.target.result;
+                document.getElementById('imagePreview').innerHTML = `<img src="${currentImage}" style="max-width:80px; border-radius:10px;">`;
+                console.log('🖼️ تم رفع الصورة بنجاح');
+            };
+            reader.onerror = function() {
+                alert('❌ خطأ في قراءة الملف');
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+    
+    // ==========================================
+    // البحث والفلترة
+    // ==========================================
+    document.getElementById('searchInput').addEventListener('input', () => renderTable());
+    document.getElementById('categoryFilter').addEventListener('change', () => renderTable());
+    
+    // ==========================================
+    // تسجيل الخروج
+    // ==========================================
+    function logout() {
+        localStorage.removeItem('admin');
+        window.location.href = 'login.html';
+    }
+    
+    // ==========================================
+    // التحقق من تسجيل الدخول
+    // ==========================================
+    if (!localStorage.getItem('admin')) {
+        window.location.href = 'login.html';
+    }
+    
+    // ==========================================
+    // تشغيل عند تحميل الصفحة
+    // ==========================================
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('🚀 صفحة إدارة المقالات محملة');
+        loadArticles();
+    });
+</script>
+</body>
+</html>
