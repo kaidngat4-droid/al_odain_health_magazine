@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>للمراجعين | آفاق الصحية - مجلة علمية عالمية</title>
+    <meta name="description" content="دليل المراجعين في مجلة آفاق الصحية - إرشادات التحكيم، سياسة المراجعة، نماذج التقييم">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cairo:wght@600;800;900&family=Tajawal:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --journal-primary: #0a2540;
+            --journal-secondary: #0066cc;
+            --journal-accent: #e63946;
+            --journal-gold: #ffd700;
+            --journal-green: #2e7d32;
+            --journal-gray-50: #f8f9fa;
+            --journal-gray-100: #f1f3f5;
+            --journal-gray-200: #e9ecef;
+            --journal-gray-600: #6c757d;
+            --journal-gray-700: #495057;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 6px 12px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', 'Tajawal', sans-serif; background: #fdfdfd; color: #343a40; line-height: 1.6; }
+
+        /* Header & Navigation */
+        .top-nav {
+            background: var(--journal-primary);
+            color: white;
+            padding: 0.6rem 2rem;
+            font-size: 0.8rem;
+        }
+        .top-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .top-nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        .top-nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .top-nav-links a:hover { color: white; }
+        .journal-metrics {
+            font-family: monospace;
+            background: rgba(255,255,255,0.1);
+            padding: 0.2rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        .main-header {
+            padding: 2rem;
+            background: white;
+            border-bottom: 1px solid var(--journal-gray-200);
+        }
+        .header-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--journal-primary), var(--journal-secondary));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        .journal-title h1 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--journal-primary);
+        }
+        .journal-title p {
+            font-size: 0.7rem;
+            color: var(--journal-gray-600);
+        }
+
+        .nav-bar {
+            background: white;
+            border-bottom: 1px solid var(--journal-gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-links {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0;
+            list-style: none;
+            padding: 0 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .nav-links li a {
+            display: block;
+            padding: 1rem 1.2rem;
+            text-decoration: none;
+            color: #495057;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+        .nav-links li a:hover, .nav-links li a.active {
+            color: var(--journal-secondary);
+            border-bottom-color: var(--journal-secondary);
+        }
+        .btn-admin {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: white !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 25px;
+            border: none !important;
+            margin-right: auto;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--journal-primary), var(--journal-secondary));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .hero p { font-size: 1rem; opacity: 0.9; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+
+        /* Steps */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .step-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid var(--journal-gray-200);
+            transition: var(--transition);
+        }
+        .step-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--journal-secondary), var(--journal-primary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        /* Info Cards */
+        .info-card {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid var(--journal-gray-200);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .info-card h2 {
+            color: var(--journal-primary);
+            margin-bottom: 1rem;
+            border-right: 4px solid var(--journal-secondary);
+            padding-right: 1rem;
+        }
+        .info-card ul { padding-right: 1.5rem; margin: 1rem 0; }
+        .info-card li { margin-bottom: 0.5rem; color: var(--journal-gray-700); }
+
+        /* Guidelines Grid */
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .benefit-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--journal-gray-50);
+            border-radius: 12px;
+        }
+        .benefit-icon { font-size: 2rem; color: var(--journal-secondary); margin-bottom: 0.5rem; }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, var(--journal-primary), var(--journal-secondary));
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-top: 2rem;
+        }
+        .btn-apply {
+            background: white;
+            color: var(--journal-primary);
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+        .btn-apply:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
+
+        /* Footer */
+        .footer {
+            background: var(--journal-primary);
+            color: white;
+            padding: 3rem 2rem 2rem;
+            margin-top: 3rem;
+        }
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .footer-section h4 { margin-bottom: 1rem; }
+        .footer-section p, .footer-section a { color: rgba(255,255,255,0.7); font-size: 0.8rem; text-decoration: none; }
+        .copyright { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.7rem; }
+
+        @media (max-width: 768px) {
+            .steps-grid, .guidelines-grid, .benefits-grid { grid-template-columns: 1fr; }
+            .header-grid { flex-direction: column; text-align: center; }
+            .nav-links { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-nav">
+    <div class="top-nav-container">
+        <ul class="top-nav-links">
+            <li><a href="subscribe.html">الاشتراك</a></li>
+            <li><a href="contact.html">إرسال بحث</a></li>
+            <li><a href="#">التنبيهات</a></li>
+            <li><a href="about.html">حول المجلة</a></li>
+        </ul>
+        <div class="journal-metrics">Impact Factor 2025: 2.4 | CiteScore: 3.1</div>
+    </div>
+</div>
+
+<header class="main-header">
+    <div class="header-grid">
+        <div class="logo-area">
+            <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
+            <div class="journal-title">
+                <h1>آفاق الصحية</h1>
+                <p>Afaaq Health Journal | Est. 2024</p>
+            </div>
+        </div>
+        <div class="impact-factor">
+            <span class="if-number">2.4</span>
+            <span>معامل التأثير</span>
+        </div>
+    </div>
+</header>
+
+<nav class="nav-bar">
+    <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="current-issue.html">العدد الحالي</a></li>
+        <li><a href="archive.html">الأرشيف</a></li>
+        <li><a href="for-authors.html">للباحثين</a></li>
+        <li><a href="for-reviewers.html" class="active">للمراجعين</a></li>
+        <li><a href="editorial-board.html">هيئة التحرير</a></li>
+        <li><a href="contact.html">اتصل بنا</a></li>
+        <li><a href="admin/login.html" class="btn-admin"><i class="fas fa-cog"></i> الإدارة</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <h1><i class="fas fa-clipboard-list"></i> للمراجعين</h1>
+    <p>دليل شامل لمراجعي الأبحاث في مجلة آفاق الصحية</p>
+</section>
+
+<div class="container">
+    <!-- Steps -->
+    <div class="steps-grid">
+        <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>استلام البحث</h3>
+            <p>تتلقى إشعاراً بدعوة لمراجعة بحث جديد عبر البريد الإلكتروني</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>قبول الدعوة</h3>
+            <p>تأكيد قبول المراجعة خلال 48 ساعة من الاستلام</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>تقييم البحث</h3>
+            <p>تقديم تقرير مفصل خلال 14 يوماً من تاريخ القبول</p>
+        </div>
+    </div>
+
+    <!-- Guidelines -->
+    <div class="guidelines-grid">
+        <div class="info-card">
+            <h2><i class="fas fa-check-circle"></i> معايير المراجعة</h2>
+            <ul>
+                <li><strong>الأصالة:</strong> هل يقدم البحث إضافة جديدة للمعرفة العلمية؟</li>
+                <li><strong>المنهجية:</strong> هل تصميم البحث مناسب ومنطقي؟</li>
+                <li><strong>النتائج:</strong> هل النتائج واضحة ومدعومة بالبيانات؟</li>
+                <li><strong>المناقشة:</strong> هل تم تفسير النتائج بشكل مناسب؟</li>
+                <li><strong>المراجع:</strong> هل المراجع حديثة وذات صلة؟</li>
+                <li><strong>اللغة:</strong> هل اللغة سليمة وواضحة؟</li>
+            </ul>
+        </div>
+        <div class="info-card">
+            <h2><i class="fas fa-tasks"></i> نموذج التقييم</h2>
+            <ul>
+                <li>توصية عامة: قبول / قبول مع تعديلات / إعادة مراجعة / رفض</li>
+                <li>نقاط القوة في البحث (3-5 نقاط)</li>
+                <li>نقاط الضعف والتوصيات للتحسين</li>
+                <li>تعليقات خاصة للمحرر (اختياري)</li>
+                <li>تقييم الجودة العلمية (1-5 نجوم)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Benefits -->
+    <div class="info-card">
+        <h2><i class="fas fa-gift"></i> مزايا المراجعة</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-certificate"></i></div>
+                <h4>شهادة تقدير</h4>
+                <p>شهادة مراجعة معتمدة من المجلة</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-coffee"></i></div>
+                <h4>خصم على النشر</h4>
+                <p>خصم 20% على رسوم النشر</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                <h4>إثراء السيرة الذاتية</h4>
+                <p>إضافة خبرة التحكيم لسيرتك</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-globe"></i></div>
+                <h4>شبكة علاقات</h4>
+                <p>التواصل مع هيئة التحرير</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ethics -->
+    <div class="info-card">
+        <h2><i class="fas fa-gavel"></i> سياسة النزاهة العلمية</h2>
+        <ul>
+            <li><strong>السرية:</strong> الالتزام بالسرية التامة للبحث المراجع</li>
+            <li><strong>تضارب المصالح:</strong> الإفصاح عن أي تضارب مصالح محتمل</li>
+            <li><strong>الاستخدام العادل:</strong> عدم استخدام المعلومات من البحث قبل نشره</li>
+            <li><strong>الرفض:</strong> الاعتذار عن المراجعة إذا كان هناك تعارض مع اهتماماتك البحثية</li>
+            <li><strong>الموضوعية:</strong> تقييم البحث بموضوعية دون تحيز</li>
+        </ul>
+    </div>
+
+    <!-- Timeline -->
+    <div class="info-card">
+        <h2><i class="fas fa-clock"></i> الجدول الزمني للمراجعة</h2>
+        <ul>
+            <li><strong>اليوم 1-2:</strong> قبول أو رفض دعوة المراجعة</li>
+            <li><strong>اليوم 3-14:</strong> مراجعة البحث وإعداد التقرير</li>
+            <li><strong>اليوم 15:</strong> تسليم التقرير إلى المحرر</li>
+            <li><strong>اليوم 16-21:</strong> مراجعة قرار المحرر (قبول / رفض / مراجعة ثانية)</li>
+        </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+        <h2><i class="fas fa-user-plus"></i> انضم إلى فريق المراجعين</h2>
+        <p>سجل الآن لتصبح مراجعاً معتمداً في مجلة آفاق الصحية</p>
+        <a href="contact.html" class="btn-apply"><i class="fas fa-arrow-left"></i> التقديم الآن</a>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-section">
+            <h4>آفاق الصحية</h4>
+            <p>مجلة علمية محكمة تنشر أبحاثاً أصلية في الصحة العامة والبيئة.</p>
+        </div>
+        <div class="footer-section">
+            <h4>روابط سريعة</h4>
+            <p><a href="#">سياسة المراجعة</a></p>
+            <p><a href="#">نموذج التقييم</a></p>
+            <p><a href="#">للمراجعين الجدد</a></p>
+        </div>
+        <div class="footer-section">
+            <h4>تواصل معنا</h4>
+            <p><i class="fas fa-envelope"></i> kaidngat4@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +967 711 129 611</p>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2026 مجلة آفاق الصحية - جميع الحقوق محفوظة</p>
+    </div>
+</footer>
+
+</body>
+</html>

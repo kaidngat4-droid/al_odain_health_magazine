@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>أرشيف الأعداد | آفاق الصحية - مجلة العدين</title>
+    <meta name="description" content="أرشيف مجلة آفاق الصحية - استعرض جميع الأعداد السابقة من المجلة">
+    <meta name="keywords" content="أرشيف, مجلة صحية, العدين, أعداد سابقة">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-50: #e8f5e9;
+            --primary-100: #c8e6c9;
+            --primary-500: #4caf50;
+            --primary-600: #2e7d32;
+            --primary-700: #1b5e20;
+            --secondary-500: #0288d1;
+            --secondary-600: #0277bd;
+            --accent-orange: #ff9800;
+            --accent-purple: #9c27b0;
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #eeeeee;
+            --gray-300: #e0e0e0;
+            --gray-600: #757575;
+            --gray-700: #616161;
+            --gray-800: #424242;
+            --gray-900: #212121;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+            --shadow-lg: 0 12px 32px rgba(0,0,0,0.08);
+            --shadow-xl: 0 24px 48px rgba(0,0,0,0.12);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f0f7f0 0%, #e8f5e9 100%);
+            color: var(--gray-800);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .logo-subtitle {
+            font-size: 0.8rem;
+            color: var(--primary-600);
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-600);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-600);
+            border-radius: 2px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46,125,50,0.3);
+        }
+
+        /* Hero Section */
+        .hero-archive {
+            background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-archive::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-archive h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-archive p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 60px;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-600);
+        }
+
+        .stat-label {
+            color: var(--gray-600);
+        }
+
+        .search-box {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .search-input {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 40px;
+            font-family: 'Cairo', sans-serif;
+            width: 250px;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-500);
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 0.5rem 1.5rem;
+            border: none;
+            background: white;
+            border-radius: 40px;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 500;
+            transition: var(--transition);
+            color: var(--gray-700);
+        }
+
+        .filter-tab:hover, .filter-tab.active {
+            background: var(--primary-600);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .view-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: white;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .view-btn.active {
+            background: var(--primary-600);
+            color: white;
+        }
+
+        /* Years Grid */
+        .years-grid {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .year-btn {
+            padding: 0.75rem 1.8rem;
+            border: none;
+            background: white;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--gray-700);
+        }
+
+        .year-btn:hover, .year-btn.active {
+            background: var(--primary-600);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Issues Grid */
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .issue-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+        }
+
+        .issue-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .issue-cover {
+            height: 220px;
+            background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .issue-cover i {
+            font-size: 5rem;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .issue-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .issue-content {
+            padding: 1.5rem;
+        }
+
+        .issue-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--gray-900);
+        }
+
+        .issue-date {
+            color: var(--gray-600);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .issue-stats {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+
+        .btn-read {
+            background: transparent;
+            border: 2px solid var(--primary-600);
+            color: var(--primary-600);
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .btn-read:hover {
+            background: var(--primary-600);
+            color: white;
+        }
+
+        /* Timeline View */
+        .timeline-view {
+            display: none;
+        }
+
+        .timeline-view.active {
+            display: block;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-date {
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-600);
+        }
+
+        .timeline-month {
+            color: var(--gray-600);
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-desc {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .page-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: white;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .page-btn:hover, .page-btn.active {
+            background: var(--primary-600);
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-links {
+                gap: 1.5rem;
+            }
+            .hero-archive h1 {
+                font-size: 1.8rem;
+            }
+            .stats-bar {
+                flex-direction: column;
+                border-radius: 24px;
+            }
+            .filter-bar {
+                flex-direction: column;
+            }
+            .issues-grid {
+                grid-template-columns: 1fr;
+            }
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
+            <div class="logo-text">
+                <span class="logo-title">آفاق الصحية</span>
+                <span class="logo-subtitle">مجلة العدين</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+            <li><a href="about.html">عن المجلة</a></li>
+            <li><a href="archive.html" class="active">الأرشيف</a></li>
+            <li><a href="subscribe.html">اشترك</a></li>
+        </ul>
+        <a href="subscribe.html" class="btn-primary"><i class="fas fa-bell"></i> اشترك</a>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero-archive">
+    <h1><i class="fas fa-archive"></i> أرشيف المجلة</h1>
+    <p>استعرض جميع أعداد مجلة آفاق الصحية منذ 2024 وحتى اليوم</p>
+</section>
+
+<!-- Main Container -->
+<div class="container">
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <span class="stat-number" id="totalIssues">0</span>
+            <span class="stat-label">عدد الأعداد</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number" id="totalArticles">0</span>
+            <span class="stat-label">مقال منشور</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number" id="totalViews">0</span>
+            <span class="stat-label">إجمالي المشاهدات</span>
+        </div>
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" placeholder="🔍 بحث في الأرشيف...">
+        </div>
+    </div>
+
+    <!-- Years Filter -->
+    <div class="years-grid" id="yearsGrid"></div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+        <div class="filter-tabs" id="filterTabs"></div>
+        <div class="view-toggle">
+            <button class="view-btn active" onclick="setView('grid')"><i class="fas fa-th-large"></i></button>
+            <button class="view-btn" onclick="setView('timeline')"><i class="fas fa-list-ul"></i></button>
+        </div>
+    </div>
+
+    <!-- Grid View -->
+    <div id="gridView" class="issues-grid"></div>
+
+    <!-- Timeline View -->
+    <div id="timelineView" class="timeline-view"></div>
+
+    <!-- Pagination -->
+    <div class="pagination" id="pagination"></div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>© 2026 مجلة آفاق الصحية - مكتب الصحة والبيئة | مديرية العدين</p>
+    <p style="font-size: 0.8rem; margin-top: 0.5rem;">جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+    // البيانات الافتراضية
+    const issues = [
+        { id: 1, number: "العدد الأول", year: 2024, month: "يناير", title: "العدد الأول - انطلاق المجلة", date: "2024-01-15", articlesCount: 8, views: 1250, coverIcon: "fa-star", description: "العدد الافتتاحي لمجلة آفاق الصحية" },
+        { id: 2, number: "العدد الثاني", year: 2024, month: "مارس", title: "الصحة العامة", date: "2024-03-20", articlesCount: 10, views: 980, coverIcon: "fa-heartbeat", description: "مواضيع متنوعة عن الصحة العامة" },
+        { id: 3, number: "العدد الثالث", year: 2024, month: "مايو", title: "البيئة والصحة", date: "2024-05-10", articlesCount: 7, views: 1150, coverIcon: "fa-leaf", description: "علاقة البيئة بالصحة" },
+        { id: 4, number: "العدد الرابع", year: 2024, month: "يوليو", title: "أمراض القلب", date: "2024-07-25", articlesCount: 12, views: 2100, coverIcon: "fa-heart", description: "دليل شامل لأمراض القلب" },
+        { id: 5, number: "العدد الخامس", year: 2024, month: "سبتمبر", title: "التغذية السليمة", date: "2024-09-12", articlesCount: 9, views: 1670, coverIcon: "fa-apple-alt", description: "أساسيات التغذية الصحية" },
+        { id: 6, number: "العدد السادس", year: 2024, month: "نوفمبر", title: "الصحة النفسية", date: "2024-11-05", articlesCount: 11, views: 1890, coverIcon: "fa-brain", description: "العناية بالصحة النفسية" },
+        { id: 7, number: "العدد السابع", year: 2025, month: "يناير", title: "أمراض الجهاز التنفسي", date: "2025-01-18", articlesCount: 10, views: 1450, coverIcon: "fa-lungs", description: "الوقاية من أمراض التنفس" },
+        { id: 8, number: "العدد الثامن", year: 2025, month: "مارس", title: "صحة المرأة", date: "2025-03-22", articlesCount: 8, views: 1320, coverIcon: "fa-female", description: "قضايا صحية خاصة بالمرأة" },
+        { id: 9, number: "العدد التاسع", year: 2025, month: "مايو", title: "صحة الطفل", date: "2025-05-14", articlesCount: 9, views: 1560, coverIcon: "fa-child", description: "دليل صحة الطفل" },
+        { id: 10, number: "العدد العاشر", year: 2025, month: "يوليو", title: "الكبد والجهاز الهضمي", date: "2025-07-09", articlesCount: 11, views: 1430, coverIcon: "fa-liver", description: "أمراض الكبد والجهاز الهضمي" },
+        { id: 11, number: "العدد الحادي عشر", year: 2025, month: "سبتمبر", title: "القلب والأوعية", date: "2025-09-17", articlesCount: 10, views: 1780, coverIcon: "fa-heartbeat", description: "أحدث الأبحاث في أمراض القلب" },
+        { id: 12, number: "العدد الثاني عشر", year: 2025, month: "نوفمبر", title: "السكري", date: "2025-11-28", articlesCount: 7, views: 1250, coverIcon: "fa-tint", description: "الوقاية والعلاج من السكري" },
+        { id: 13, number: "العدد الثالث عشر", year: 2026, month: "يناير", title: "أمراض الكلى", date: "2026-01-20", articlesCount: 9, views: 890, coverIcon: "fa-filter", description: "صحة الكلى والجهاز البولي" },
+        { id: 14, number: "العدد الرابع عشر", year: 2026, month: "مارس", title: "الجهاز البولي", date: "2026-03-15", articlesCount: 8, views: 720, coverIcon: "fa-water", description: "أمراض المسالك البولية" }
+    ];
+
+    let currentYear = 'all';
+    let currentFilter = 'all';
+    let currentView = 'grid';
+    let currentPage = 1;
+    const itemsPerPage = 6;
+
+    // تحديث الإحصائيات
+    function updateStats() {
+        document.getElementById('totalIssues').innerText = issues.length;
+        const totalArticles = issues.reduce((sum, i) => sum + i.articlesCount, 0);
+        document.getElementById('totalArticles').innerText = totalArticles;
+        const totalViews = issues.reduce((sum, i) => sum + i.views, 0);
+        document.getElementById('totalViews').innerText = totalViews.toLocaleString();
+    }
+
+    // إنشاء أزرار السنوات
+    function renderYears() {
+        const years = [...new Set(issues.map(i => i.year))].sort((a,b) => b - a);
+        const yearsGrid = document.getElementById('yearsGrid');
+        yearsGrid.innerHTML = `<button class="year-btn ${currentYear === 'all' ? 'active' : ''}" onclick="filterByYear('all')">الكل</button>`;
+        years.forEach(year => {
+            yearsGrid.innerHTML += `<button class="year-btn ${currentYear === year.toString() ? 'active' : ''}" onclick="filterByYear(${year})">${year}</button>`;
+        });
+    }
+
+    // إنشاء أزرار التصنيف
+    function renderFilters() {
+        const categories = ['all', 'صحة عامة', 'أمراض القلب', 'التغذية', 'الصحة النفسية', 'أمراض الجهاز التنفسي'];
+        const filterTabs = document.getElementById('filterTabs');
+        filterTabs.innerHTML = categories.map(cat => `
+            <button class="filter-tab ${currentFilter === cat ? 'active' : ''}" onclick="filterByCategory('${cat}')">
+                ${cat === 'all' ? 'الكل' : cat}
+            </button>
+        `).join('');
+    }
+
+    // فلترة حسب السنة
+    function filterByYear(year) {
+        currentYear = year;
+        currentPage = 1;
+        document.querySelectorAll('.year-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        renderCurrentView();
+    }
+
+    // فلترة حسب التصنيف
+    function filterByCategory(category) {
+        currentFilter = category;
+        currentPage = 1;
+        document.querySelectorAll('.filter-tab').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        renderCurrentView();
+    }
+
+    // الحصول على الأعداد المفلترة
+    function getFilteredIssues() {
+        let filtered = [...issues];
+        if (currentYear !== 'all') {
+            filtered = filtered.filter(i => i.year === currentYear);
+        }
+        return filtered;
+    }
+
+    // الحصول على الأعداد المفلترة والمبحث عنها
+    function getFilteredAndSearched() {
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        let filtered = getFilteredIssues();
+        if (searchTerm) {
+            filtered = filtered.filter(i => 
+                i.title.toLowerCase().includes(searchTerm) || 
+                i.description.toLowerCase().includes(searchTerm) ||
+                i.number.toLowerCase().includes(searchTerm)
+            );
+        }
+        return filtered;
+    }
+
+    // عرض كشبكة
+    function renderGridView() {
+        const filtered = getFilteredAndSearched();
+        const start = (currentPage - 1) * itemsPerPage;
+        const paginated = filtered.slice(start, start + itemsPerPage);
+        
+        const grid = document.getElementById('gridView');
+        grid.innerHTML = paginated.map(issue => `
+            <div class="issue-card" onclick="viewIssue(${issue.id})">
+                <div class="issue-cover">
+                    <i class="fas ${issue.coverIcon}"></i>
+                    <span class="issue-number">${issue.number}</span>
+                </div>
+                <div class="issue-content">
+                    <h3 class="issue-title">${issue.title}</h3>
+                    <div class="issue-date"><i class="fas fa-calendar-alt"></i> ${issue.month} ${issue.year}</div>
+                    <div class="issue-stats">
+                        <span><i class="fas fa-file-alt"></i> ${issue.articlesCount} مقال</span>
+                        <span><i class="fas fa-eye"></i> ${issue.views} مشاهدة</span>
+                    </div>
+                    <p style="color: var(--gray-600); font-size: 0.85rem; margin-bottom: 1rem;">${issue.description}</p>
+                    <button class="btn-read">📖 استعرض العدد</button>
+                </div>
+            </div>
+        `).join('');
+        
+        // Pagination
+        const totalPages = Math.ceil(filtered.length / itemsPerPage);
+        const pagination = document.getElementById('pagination');
+        if (totalPages > 1) {
+            let pagesHtml = '';
+            for (let i = 1; i <= totalPages; i++) {
+                pagesHtml += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+            }
+            pagination.innerHTML = pagesHtml;
+        } else {
+            pagination.innerHTML = '';
+        }
+    }
+
+    // عرض كجدول زمني
+    function renderTimelineView() {
+        const filtered = getFilteredAndSearched();
+        const timeline = document.getElementById('timelineView');
+        timeline.innerHTML = filtered.map(issue => `
+            <div class="timeline-item" onclick="viewIssue(${issue.id})">
+                <div class="timeline-date">
+                    <div class="timeline-year">${issue.year}</div>
+                    <div class="timeline-month">${issue.month}</div>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-title">${issue.number}: ${issue.title}</div>
+                    <div class="timeline-desc">${issue.description} • ${issue.articlesCount} مقال • ${issue.views} مشاهدة</div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // عرض حسب الوضع الحالي
+    function renderCurrentView() {
+        if (currentView === 'grid') {
+            document.getElementById('gridView').style.display = 'grid';
+            document.getElementById('timelineView').classList.remove('active');
+            renderGridView();
+        } else {
+            document.getElementById('gridView').style.display = 'none';
+            document.getElementById('timelineView').classList.add('active');
+            renderTimelineView();
+        }
+    }
+
+    // تغيير وضع العرض
+    function setView(view) {
+        currentView = view;
+        document.querySelectorAll('.view-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        renderCurrentView();
+    }
+
+    // تغيير الصفحة
+    function goToPage(page) {
+        currentPage = page;
+        renderGridView();
+    }
+
+    // عرض العدد
+    function viewIssue(id) {
+        const issue = issues.find(i => i.id === id);
+        alert(`📚 ${issue.number}\n\n${issue.title}\n📅 ${issue.month} ${issue.year}\n📄 ${issue.articlesCount} مقال\n👁️ ${issue.views} مشاهدة\n\n📖 ${issue.description}`);
+    }
+
+    // البحث
+    document.getElementById('searchInput').addEventListener('input', () => {
+        currentPage = 1;
+        renderCurrentView();
+    });
+
+    // تهيئة الصفحة
+    function init() {
+        updateStats();
+        renderYears();
+        renderFilters();
+        renderCurrentView();
+    }
+
+    init();
+</script>
+
+</body>
+</html>

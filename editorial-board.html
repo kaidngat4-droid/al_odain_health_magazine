@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>هيئة التحرير | آفاق الصحية - مجلة علمية عالمية</title>
+    <meta name="description" content="أعضاء هيئة تحرير مجلة آفاق الصحية - نخبة من الأطباء والباحثين المتميزين">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cairo:wght@600;800;900&family=Tajawal:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --journal-primary: #0a2540;
+            --journal-secondary: #0066cc;
+            --journal-accent: #e63946;
+            --journal-gray-50: #f8f9fa;
+            --journal-gray-200: #e9ecef;
+            --journal-gray-600: #6c757d;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 6px 12px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', 'Tajawal', sans-serif; background: #fdfdfd; color: #343a40; line-height: 1.6; }
+
+        /* Header (مطابق) */
+        .top-nav {
+            background: var(--journal-primary);
+            color: white;
+            padding: 0.6rem 2rem;
+            font-size: 0.8rem;
+        }
+        .top-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .top-nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        .top-nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .journal-metrics {
+            font-family: monospace;
+            background: rgba(255,255,255,0.1);
+            padding: 0.2rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        .main-header {
+            padding: 2rem;
+            background: white;
+            border-bottom: 1px solid var(--journal-gray-200);
+        }
+        .header-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--journal-primary), var(--journal-secondary));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        .journal-title h1 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--journal-primary);
+        }
+        .journal-title p { font-size: 0.7rem; color: var(--journal-gray-600); }
+
+        .nav-bar {
+            background: white;
+            border-bottom: 1px solid var(--journal-gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-links {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0;
+            list-style: none;
+            padding: 0 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .nav-links li a {
+            display: block;
+            padding: 1rem 1.2rem;
+            text-decoration: none;
+            color: #495057;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+        .nav-links li a:hover, .nav-links li a.active {
+            color: var(--journal-secondary);
+            border-bottom-color: var(--journal-secondary);
+        }
+        .btn-admin {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: white !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 25px;
+            border: none !important;
+            margin-right: auto;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--journal-primary), var(--journal-secondary));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+
+        .editor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .editor-card {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid var(--journal-gray-200);
+            text-align: center;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+        .editor-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .editor-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--journal-primary), var(--journal-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 3rem;
+        }
+        .editor-name { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.3rem; }
+        .editor-role { color: var(--journal-secondary); font-size: 0.85rem; margin-bottom: 0.5rem; }
+        .editor-affiliation { color: var(--journal-gray-600); font-size: 0.8rem; }
+
+        .footer {
+            background: var(--journal-primary);
+            color: white;
+            padding: 3rem 2rem 2rem;
+            margin-top: 3rem;
+        }
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .footer-section h4 { margin-bottom: 1rem; }
+        .footer-section p, .footer-section a { color: rgba(255,255,255,0.7); font-size: 0.8rem; text-decoration: none; }
+        .copyright { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.7rem; }
+
+        @media (max-width: 768px) {
+            .header-grid { flex-direction: column; text-align: center; }
+            .nav-links { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-nav">
+    <div class="top-nav-container">
+        <ul class="top-nav-links">
+            <li><a href="subscribe.html">الاشتراك</a></li>
+            <li><a href="contact.html">إرسال بحث</a></li>
+            <li><a href="#">التنبيهات</a></li>
+            <li><a href="about.html">حول المجلة</a></li>
+        </ul>
+        <div class="journal-metrics">Impact Factor 2025: 2.4 | CiteScore: 3.1</div>
+    </div>
+</div>
+
+<header class="main-header">
+    <div class="header-grid">
+        <div class="logo-area">
+            <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
+            <div class="journal-title">
+                <h1>آفاق الصحية</h1>
+                <p>Afaaq Health Journal | Est. 2024</p>
+            </div>
+        </div>
+        <div class="impact-factor">
+            <span class="if-number">2.4</span>
+            <span>معامل التأثير</span>
+        </div>
+    </div>
+</header>
+
+<nav class="nav-bar">
+    <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="current-issue.html">العدد الحالي</a></li>
+        <li><a href="archive.html">الأرشيف</a></li>
+        <li><a href="for-authors.html">للباحثين</a></li>
+        <li><a href="for-reviewers.html">للمراجعين</a></li>
+        <li><a href="editorial-board.html" class="active">هيئة التحرير</a></li>
+        <li><a href="contact.html">اتصل بنا</a></li>
+        <li><a href="admin/login.html" class="btn-admin"><i class="fas fa-cog"></i> الإدارة</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <h1><i class="fas fa-users"></i> هيئة التحرير</h1>
+    <p>نخبة من الأطباء والباحثين المتميزين</p>
+</section>
+
+<div class="container">
+   <div class="editor-grid">
+    <div class="editor-card">
+        <div class="editor-avatar">
+            <img src="assets/images/editors/salah-ahdal.jpg" alt="د. صلاح الأهدل" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+        </div>
+        <div class="editor-name">د. صلاح الأهدل</div>
+        <div class="editor-role">رئيس التحرير</div>
+        <div class="editor-affiliation">بكالوريوس مختبرات وإدارة مستشفيات - مدير مكتب الصحة</div>
+    </div>
+    <div class="editor-card">
+        <div class="editor-avatar">
+            <img src="assets/images/editors/fatima-abbas.jpg" alt="أ. فاطمة عباس" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+        </div>
+        <div class="editor-name">أ. فاطمة عباس</div>
+        <div class="editor-role">مدير التحرير</div>
+        <div class="editor-affiliation">أخصائية تغذية علاجية</div>
+    </div>
+    <div class="editor-card">
+        <div class="editor-avatar">
+            <img src="assets/images/editors/adel-moqbel.jpg" alt="مهندس عادل مقبل" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+        </div>
+        <div class="editor-name">مهندس عادل مقبل</div>
+        <div class="editor-role">مدير التحرير التنفيذي</div>
+        <div class="editor-affiliation">خبير بيئي</div>
+    </div>
+    <div class="editor-card">
+        <div class="editor-avatar">
+            <img src="assets/images/editors/mona-sharabi.jpg" alt="د. منى الشرعبي" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+        </div>
+        <div class="editor-name">د. منى الشرعبي</div>
+        <div class="editor-role">عضوة هيئة التحرير</div>
+        <div class="editor-affiliation">أخصائية صحة عامة</div>
+    </div>
+    <div class="editor-card">
+        <div class="editor-avatar">
+            <img src="assets/images/editors/khaled-mansouri.jpg" alt="د. خالد المنصوري" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+        </div>
+        <div class="editor-name">د. خالد المنصوري</div>
+        <div class="editor-role">عضو هيئة التحرير</div>
+        <div class="editor-affiliation">استشاري أمراض القلب</div>
+    </div>
+    <div class="editor-card">
+        <div class="editor-avatar">
+            <img src="assets/images/editors/sara-ali.jpg" alt="أ. سارة علي" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+        </div>
+        <div class="editor-name">أ. سارة علي</div>
+        <div class="editor-role">عضوة هيئة التحرير</div>
+        <div class="editor-affiliation">أخصائية نفسية</div>
+    </div>
+</div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-section">
+            <h4>آفاق الصحية</h4>
+            <p>مجلة علمية محكمة تنشر أبحاثاً أصلية في الصحة العامة والبيئة.</p>
+        </div>
+        <div class="footer-section">
+            <h4>روابط سريعة</h4>
+            <p><a href="#">الأعداد السابقة</a></p>
+            <p><a href="#">إرشادات النشر</a></p>
+            <p><a href="#">هيئة التحرير</a></p>
+        </div>
+        <div class="footer-section">
+            <h4>تواصل معنا</h4>
+            <p><i class="fas fa-envelope"></i> kaidngat4@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +967 711 129 611</p>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2026 مجلة آفاق الصحية - جميع الحقوق محفوظة</p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>آفاق الصحية | Afaaq Health Journal - مجلة علمية عالمية</title>
+    <meta name="description" content="Afaaq Health Journal - A peer-reviewed scientific journal publishing original research in public health, environmental health, and clinical medicine.">
+    <meta name="keywords" content="medical journal, public health, environmental health, research, Yemen, Afaaq Health, Scopus, PubMed">
+    <meta name="author" content="Al-Odain Health Office">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cairo:wght@600;800;900&family=Tajawal:wght@500;700;800&family=Almarai:wght@700;800&family=Changa:wght@500;700;800&family=Amiri:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ============================================
+           GLOBAL VARIABLES
+        ============================================ */
+        :root {
+            --journal-primary: #0a2540;
+            --journal-secondary: #0066cc;
+            --journal-accent: #e63946;
+            --journal-gold: #ffd700;
+            --journal-green: #2e7d32;
+            --journal-orange: #ff9800;
+            --journal-purple: #9c27b0;
+            --journal-teal: #00897b;
+            --journal-gray-50: #f8f9fa;
+            --journal-gray-100: #f1f3f5;
+            --journal-gray-200: #e9ecef;
+            --journal-gray-300: #dee2e6;
+            --journal-gray-600: #6c757d;
+            --journal-gray-700: #495057;
+            --journal-gray-800: #343a40;
+            --journal-gray-900: #212529;
+            --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 6px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 15px 25px -5px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        .font-cairo { font-family: 'Cairo', sans-serif; }
+        .font-tajawal { font-family: 'Tajawal', sans-serif; }
+        .font-almarai { font-family: 'Almarai', sans-serif; }
+        .font-changa { font-family: 'Changa', sans-serif; }
+        .font-amiri { font-family: 'Amiri', serif; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Tajawal', sans-serif;
+            background: #fdfdfd;
+            color: var(--journal-gray-800);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Reading Progress Bar */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--journal-secondary), var(--journal-accent));
+            z-index: 1001;
+            transition: width 0.1s;
+        }
+
+        /* Toast Notification */
+        #customToast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #2e7d32;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            z-index: 9999;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            font-family: 'Tajawal', sans-serif;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            background: var(--journal-primary);
+            color: white;
+            padding: 0.6rem 2rem;
+            font-size: 0.8rem;
+        }
+
+        .top-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .top-nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .top-nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .top-nav-links a:hover {
+            color: white;
+        }
+
+        .journal-metrics {
+            font-family: monospace;
+            background: rgba(255,255,255,0.1);
+            padding: 0.2rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        /* Main Header */
+        .main-header {
+            padding: 2rem;
+            background: white;
+            border-bottom: 1px solid var(--journal-gray-200);
+        }
+
+        .header-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .logo-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--journal-primary), var(--journal-secondary));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .journal-title h1 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--journal-primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .journal-title p {
+            font-size: 0.85rem;
+            color: var(--journal-gray-600);
+            letter-spacing: 0.5px;
+        }
+
+        .impact-factor {
+            text-align: right;
+            background: var(--journal-gray-50);
+            padding: 1rem 1.8rem;
+            border-radius: 12px;
+            border: 1px solid var(--journal-gray-200);
+        }
+
+        .impact-factor .if-number {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--journal-secondary);
+        }
+
+        /* ============================================
+           IMPROVED NAVIGATION BAR WITH COLORED TABS
+        ============================================ */
+        .nav-bar {
+            background: white;
+            border-bottom: 1px solid var(--journal-gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+            padding: 0.5rem 0;
+        }
+
+        .nav-links {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+            padding: 0 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            display: block;
+            padding: 0.8rem 1.8rem;
+            text-decoration: none;
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border-radius: 40px;
+            background: var(--journal-gray-50);
+            color: var(--journal-gray-700);
+            border: 1px solid var(--journal-gray-200);
+        }
+
+        /* Colored tabs with different colors */
+        .nav-links li:nth-child(1) a {
+            background: linear-gradient(135deg, var(--journal-secondary), #0050a0);
+            color: white;
+            border: none;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .nav-links li:nth-child(2) a {
+            background: linear-gradient(135deg, var(--journal-green), #1b5e20);
+            color: white;
+            border: none;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .nav-links li:nth-child(3) a {
+            background: linear-gradient(135deg, var(--journal-orange), #e65100);
+            color: white;
+            border: none;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .nav-links li:nth-child(4) a {
+            background: linear-gradient(135deg, var(--journal-purple), #7b1fa2);
+            color: white;
+            border: none;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .nav-links li:nth-child(5) a {
+            background: linear-gradient(135deg, var(--journal-teal), #00695c);
+            color: white;
+            border: none;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .nav-links li:nth-child(6) a {
+            background: linear-gradient(135deg, #e91e63, #c2185b);
+            color: white;
+            border: none;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .nav-links li:nth-child(7) a {
+            background: linear-gradient(135deg, #607d8b, #455a64);
+            color: white;
+            border: none;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-links li a:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            filter: brightness(1.05);
+        }
+
+        .nav-links li a.active {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            filter: brightness(1.1);
+        }
+
+        .btn-admin {
+            background: linear-gradient(135deg, #ff9800, #f57c00) !important;
+            color: white !important;
+            border: none !important;
+            margin-right: auto;
+        }
+
+        .btn-admin:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(255,152,0,0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to bottom, var(--journal-gray-50), white);
+            padding: 3rem 2rem;
+        }
+
+        .hero-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .featured-article {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid var(--journal-gray-200);
+        }
+
+        .featured-article:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--journal-secondary);
+        }
+
+        .featured-image {
+            height: 320px;
+            background: linear-gradient(135deg, var(--journal-primary), var(--journal-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .featured-image i {
+            font-size: 6rem;
+            color: rgba(255,255,255,0.15);
+        }
+
+        .featured-content {
+            padding: 2rem;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: var(--journal-accent);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            margin-bottom: 1rem;
+        }
+
+        .featured-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--journal-primary);
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .hero-side {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .hero-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+            transition: var(--transition);
+            border: 1px solid var(--journal-gray-200);
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
+        }
+
+        .hero-card:hover {
+            transform: translateX(-5px);
+            border-color: var(--journal-secondary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-card-icon {
+            width: 55px;
+            height: 55px;
+            background: var(--journal-gray-50);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--journal-secondary);
+        }
+
+        .hero-card-text h4 {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--journal-primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 3.5rem;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--journal-primary);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--journal-primary);
+        }
+
+        .articles-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .article-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--journal-gray-200);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .article-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--journal-secondary);
+        }
+
+        .article-image-small {
+            width: 110px;
+            height: 110px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--journal-gray-100);
+            flex-shrink: 0;
+        }
+
+        .article-image-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .article-item:hover .article-image-small img {
+            transform: scale(1.05);
+        }
+
+        .article-content-small {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: var(--journal-gray-600);
+            margin-bottom: 0.6rem;
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span i {
+            color: var(--journal-secondary);
+            margin-left: 4px;
+        }
+
+        .article-title-small {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--journal-primary);
+            line-height: 1.4;
+            transition: color 0.2s ease;
+        }
+
+        .article-item:hover .article-title-small {
+            color: var(--journal-secondary);
+        }
+
+        .article-excerpt-small {
+            font-size: 0.9rem;
+            color: var(--journal-gray-700);
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .article-link {
+            font-size: 0.85rem;
+            color: var(--journal-secondary);
+            font-weight: 700;
+            margin-top: auto;
+        }
+
+        /* Rating Stars */
+        .rating-stars {
+            display: inline-flex;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .rating-stars i {
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+
+        .rating-stars i:hover {
+            transform: scale(1.1);
+        }
+
+        /* Sidebar Widgets */
+        .sidebar-widget {
+            background: white;
+            border: 1px solid var(--journal-gray-200);
+            border-radius: 12px;
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .widget-title {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--journal-primary);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--journal-gray-200);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 1rem;
+            background: var(--journal-gray-50);
+            border-radius: 8px;
+            border: 1px solid var(--journal-gray-100);
+        }
+
+        .metric-number {
+            font-family: monospace;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--journal-secondary);
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--journal-gray-700);
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        .indexing-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .indexing-item {
+            background: var(--journal-gray-50);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--journal-primary);
+            border: 1px solid var(--journal-gray-200);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--journal-primary);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            color: var(--journal-gold);
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.85rem;
+            text-decoration: none;
+            line-height: 2;
+        }
+
+        .footer-section a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-grid, .main-content { grid-template-columns: 1fr; }
+            .header-grid { flex-direction: column; text-align: center; }
+            .impact-factor { text-align: center; }
+            .logo-area { justify-content: center; }
+            .nav-links { justify-content: center; }
+            .nav-links li a { font-size: 0.9rem; padding: 0.6rem 1.2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .article-item { flex-direction: column; text-align: center; }
+            .article-image-small { width: 100%; height: 180px; margin-bottom: 1rem; }
+            .article-meta { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<div class="top-nav">
+    <div class="top-nav-container">
+        <ul class="top-nav-links">
+            <li><a href="subscribe.html">الاشتراك</a></li>
+            <li><a href="contact.html">إرسال بحث</a></li>
+            <li><a href="#">التنبيهات</a></li>
+            <li><a href="about.html">حول المجلة</a></li>
+        </ul>
+        <div class="journal-metrics">Impact Factor 2025: 2.4 | CiteScore: 3.1</div>
+    </div>
+</div>
+
+<header class="main-header">
+    <div class="header-grid">
+        <div class="logo-area">
+           <div class="logo-icon">
+    <img src="assets/images/logo.png" alt="آفاق الصحية" style="width: 55px; height: 55px; border-radius: 14px;">
+</div>
+            <div class="journal-title">
+    <h1>آفاق الصحية</h1>
+    <p>مجلة طبية ثقافية - مديرية العدين</p>
+</div>
+        </div>
+        <div class="impact-factor">
+            <span class="if-number">2.4</span>
+            <span style="font-weight: bold; color: var(--journal-primary);">معامل التأثير</span>
+            <div style="font-size: 0.75rem; color: var(--journal-gray-600); margin-top: 4px;">Scopus | Web of Science</div>
+        </div>
+    </div>
+</header>
+
+<nav class="nav-bar">
+   <ul class="nav-links">
+    <li><a href="index.html" class="active">🏠 الرئيسية</a></li>
+    <li><a href="current-issue.html">📖 العدد الحالي</a></li>
+    <li><a href="archive.html">📚 الأرشيف</a></li>
+    <li><a href="for-authors.html">✍️ للباحثين</a></li>
+    <li><a href="for-reviewers.html">🔍 للمراجعين</a></li>
+    <li><a href="editorial-board.html">👥 هيئة التحرير</a></li>
+    <li><a href="contact.html">📞 اتصل بنا</a></li>
+    <li><a href="admin/login.html" class="btn-admin"><i class="fas fa-cog"></i> الإدارة</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-grid">
+        <div class="featured-article" onclick="viewArticle(7)">
+            <div class="featured-image">
+               <img src="assets/images/articles/article-007.jpg" alt="دليلك الشامل للقسطرة القلبية" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="featured-content">
+                <span class="featured-badge">المقال المتميز</span>
+                <h2 class="featured-title">دليلك الشامل للقسطرة القلبية</h2>
+                <p style="color: var(--journal-gray-600); margin-bottom: 0.8rem; font-weight: bold;">
+                    <i class="fas fa-user-md"></i> د. صلاح الأهدل | مارس 2026
+                </p>
+                <p style="color: var(--journal-gray-700);">دليل شامل للقسطرة القلبية: أنواعها، دواعي إجرائها، خطوات الإجراء، المخاطر، وما بعد القسطرة...</p>
+            </div>
+        </div>
+        <div class="hero-side">
+            <div class="hero-card" onclick="location.href='contact.html'">
+                <div class="hero-card-icon"><i class="fas fa-pen-fancy"></i></div>
+                <div class="hero-card-text">
+                    <h4>انشر بحثك معنا</h4>
+                    <p style="color: var(--journal-gray-600); font-size: 0.85rem;">عملية مراجعة الأقران سريعة وشفافة</p>
+                </div>
+            </div>
+            <div class="hero-card" onclick="location.href='archive.html'">
+                <div class="hero-card-icon"><i class="fas fa-archive"></i></div>
+                <div class="hero-card-text">
+                    <h4>المجلد 14، العدد 1</h4>
+                    <p style="color: var(--journal-gray-600); font-size: 0.85rem;">أحدث إصدار نشر في أبريل 2026</p>
+                </div>
+            </div>
+            <div class="hero-card" onclick="location.href='subscribe.html'">
+                <div class="hero-card-icon"><i class="fas fa-bell"></i></div>
+                <div class="hero-card-text">
+                    <h4>تنبيهات البريد الإلكتروني</h4>
+                    <p style="color: var(--journal-gray-600); font-size: 0.85rem;">احصل على إشعارات بالمحتوى الجديد</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="main-content">
+    <div>
+        <div class="section-header">
+            <h2 class="section-title">أحدث الأبحاث والمقالات</h2>
+        </div>
+        <div class="articles-grid" id="articlesGrid">
+            <div style="text-align: center; padding: 2rem; color: var(--journal-gray-600);">
+                <i class="fas fa-spinner fa-spin fa-2x"></i> <br> جاري تحميل المقالات...
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="sidebar-widget">
+            <h3 class="widget-title">إحصائيات المجلة</h3>
+            <div class="metrics-grid">
+                <div class="metric">
+                    <div class="metric-number">2.4</div>
+                    <div class="metric-label">معامل التأثير</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">3.1</div>
+                    <div class="metric-label">CiteScore</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">45</div>
+                    <div class="metric-label">يوماً للقرار الأول</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">11</div>
+                    <div class="metric-label">مجلد منشور</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-widget">
+            <h3 class="widget-title">مفهرسة في</h3>
+            <div class="indexing-list">
+                <span class="indexing-item">Scopus</span>
+                <span class="indexing-item">PubMed</span>
+                <span class="indexing-item">Web of Science</span>
+                <span class="indexing-item">DOAJ</span>
+                <span class="indexing-item">Google Scholar</span>
+            </div>
+        </div>
+
+        <div class="sidebar-widget">
+            <h3 class="widget-title">رئيس التحرير</h3>
+            <p style="font-family: 'Cairo', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--journal-primary);">د. صلاح الأهدل</p>
+            <p style="font-size: 0.85rem; color: var(--journal-gray-600);">مدير مكتب الصحة والبيئة - مديرية العدين</p>
+            <hr style="margin: 1rem 0; border-color: var(--journal-gray-200);">
+            <a href="#" style="color: var(--journal-secondary); font-size: 0.85rem; font-weight: bold;">عرض كامل هيئة التحرير ←</a>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-section">
+            <h4><i class="fas fa-heartbeat"></i> آفاق الصحية</h4>
+            <p>مجلة علمية محكمة تنشر أبحاثاً أصلية في الصحة العامة، صحة البيئة، والطب السريري.</p>
+        </div>
+        <div class="footer-section">
+            <h4>روابط سريعة</h4>
+            <p><a href="#">إرسال مقال</a></p>
+            <p><a href="#">إرشادات المراجعين</a></p>
+            <p><a href="#">إرشادات المؤلفين</a></p>
+            <p><a href="#">أخلاقيات النشر</a></p>
+        </div>
+        <div class="footer-section">
+            <h4>تواصل معنا</h4>
+            <p><i class="fas fa-envelope" style="margin-left: 8px;"></i> kaidngat4@gmail.com</p>
+            <p><i class="fas fa-phone" style="margin-left: 8px;"></i> +967 711 129 611</p>
+            <p><i class="fas fa-map-marker-alt" style="margin-left: 8px;"></i> مديرية العدين، إب، اليمن</p>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2026 مجلة آفاق الصحية. جميع الحقوق محفوظة. ISSN: 2790-XXXX</p>
+    </div>
+</footer>
+
+<script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+        const winScroll = document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById('readingProgress').style.width = scrolled + '%';
+    });
+
+    // Toast Function
+    function showToast(message) {
+        let toast = document.getElementById('customToast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'customToast';
+            document.body.appendChild(toast);
+        }
+        toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+        toast.style.transform = 'translateX(0)';
+        setTimeout(() => {
+            toast.style.transform = 'translateX(400px)';
+        }, 3000);
+    }
+
+    // Font Classes
+    const fontClasses = ['font-cairo', 'font-tajawal', 'font-almarai', 'font-changa', 'font-amiri'];
+
+    // Articles Database
+    const articlesData = [
+        { id: 1, title: "النظافة البيئية وأثرها على الصحة العامة", category: "Environmental Health", author: "د. أحمد السعيدي", date: "2026-01-15", excerpt: "دراسة تبحث في العلاقة بين الإصحاح البيئي وانخفاض معدلات الأمراض المعدية.", image: "assets/images/articles/article-001.jpg", fallbackIcon: "🌿", views: 245, readingTime: 6 },
+        { id: 2, title: "التطعيمات الوقائية: حماية للمجتمع", category: "Public Health", author: "د. منى الشرعبي", date: "2026-01-20", excerpt: "تقييم التغطية باللقاحات وأثرها على مناعة المجتمع.", image: "assets/images/articles/article-002.jpg", fallbackIcon: "💉", views: 189, readingTime: 5 },
+        { id: 3, title: "مكافحة التلوث في مديرية العدين", category: "Environmental Health", author: "مهندس علي الحمادي", date: "2026-01-25", excerpt: "استراتيجيات الحد من التلوث وحماية البيئة.", image: "assets/images/articles/article-003.jpg", fallbackIcon: "🏭", views: 312, readingTime: 7 },
+        { id: 4, title: "التغذية السليمة للأطفال", category: "Nutrition", author: "أ. فاطمة عباس", date: "2026-02-01", excerpt: "إرشادات غذائية متكاملة للأطفال لتعزيز المناعة.", image: "assets/images/articles/article-004.jpg", fallbackIcon: "🍎", views: 567, readingTime: 5 },
+        { id: 5, title: "الوعي البيئي في المدارس", category: "Environmental Education", author: "أ. خالد النهاري", date: "2026-02-10", excerpt: "برامج التوعية البيئية المدرسية وتأثيرها.", image: "assets/images/articles/article-005.jpg", fallbackIcon: "📚", views: 234, readingTime: 4 },
+        { id: 6, title: "أمراض الجهاز التنفسي الموسمية", category: "Respiratory Medicine", author: "د. سميرة عبدالله", date: "2026-02-15", excerpt: "طرق الوقاية وإدارة التهابات الجهاز التنفسي.", image: "assets/images/articles/article-006.jpg", fallbackIcon: "🤧", views: 421, readingTime: 6 },
+        { id: 7, title: "دليلك الشامل للقسطرة القلبية", category: "Cardiology", author: "د. صلاح الأهدل", date: "2026-03-01", excerpt: "دليل شامل للقسطرة القلبية: دواعي إجرائها، خطوات الإجراء، المخاطر.", image: "assets/images/articles/article-007.jpg", fallbackIcon: "🫀", views: 678, readingTime: 8 },
+        { id: 8, title: "الدعامات القلبية: أنواعها وفوائدها", category: "Cardiology", author: "د. خالد المنصوري", date: "2026-03-10", excerpt: "أنواع الدعامات التاجية ونتائجها السريرية.", image: "assets/images/articles/article-008.jpg", fallbackIcon: "🩺", views: 534, readingTime: 6 },
+        { id: 9, title: "انسداد الشرايين: الأسباب والعلاج", category: "Cardiology", author: "د. ياسر القحطاني", date: "2026-03-15", excerpt: "المسببات، التشخيص، والأساليب العلاجية الحديثة.", image: "assets/images/articles/article-009.jpg", fallbackIcon: "⚠️", views: 445, readingTime: 7 },
+        { id: 10, title: "فوائد الرياضة للصحة النفسية", category: "Mental Health", author: "أ. سارة علي", date: "2026-03-20", excerpt: "تأثير ممارسة النشاط البدني على تحسين الصحة النفسية.", image: "assets/images/articles/article-010.jpg", fallbackIcon: "🏃‍♀️", views: 389, readingTime: 5 },
+        { id: 11, title: "أمراض وعلامات أمراض الجهاز البولي", category: "Urology", author: "د. ياسر القحطاني", date: "2026-04-16", excerpt: "العلامات والأعراض السريرية لأمراض المسالك البولية.", image: "assets/images/articles/article-011.jpg", fallbackIcon: "🩺", views: 212, readingTime: 6 }
+    ];
+
+    function loadArticles() {
+        const grid = document.getElementById('articlesGrid');
+        let articles = [...articlesData];
+        articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+        
+        grid.innerHTML = articles.map((article, index) => {
+            const currentFontClass = fontClasses[index % fontClasses.length];
+            const imageHtml = `<img src="${article.image}" alt="${article.title}" style="width:100%; height:100%; object-fit:cover; border-radius:8px;" onerror="this.onerror=null; this.parentElement.innerHTML='${article.fallbackIcon}'; this.parentElement.style.fontSize='2.5rem'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">`;
+            
+            return `
+            <div class="article-item" onclick="viewArticle(${article.id})">
+                <div class="article-image-small">${imageHtml}</div>
+                <div class="article-content-small">
+                    <div class="article-meta">
+                        <span><i class="fas fa-user-md"></i> ${article.author}</span>
+                        <span><i class="fas fa-calendar-alt"></i> ${article.date}</span>
+                        <span><i class="fas fa-clock"></i> ${article.readingTime} دقائق</span>
+                        <span><i class="fas fa-eye"></i> ${article.views}</span>
+                    </div>
+                    <h3 class="article-title-small ${currentFontClass}">${article.title}</h3>
+                    <p class="article-excerpt-small">${article.excerpt}</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem;">
+                        <span class="article-link">قراءة المقال كاملاً ←</span>
+                        <div class="rating-stars" data-id="${article.id}" style="direction: ltr;">
+                            <i class="far fa-star" data-rate="1"></i>
+                            <i class="far fa-star" data-rate="2"></i>
+                            <i class="far fa-star" data-rate="3"></i>
+                            <i class="far fa-star" data-rate="4"></i>
+                            <i class="far fa-star" data-rate="5"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        }).join('');
+        initRatings();
+    }
+
+    function initRatings() {
+        document.querySelectorAll('.rating-stars').forEach(container => {
+            const articleId = container.dataset.id;
+            const savedRating = localStorage.getItem(`rating_${articleId}`) || 0;
+            for (let i = 1; i <= 5; i++) {
+                const star = container.querySelector(`[data-rate="${i}"]`);
+                if (i <= savedRating) {
+                    star.className = 'fas fa-star';
+                    star.style.color = '#ffc107';
+                } else {
+                    star.className = 'far fa-star';
+                    star.style.color = '#ddd';
+                }
+                star.onclick = (e) => {
+                    e.stopPropagation();
+                    const rate = parseInt(star.dataset.rate);
+                    localStorage.setItem(`rating_${articleId}`, rate);
+                    initRatings();
+                    showToast(`⭐ شكراً لتقييمك ${rate}/5`);
+                };
+            }
+        });
+    }
+
+    function viewArticle(id) {
+        window.location.href = `content/articles/article-${String(id).padStart(3, '0')}.html`;
+    }
+
+    loadArticles();
+</script>
+</body>
+</html>

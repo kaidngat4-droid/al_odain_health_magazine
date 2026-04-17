@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Allow: /content/articles/
+Allow: /issues/
+Disallow: /admin/
+Disallow: /assets/js/admin.js
+Disallow: /templates/
+
+Sitemap: https://alodain-health.ye/sitemap.xml

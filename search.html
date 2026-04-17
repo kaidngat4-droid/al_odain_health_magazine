@@ -1,0 +1,43 @@
+<!-- search.html -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البحث - مجلة العودين الصحية</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <div class="container">
+            <div class="search-page">
+                <h1 class="page-title">البحث في المجلة</h1>
+                
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="ابحث عن مقالات، أعداد، أو مواضيع...">
+                    <button onclick="performSearch()" class="btn btn--primary">بحث</button>
+                </div>
+
+                <div class="search-filters">
+                    <label><input type="checkbox" value="articles"> مقالات</label>
+                    <label><input type="checkbox" value="issues"> أعداد</label>
+                    <label><input type="checkbox" value="authors"> كتّاب</label>
+                </div>
+
+                <div id="searchResults" class="search-results">
+                    <!-- Search results will appear here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
