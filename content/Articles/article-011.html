@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>أمراض وعلامات الجهاز البولي | آفاق الصحية</title>
+    <meta name="description" content="دليل شامل لأمراض الجهاز البولي: الأسباب، الأعراض، طرق التشخيص، العلاج، والوقاية - مقال علمي محكم">
+    <meta name="keywords" content="الجهاز البولي, التهابات المسالك البولية, حصوات الكلى, الفشل الكلوي, صحة الكلى">
+    <meta name="author" content="د. ياسر القحطاني">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            color: #0d47a1;
+            line-height: 1.8;
+        }
+        
+        .article-wrapper {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Header */
+        .article-header {
+            background: linear-gradient(135deg, #1565c0, #0d47a1);
+            color: white;
+            padding: 3rem 2.5rem;
+            text-align: center;
+        }
+        
+        .article-header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .article-header .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+        
+        .article-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Featured Image */
+        .featured-image {
+            width: 100%;
+            height: 380px;
+            background: linear-gradient(135deg, #1565c0, #0d47a1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .featured-image i {
+            font-size: 6rem;
+            color: rgba(255, 255, 255, 0.2);
+            animation: pulse 2s infinite ease-in-out;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.1); opacity: 0.3; }
+        }
+        
+        /* Content */
+        .article-content {
+            padding: 2.5rem;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            font-size: 1.05rem;
+            color: #1a237e;
+        }
+        
+        .article-content h2 {
+            color: #1565c0;
+            border-right: 4px solid #1565c0;
+            padding-right: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.6rem;
+        }
+        
+        .article-content h3 {
+            color: #1e88e5;
+            margin: 1.5rem 0 0.8rem 0;
+            font-size: 1.3rem;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 1rem 2rem 1rem 0;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Info Boxes */
+        .info-box {
+            background: #e3f2fd;
+            border-right: 4px solid #0288d1;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-right: 4px solid #ff9800;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .danger-box {
+            background: #ffebee;
+            border-right: 4px solid #e74c3c;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .success-box {
+            background: #e8f5e9;
+            border-right: 4px solid #4caf50;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        /* Statistics Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #1565c0, #0d47a1);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        
+        /* Diseases Grid */
+        .diseases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .disease-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        
+        .disease-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .disease-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .disease-card h4 {
+            color: #1565c0;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Symptoms List */
+        .symptoms-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .symptoms-list li {
+            background: #f8f9fa;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .symptoms-list li i {
+            font-size: 1.5rem;
+            color: #1565c0;
+        }
+        
+        /* Prevention List */
+        .prevention-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .prevention-list li {
+            background: #e8f5e9;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .prevention-list li i {
+            font-size: 1.5rem;
+            color: #1565c0;
+        }
+        
+        /* Article Footer */
+        .article-footer-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 24px;
+            margin-top: 2rem;
+        }
+        
+        /* Tags */
+        .article-tags {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .article-tags span {
+            font-weight: 600;
+            margin-left: 0.8rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            margin: 0.2rem;
+            transition: all 0.3s;
+        }
+        
+        .tag:hover {
+            background: #1565c0;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Share Buttons */
+        .share-buttons {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .share-buttons p {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        
+        .share-btn-group {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.05);
+        }
+        
+        .share-twitter { background: #1DA1F2; color: white; }
+        .share-facebook { background: #1877F2; color: white; }
+        .share-whatsapp { background: #25D366; color: white; }
+        .share-linkedin { background: #0077B5; color: white; }
+        .share-copy { background: #6c757d; color: white; }
+        
+        /* Author Box */
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 20px;
+            margin-top: 1.5rem;
+        }
+        
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1565c0, #0d47a1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .author-info h4 {
+            color: #1565c0;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+        }
+        
+        .rating i {
+            color: #ffc107;
+        }
+        
+        /* Back Button */
+        .back-button {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #1565c0, #0d47a1);
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(21,101,192,0.3);
+        }
+        
+        /* Footer */
+        .site-footer {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1565c0, #0d47a1);
+            color: white;
+            margin-top: 2rem;
+            border-radius: 28px 28px 0 0;
+        }
+        
+        @media (max-width: 768px) {
+            .article-header h1 { font-size: 1.5rem; }
+            .article-content { padding: 1.5rem; }
+            .featured-image { height: 200px; }
+            .author-box { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="article-wrapper">
+    <div class="article-card">
+        
+        <!-- Header -->
+        <div class="article-header">
+            <h1><i class="fas fa-kidneys"></i> أمراض وعلامات الجهاز البولي</h1>
+            <div class="subtitle">دليل شامل للأعراض، الأسباب، التشخيص، والعلاج</div>
+            <div class="article-meta">
+                <span><i class="fas fa-user-md"></i> د. ياسر القحطاني</span>
+                <span><i class="fas fa-calendar-alt"></i> 16 أبريل 2026</span>
+                <span><i class="fas fa-clock"></i> وقت القراءة: 10 دقائق</span>
+                <span><i class="fas fa-chart-line"></i> مستوى متوسط</span>
+            </div>
+        </div>
+        
+        <!-- Featured Image -->
+        <div class="featured-image">
+            <img src="../assets/images/articles/article-011.jpg" alt="أمراض الجهاز البولي" onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-kidneys\'></i>';">
+        </div>
+        
+        <!-- Content -->
+        <div class="article-content">
+            
+            <!-- Introduction -->
+            <p>الجهاز البولي هو أحد الأجهزة الحيوية في جسم الإنسان، حيث يقوم بتصفية الدم من الفضلات والسوائل الزائدة وإخراجها على شكل بول. يتكون من: الكليتين، الحالبين، المثانة، والإحليل. أمراض الجهاز البولي شائعة وقد تكون خطيرة إذا لم يتم تشخيصها وعلاجها مبكراً. في هذا الدليل الشامل، نستعرض أهم أمراض الجهاز البولي، أعراضها، أسبابها، وطرق الوقاية والعلاج.</p>
+            
+            <!-- Statistics -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">50%</div>
+                    <div class="stat-label">من النساء يصبن بالتهاب المسالك</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1/10</div>
+                    <div class="stat-label">الأشخاص يصابون بحصوات الكلى</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">850M</div>
+                    <div class="stat-label">مصاب بأمراض الكلى عالمياً</div>
+                </div>
+            </div>
+            
+            <!-- Section 1 -->
+            <h2><i class="fas fa-microscope"></i> ما هو الجهاز البولي؟</h2>
+            <p>الجهاز البولي هو المسؤول عن تصفية الدم من الفضلات والسوائل الزائدة، وإخراجها على شكل بول. يتكون من:</p>
+            <ul>
+                <li><strong>الكليتين (Kidneys):</strong> عضوان على شكل حبة الفاصوليا، يقومان بتصفية الدم وإنتاج البول</li>
+                <li><strong>الحالبين (Ureters):</strong> أنبوبان ينقلان البول من الكلى إلى المثانة</li>
+                <li><strong>المثانة (Bladder):</strong> عضو عضلي يخزن البول حتى التبول</li>
+                <li><strong>الإحليل (Urethra):</strong> أنبوب ينقل البول من المثانة إلى خارج الجسم</li>
+            </ul>
+            
+            <div class="info-box">
+                <i class="fas fa-lightbulb"></i>
+                <strong>معلومة مهمة:</strong> الكلى تصفي حوالي 180 لتراً من الدم يومياً، وتنتج حوالي 1-2 لتر من البول.
+            </div>
+            
+            <!-- Section 2 - Diseases -->
+            <h2><i class="fas fa-virus"></i> أهم أمراض الجهاز البولي</h2>
+            
+            <div class="diseases-grid">
+                <div class="disease-card">
+                    <div class="disease-icon">🦠</div>
+                    <h4>التهابات المسالك البولية (UTI)</h4>
+                    <p>عدوى بكتيرية تصيب أي جزء من الجهاز البولي. أكثر شيوعاً عند النساء.</p>
+                </div>
+                <div class="disease-card">
+                    <div class="disease-icon">🪨</div>
+                    <h4>حصوات الكلى</h4>
+                    <p>ترسبات صلبة من المعادن والأملاح تتشكل داخل الكلى.</p>
+                </div>
+                <div class="disease-card">
+                    <div class="disease-icon">🩸</div>
+                    <h4>الفشل الكلوي</h4>
+                    <p>فقدان الكلى لقدرتها على تصفية الدم من الفضلات.</p>
+                </div>
+                <div class="disease-card">
+                    <div class="disease-icon">😖</div>
+                    <h4>تضخم البروستاتا</h4>
+                    <p>تضخم غدة البروستاتا يضغط على الإحليل (عند الرجال).</p>
+                </div>
+                <div class="disease-card">
+                    <div class="disease-icon">💧</div>
+                    <h4>سلس البول</h4>
+                    <p>فقدان السيطرة على المثانة مما يسبب تسرب البول غير الإرادي.</p>
+                </div>
+                <div class="disease-card">
+                    <div class="disease-icon">🔬</div>
+                    <h4>سرطان المثانة</h4>
+                    <p>نمو خلايا غير طبيعية في المثانة.</p>
+                </div>
+            </div>
+            
+            <!-- Section 3 - Symptoms -->
+            <h2><i class="fas fa-stethoscope"></i> الأعراض التحذيرية لأمراض الجهاز البولي</h2>
+            
+            <ul class="symptoms-list">
+                <li><i class="fas fa-tint"></i> <strong>وجود دم في البول</strong> - لون وردي أو أحمر أو بني</li>
+                <li><i class="fas fa-fire"></i> <strong>حرقان أثناء التبول</strong> - شعور بألم أو حرارة</li>
+                <li><i class="fas fa-clock"></i> <strong>كثرة التبول</strong> - خاصة أثناء الليل</li>
+                <li><i class="fas fa-belly"></i> <strong>ألم في أسفل البطن أو الظهر</strong></li>
+                <li><i class="fas fa-thermometer-half"></i> <strong>حمى مع قشعريرة</strong> - علامة على عدوى</li>
+                <li><i class="fas fa-water"></i> <strong>بول عكر أو كريه الرائحة</strong></li>
+                <li><i class="fas fa-hand-peace"></i> <strong>صعوبة في التبول</strong> - ضعف التدفق أو عدم القدرة على البدء</li>
+                <li><i class="fas fa-shoe-prints"></i> <strong>تورم في الوجه أو القدمين أو الكاحلين</strong> - علامة على مشكلة في الكلى</li>
+                <li><i class="fas fa-tired"></i> <strong>تعب وإرهاق مزمن</strong></li>
+                <li><i class="fas fa-weight-scale"></i> <strong>فقدان الشهية وفقدان الوزن</strong></li>
+            </ul>
+            
+            <!-- Section 4 - Risk Factors -->
+            <h2><i class="fas fa-chart-line"></i> عوامل الخطر</h2>
+            <div class="warning-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>عوامل تزيد خطر الإصابة بأمراض الجهاز البولي:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>الجنس الأنثوي (لالتهابات المسالك البولية)</li>
+                    <li>الحمل</li>
+                    <li>مرض السكري</li>
+                    <li>ارتفاع ضغط الدم</li>
+                    <li>التقدم في العمر</li>
+                    <li>تاريخ عائلي لأمراض الكلى</li>
+                    <li>استخدام القسطرة البولية</li>
+                    <li>ضعف الجهاز المناعي</li>
+                </ul>
+            </div>
+            
+            <!-- Section 5 - Diagnosis -->
+            <h2><i class="fas fa-microscope"></i> طرق التشخيص</h2>
+            <ul>
+                <li><strong>تحليل البول (Urinalysis):</strong> الكشف عن العدوى، الدم، أو البروتين</li>
+                <li><strong>زراعة البول (Urine Culture):</strong> تحديد نوع البكتيريا المسببة للعدوى</li>
+                <li><strong>تحاليل الدم:</strong> قياس وظائف الكلى (الكرياتينين واليوريا)</li>
+                <li><strong>الموجات فوق الصوتية (Ultrasound):</strong> تصوير الكلى والمثانة</li>
+                <li><strong>التصوير المقطعي (CT Scan):</strong> تشخيص حصوات الكلى والأورام</li>
+                <li><strong>تنظير المثانة (Cystoscopy):</strong> فحص داخل المثانة والإحليل</li>
+                <li><strong>خزعة الكلى (Kidney Biopsy):</strong> أخذ عينة لتحليلها</li>
+            </ul>
+            
+            <!-- Section 6 - Treatment -->
+            <h2><i class="fas fa-prescription-bottle"></i> خيارات العلاج</h2>
+            
+            <h3>التهابات المسالك البولية</h3>
+            <ul>
+                <li>المضادات الحيوية يصفها الطبيب لمدة 3-7 أيام</li>
+                <li>شرب كميات كبيرة من الماء</li>
+                <li>مسكنات الألم لتخفيف الأعراض</li>
+            </ul>
+            
+            <h3>حصوات الكلى</h3>
+            <ul>
+                <li>شرب 3-4 لترات من الماء يومياً</li>
+                <li>أدوية مذيبة للحصوات</li>
+                <li>تفتيت الحصوات بالموجات التصادمية (ESWL)</li>
+                <li>تنظير الحالب (Ureteroscopy)</li>
+                <li>الجراحة المفتوحة (في الحالات الكبيرة)</li>
+            </ul>
+            
+            <h3>الفشل الكلوي</h3>
+            <ul>
+                <li>علاج السبب الأساسي (الضغط، السكري)</li>
+                <li>الأدوية الخافضة للضغط</li>
+                <li>غسيل الكلى (الدياليز)</li>
+                <li>زراعة الكلى</li>
+            </ul>
+            
+            <div class="success-box">
+                <i class="fas fa-check-circle"></i>
+                <strong>نسبة الشفاء:</strong> معظم التهابات المسالك البولية تشفى خلال 3-7 أيام من العلاج بالمضادات الحيوية.
+            </div>
+            
+            <!-- Section 7 - Prevention -->
+            <h2><i class="fas fa-shield-heart"></i> نصائح للوقاية من أمراض الجهاز البولي</h2>
+            
+            <ul class="prevention-list">
+                <li><i class="fas fa-tint"></i> <strong>اشرب 8-10 أكواب من الماء يومياً</strong> - للحفاظ على تدفق البول</li>
+                <li><i class="fas fa-hand-peace"></i> <strong>لا تحبس البول لفترات طويلة</strong> - تبول عند الحاجة</li>
+                <li><i class="fas fa-soap"></i> <strong>حافظ على النظافة الشخصية</strong> - خاصة بعد استخدام الحمام</li>
+                <li><i class="fas fa-apple-alt"></i> <strong>قلل من الملح والأطعمة المصنعة</strong></li>
+                <li><i class="fas fa-running"></i> <strong>مارس الرياضة بانتظام</strong></li>
+                <li><i class="fas fa-heartbeat"></i> <strong>تحكم بضغط الدم والسكري</strong></li>
+                <li><i class="fas fa-calendar-check"></i> <strong>قم بفحوصات دورية للبول ووظائف الكلى</strong></li>
+            </ul>
+            
+            <!-- Section 8 - Natural Remedies -->
+            <h2><i class="fas fa-leaf"></i> علاجات منزلية مفيدة</h2>
+            <ul>
+                <li><strong>عصير التوت البري (Cranberry):</strong> يساعد في الوقاية من التهابات المسالك البولية</li>
+                <li><strong>شاي البقدونس:</strong> مدر طبيعي للبول</li>
+                <li><strong>عصير الليمون:</strong> يساعد في تفتيت حصوات الكلى</li>
+                <li><strong>شاي الزنجبيل:</strong> مضاد طبيعي للالتهابات</li>
+                <li><strong>الخل التفاح:</strong> يساعد في توازن درجة حموضة البول</li>
+            </ul>
+            
+            <!-- Section 9 - When to See Doctor -->
+            <div class="danger-box">
+                <i class="fas fa-ambulance"></i>
+                <strong>⚠️ متى يجب مراجعة الطبيب فوراً؟</strong>
+                <ul style="margin-top: 10px;">
+                    <li>وجود دم واضح في البول</li>
+                    <li>ألم شديد في الظهر أو الجنب</li>
+                    <li>عدم القدرة على التبول</li>
+                    <li>حمى عالية مع قشعريرة</li>
+                    <li>غثيان وقيء مع آلام في البطن</li>
+                    <li>تورم مفاجئ في الوجه أو القدمين</li>
+                </ul>
+            </div>
+            
+            <!-- Section 10 - Conclusion -->
+            <h2><i class="fas fa-clipboard-list"></i> خلاصة</h2>
+            <p>أمراض الجهاز البولي شائعة ولكن يمكن الوقاية منها وعلاجها بنجاح إذا تم اكتشافها مبكراً. اشرب كميات كافية من الماء، حافظ على النظافة الشخصية، ولا تهمل الأعراض التحذيرية. استشر طبيبك إذا لاحظت أي تغير في عادات التبول أو لون البول.</p>
+            
+            <!-- ====== ARTICLE FOOTER ====== -->
+            <div class="article-footer-section">
+                
+                <!-- Tags -->
+                <div class="article-tags">
+                    <span><i class="fas fa-tags"></i> الوسوم:</span>
+                    <a href="#" class="tag">#الجهاز_البولي</a>
+                    <a href="#" class="tag">#التهابات_المسالك</a>
+                    <a href="#" class="tag">#حصوات_الكلى</a>
+                    <a href="#" class="tag">#الفشل_الكلوي</a>
+                    <a href="#" class="tag">#صحة_الكلى</a>
+                </div>
+                
+                <!-- Share Buttons -->
+                <div class="share-buttons">
+                    <p><i class="fas fa-share-alt"></i> شارك هذا المقال:</p>
+                    <div class="share-btn-group">
+                        <button class="share-btn share-twitter" onclick="shareOnTwitter()">
+                            <i class="fab fa-twitter"></i> تويتر
+                        </button>
+                        <button class="share-btn share-facebook" onclick="shareOnFacebook()">
+                            <i class="fab fa-facebook-f"></i> فيسبوك
+                        </button>
+                        <button class="share-btn share-whatsapp" onclick="shareOnWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="share-btn share-linkedin" onclick="shareOnLinkedIn()">
+                            <i class="fab fa-linkedin-in"></i> لينكد إن
+                        </button>
+                        <button class="share-btn share-copy" onclick="copyLink()">
+                            <i class="fas fa-link"></i> نسخ الرابط
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Author Box -->
+                <div class="author-box">
+                    <div class="author-avatar">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="author-info">
+                        <h4>د. ياسر القحطاني</h4>
+                        <p>استشاري أمراض الكلى والجهاز البولي</p>
+                        <p>رئيس قسم أمراض الكلى - مستشفى العدين المركزي</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span style="margin-right: 0.5rem; color: #666;">5.0 (423 تقييم)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back Button -->
+            <div class="back-button">
+                <a href="../../index.html" class="btn-back">
+                    <i class="fas fa-arrow-right"></i> العودة إلى المجلة
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Site Footer -->
+    <div class="site-footer">
+        <p>© 2026 مجلة آفاق الصحية - مكتب الصحة والبيئة | مديرية العدين</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem;">بإشراف د. ياسر القحطاني - استشاري أمراض الكلى</p>
+    </div>
+</div>
+
+<script>
+    function shareOnTwitter() {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent('أمراض وعلامات الجهاز البولي');
+        window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnFacebook() {
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnWhatsApp() {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent('أمراض الجهاز البولي');
+        window.open(`https://wa.me/?text=${title}%20${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnLinkedIn() {
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function copyLink() {
+        navigator.clipboard.writeText(window.location.href);
+        alert('✅ تم نسخ رابط المقال بنجاح');
+    }
+</script>
+
+</body>
+</html>

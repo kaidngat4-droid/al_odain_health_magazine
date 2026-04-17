@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>التغذية السليمة للأطفال - آفاق الصحية</title>
+    <meta name="description" content="دليل شامل للتغذية السليمة للأطفال: نصائح غذائية لتعزيز المناعة والنمو الصحي">
+    <meta name="author" content="أ. فاطمة عباس">
+    <meta name="keywords" content="تغذية الأطفال, صحة الطفل, طعام صحي, مناعة الأطفال, النمو">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #fff8e1 0%, #ffe0b2 100%);
+            color: #3e2723;
+            line-height: 1.8;
+        }
+        
+        .article-wrapper {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Header */
+        .article-header {
+            background: linear-gradient(135deg, #e65100 0%, #bf360c 100%);
+            color: white;
+            padding: 3rem 2.5rem;
+            text-align: center;
+        }
+        
+        .article-header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .article-header .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+        
+        .article-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Featured Image */
+        .featured-image {
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(135deg, #ff9800, #e65100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-image i {
+            font-size: 6rem;
+            color: rgba(255, 255, 255, 0.2);
+            animation: bounce 2s infinite ease-in-out;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Content */
+        .article-content {
+            padding: 2.5rem;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            font-size: 1.05rem;
+            color: #3e2723;
+        }
+        
+        .article-content h2 {
+            color: #e65100;
+            border-right: 4px solid #e65100;
+            padding-right: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.6rem;
+        }
+        
+        .article-content h3 {
+            color: #bf360c;
+            margin: 1.5rem 0 0.8rem 0;
+            font-size: 1.3rem;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 1rem 2rem 1rem 0;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Info Boxes */
+        .success-box {
+            background: #e8f5e9;
+            border-right: 4px solid #4caf50;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-right: 4px solid #ff9800;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-right: 4px solid #0288d1;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .danger-box {
+            background: #ffebee;
+            border-right: 4px solid #e74c3c;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        /* Statistics Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #e65100, #bf360c);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        
+        /* Food Groups Grid */
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .food-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .food-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .food-card h4 {
+            color: #e65100;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Meal Schedule */
+        .meal-schedule {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .meal-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .meal-time {
+            width: 100px;
+            font-weight: 700;
+            color: #e65100;
+        }
+        
+        /* Tips List */
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips-list li {
+            background: #f8f9fa;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .tips-list li i {
+            font-size: 1.5rem;
+            color: #e65100;
+        }
+        
+        /* Article Footer */
+        .article-footer-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 24px;
+            margin-top: 2rem;
+        }
+        
+        /* Tags */
+        .article-tags {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .article-tags span {
+            font-weight: 600;
+            margin-left: 0.8rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #fff3e0;
+            color: #e65100;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            margin: 0.2rem;
+            transition: all 0.3s;
+        }
+        
+        .tag:hover {
+            background: #e65100;
+            color: white;
+        }
+        
+        /* Share Buttons */
+        .share-buttons {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .share-btn-group {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.05);
+        }
+        
+        .share-twitter { background: #1DA1F2; color: white; }
+        .share-facebook { background: #1877F2; color: white; }
+        .share-whatsapp { background: #25D366; color: white; }
+        .share-linkedin { background: #0077B5; color: white; }
+        .share-copy { background: #6c757d; color: white; }
+        
+        /* Author Box */
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 20px;
+            margin-top: 1.5rem;
+        }
+        
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #e65100, #bf360c);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .author-info h4 {
+            color: #e65100;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+        }
+        
+        .rating i {
+            color: #ffc107;
+        }
+        
+        /* Back Button */
+        .back-button {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #e65100, #bf360c);
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(230,81,0,0.3);
+        }
+        
+        /* Footer */
+        .site-footer {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #e65100, #bf360c);
+            color: white;
+            margin-top: 2rem;
+            border-radius: 28px 28px 0 0;
+        }
+        
+        @media (max-width: 768px) {
+            .article-header h1 { font-size: 1.5rem; }
+            .article-content { padding: 1.5rem; }
+            .featured-image { height: 200px; }
+            .author-box { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="article-wrapper">
+    <div class="article-card">
+        
+        <!-- Header -->
+        <div class="article-header">
+            <h1><i class="fas fa-apple-alt"></i> التغذية السليمة للأطفال</h1>
+            <div class="subtitle">دليل شامل لتعزيز مناعة الأطفال والنمو الصحي</div>
+            <div class="article-meta">
+                <span><i class="fas fa-user-md"></i> أ. فاطمة عباس</span>
+                <span><i class="fas fa-calendar-alt"></i> 1 فبراير 2026</span>
+                <span><i class="fas fa-clock"></i> وقت القراءة: 8 دقائق</span>
+                <span><i class="fas fa-chart-line"></i> مستوى مبتدئ</span>
+            </div>
+        </div>
+        
+        <!-- Featured Image -->
+        <div class="featured-image">
+            <i class="fas fa-apple-alt"></i>
+        </div>
+        
+        <!-- Content -->
+        <div class="article-content">
+            
+            <!-- Introduction -->
+            <p>تغذية الأطفال هي أساس صحتهم ونموهم السليم. فالطفل الذي يحصل على تغذية متوازنة يكون أكثر قدرة على التركيز والتعلم، وأقل عرضة للأمراض، وينمو بشكل صحي في جميع مراحل حياته. في هذا الدليل الشامل، نقدم لك كل ما تحتاج معرفته عن تغذية الأطفال من عمر سنة إلى 12 سنة.</p>
+            
+            <!-- Statistics -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">حصص خضروات وفواكه يومياً</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">وجبات رئيسية يومياً</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">وجبات خفيفة صحية</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6-8</div>
+                    <div class="stat-label">أكواب ماء يومياً</div>
+                </div>
+            </div>
+            
+            <!-- Section 1 - Food Groups -->
+            <h2><i class="fas fa-utensils"></i> المجموعات الغذائية الأساسية</h2>
+            <p>يجب أن يحتوي طعام الطفل على جميع المجموعات الغذائية التالية:</p>
+            
+            <div class="food-grid">
+                <div class="food-card">
+                    <div class="food-icon">🍞</div>
+                    <h4>النشويات والكربوهيدرات</h4>
+                    <p>خبز، أرز، معكرونة، بطاطس، شوفان</p>
+                    <small>مصدر الطاقة الأساسي</small>
+                </div>
+                <div class="food-card">
+                    <div class="food-icon">🥚</div>
+                    <h4>البروتينات</h4>
+                    <p>لحوم، دجاج، سمك، بيض، بقوليات</p>
+                    <small>لبناء العضلات والأنسجة</small>
+                </div>
+                <div class="food-card">
+                    <div class="food-icon">🥛</div>
+                    <h4>الألبان ومشتقاتها</h4>
+                    <p>حليب، جبن، زبادي، قشطة</p>
+                    <small>مصدر الكالسيوم للعظام</small>
+                </div>
+                <div class="food-card">
+                    <div class="food-icon">🥑</div>
+                    <h4>الدهون الصحية</h4>
+                    <p>زيت زيتون، أفوكادو، مكسرات</p>
+                    <small>لنمو الدماغ والأعصاب</small>
+                </div>
+            </div>
+            
+            <!-- Section 2 -->
+            <h2><i class="fas fa-chart-line"></i> احتياجات الطفل حسب العمر</h2>
+            
+            <div class="info-box">
+                <i class="fas fa-baby"></i>
+                <strong>الرضع (6-12 شهراً):</strong> حليب الأم أو الحليب الصناعي + إدخال الأطعمة الصلبة تدريجياً (خضروات مهروسة، فواكه مهروسة، حبوب مدعمة بالحديد).
+            </div>
+            
+            <div class="info-box">
+                <i class="fas fa-child"></i>
+                <strong>الأطفال (1-3 سنوات):</strong> 1000-1400 سعرة حرارية يومياً، 3 وجبات رئيسية + 2 وجبة خفيفة.
+            </div>
+            
+            <div class="info-box">
+                <i class="fas fa-running"></i>
+                <strong>الأطفال (4-8 سنوات):</strong> 1400-1800 سعرة حرارية يومياً، التركيز على البروتين والكالسيوم.
+            </div>
+            
+            <div class="info-box">
+                <i class="fas fa-basketball-ball"></i>
+                <strong>الأطفال (9-12 سنة):</strong> 1800-2200 سعرة حرارية يومياً، حاجة متزايدة للحديد والكالسيوم.
+            </div>
+            
+            <!-- Section 3 - Meal Schedule -->
+            <h2><i class="fas fa-clock"></i> جدول الوجبات اليومي المثالي</h2>
+            
+            <div class="meal-schedule">
+                <div class="meal-item">
+                    <div class="meal-time">🍳 الفطور (7-8 صباحاً)</div>
+                    <div>حليب + خبز أسمر مع جبن أو بيض + ثمرة فاكهة</div>
+                </div>
+                <div class="meal-item">
+                    <div class="meal-time">🍎 وجبة خفيفة (10 صباحاً)</div>
+                    <div>زبادي أو فاكهة أو حفنة مكسرات</div>
+                </div>
+                <div class="meal-item">
+                    <div class="meal-time">🍚 الغداء (1-2 ظهراً)</div>
+                    <div>أرز أو معكرونة + بروتين (لحم/دجاج/سمك) + سلطة خضار</div>
+                </div>
+                <div class="meal-item">
+                    <div class="meal-time">🍪 وجبة خفيفة (4 عصراً)</div>
+                    <div>عصير طبيعي أو بسكويت قمح كامل أو فواكه مجففة</div>
+                </div>
+                <div class="meal-item">
+                    <div class="meal-time">🍲 العشاء (7-8 مساءً)</div>
+                    <div>شوربة خضار + خبز + جبن أو زبادي</div>
+                </div>
+            </div>
+            
+            <!-- Section 4 -->
+            <h2><i class="fas fa-shield-alt"></i> أطعمة لتعزيز المناعة</h2>
+            <ul>
+                <li><strong>فيتامين C:</strong> البرتقال، الكيوي، الفلفل الأحمر، الجوافة</li>
+                <li><strong>الزنك:</strong> اللحوم، البقوليات، بذور اليقطين</li>
+                <li><strong>البروبيوتيك:</strong> الزبادي، اللبن الرائب</li>
+                <li><strong>الثوم والبصل:</strong> مضادان طبيعيان للبكتيريا</li>
+                <li><strong>الزنجبيل والعسل:</strong> لعلاج نزلات البرد</li>
+            </ul>
+            
+            <div class="success-box">
+                <i class="fas fa-check-circle"></i>
+                <strong>نصيحة ذهبية:</strong> التنوع في الطعام هو مفتاح التغذية المتوازنة. شجع طفلك على تجربة أطعمة جديدة بألوان وأشكال مختلفة.
+            </div>
+            
+            <!-- Section 5 -->
+            <h2><i class="fas fa-ban"></i> أطعمة يجب الحد منها</h2>
+            <ul>
+                <li><strong>السكريات والمشروبات الغازية:</strong> تسبب تسوس الأسنان والسمنة</li>
+                <li><strong>الأطعمة المقلية والوجبات السريعة:</strong> غنية بالدهون الضارة</li>
+                <li><strong>المعلبات والمصنعة:</strong> تحتوي على مواد حافظة وألوان صناعية</li>
+                <li><strong>المشروبات المحتوية على كافيين:</strong> الشاي والقهوة والنسكافيه</li>
+            </ul>
+            
+            <div class="warning-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>تحذير:</strong> السمنة عند الأطفال تؤدي إلى مشاكل صحية مزمنة مثل السكري وارتفاع ضغط الدم وأمراض القلب مستقبلاً.
+            </div>
+            
+            <!-- Section 6 - Tips -->
+            <h2><i class="fas fa-lightbulb"></i> نصائح لتشجيع الطفل على الأكل الصحي</h2>
+            <ul class="tips-list">
+                <li><i class="fas fa-child"></i> كن قدوة حسنة: تناول الطعام الصحي أمام طفلك</li>
+                <li><i class="fas fa-paint-brush"></i> قدم الطعام بشكل جذاب ومُلوّن</li>
+                <li><i class="fas fa-hand-peace"></i> لا تجبر طفلك على الأكل، قدم الطعام بهدوء</li>
+                <li><i class="fas fa-utensils"></i> اجعل وقت الطعام عائلياً وخالياً من المشتتات (تلفاز، موبايل)</li>
+                <li><i class="fas fa-seedling"></i> أشرك طفلك في تحضير الطعام واختيار الخضروات</li>
+                <li><i class="fas fa-star"></i> كافئ السلوك الجيد وليس الطعام نفسه</li>
+            </ul>
+            
+            <!-- Section 7 -->
+            <h2><i class="fas fa-heartbeat"></i> علامات سوء التغذية عند الأطفال</h2>
+            <div class="danger-box">
+                <i class="fas fa-ambulance"></i>
+                <strong>علامات تستدعي مراجعة الطبيب:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>توقف أو تباطؤ النمو (الطول والوزن)</li>
+                    <li>شحوب الوجه وهالات سوداء تحت العينين</li>
+                    <li>تساقط الشعر أو تقصفه</li>
+                    <li>تشقق زوايا الفم أو تقرحات اللسان</li>
+                    <li>كثرة الإصابة بالأمراض والالتهابات</li>
+                    <li>ضعف التركيز والنشاط</li>
+                </ul>
+            </div>
+            
+            <!-- ====== ARTICLE FOOTER ====== -->
+            <div class="article-footer-section">
+                
+                <!-- Tags -->
+                <div class="article-tags">
+                    <span><i class="fas fa-tags"></i> الوسوم:</span>
+                    <a href="#" class="tag">#تغذية_الأطفال</a>
+                    <a href="#" class="tag">#صحة_الطفل</a>
+                    <a href="#" class="tag">#طعام_صحي</a>
+                    <a href="#" class="tag">#مناعة_الأطفال</a>
+                    <a href="#" class="tag">#النمو_الصحي</a>
+                    <a href="#" class="tag">#الأكل_للأطفال</a>
+                </div>
+                
+                <!-- Share Buttons -->
+                <div class="share-buttons">
+                    <p><i class="fas fa-share-alt"></i> شارك هذا المقال:</p>
+                    <div class="share-btn-group">
+                        <button class="share-btn share-twitter" onclick="shareOnTwitter()">
+                            <i class="fab fa-twitter"></i> تويتر
+                        </button>
+                        <button class="share-btn share-facebook" onclick="shareOnFacebook()">
+                            <i class="fab fa-facebook-f"></i> فيسبوك
+                        </button>
+                        <button class="share-btn share-whatsapp" onclick="shareOnWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="share-btn share-linkedin" onclick="shareOnLinkedIn()">
+                            <i class="fab fa-linkedin-in"></i> لينكد إن
+                        </button>
+                        <button class="share-btn share-copy" onclick="copyLink()">
+                            <i class="fas fa-link"></i> نسخ الرابط
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Author Box -->
+                <div class="author-box">
+                    <div class="author-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="author-info">
+                        <h4>أ. فاطمة عباس</h4>
+                        <p>أخصائية تغذية علاجية - مستشفى العدين العام</p>
+                        <p>خبيرة في تغذية الأمهات والأطفال</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span style="margin-right: 0.5rem; color: #666;">5.0 (456 تقييم)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back Button -->
+            <div class="back-button">
+                <a href="../../index.html" class="btn-back">
+                    <i class="fas fa-arrow-right"></i> العودة إلى المجلة
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Site Footer -->
+    <div class="site-footer">
+        <p>© 2026 مجلة آفاق الصحية - مكتب الصحة والبيئة | مديرية العدين</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem;">بإشراف أ. فاطمة عباس - أخصائية تغذية علاجية</p>
+    </div>
+</div>
+
+<script>
+    function shareOnTwitter() {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent('التغذية السليمة للأطفال');
+        window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnFacebook() {
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnWhatsApp() {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent('التغذية السليمة للأطفال');
+        window.open(`https://wa.me/?text=${title}%20${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnLinkedIn() {
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function copyLink() {
+        navigator.clipboard.writeText(window.location.href);
+        alert('✅ تم نسخ رابط المقال بنجاح');
+    }
+</script>
+
+</body>
+</html>

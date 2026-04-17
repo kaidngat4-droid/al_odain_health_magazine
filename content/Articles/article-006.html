@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>أمراض الجهاز التنفسي الموسمية - آفاق الصحية</title>
+    <meta name="description" content="كيفية الوقاية من نزلات البرد والإنفلونزا في الشتاء - دليل شامل لأمراض الجهاز التنفسي الموسمية">
+    <meta name="author" content="د. سميرة عبدالله">
+    <meta name="keywords" content="أمراض الجهاز التنفسي, نزلات البرد, الإنفلونزا, الوقاية, المناعة, الشتاء">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            color: #0d47a1;
+            line-height: 1.8;
+        }
+        
+        .article-wrapper {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Header */
+        .article-header {
+            background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+            color: white;
+            padding: 3rem 2.5rem;
+            text-align: center;
+        }
+        
+        .article-header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .article-header .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+        
+        .article-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Featured Image */
+        .featured-image {
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(135deg, #42a5f5, #1565c0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-image i {
+            font-size: 6rem;
+            color: rgba(255, 255, 255, 0.2);
+            animation: pulse 2s infinite ease-in-out;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        /* Content */
+        .article-content {
+            padding: 2.5rem;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            font-size: 1.05rem;
+            color: #0d47a1;
+        }
+        
+        .article-content h2 {
+            color: #1565c0;
+            border-right: 4px solid #1565c0;
+            padding-right: 1rem;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.6rem;
+        }
+        
+        .article-content h3 {
+            color: #1e88e5;
+            margin: 1.5rem 0 0.8rem 0;
+            font-size: 1.3rem;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 1rem 2rem 1rem 0;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Info Boxes */
+        .success-box {
+            background: #e8f5e9;
+            border-right: 4px solid #4caf50;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-right: 4px solid #ff9800;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-right: 4px solid #1565c0;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .danger-box {
+            background: #ffebee;
+            border-right: 4px solid #e74c3c;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        /* Statistics Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #1565c0, #0d47a1);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        
+        /* Symptoms Grid */
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .symptom-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .symptom-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .symptom-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .symptom-card h4 {
+            color: #1565c0;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Prevention List */
+        .prevention-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .prevention-list li {
+            background: #f8f9fa;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .prevention-list li i {
+            font-size: 1.5rem;
+            color: #1565c0;
+        }
+        
+        /* Medicine Table */
+        .medicine-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .medicine-table th {
+            background: #1565c0;
+            color: white;
+            padding: 12px;
+            text-align: right;
+        }
+        
+        .medicine-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .medicine-table tr:hover {
+            background: #f5f5f5;
+        }
+        
+        /* Article Footer */
+        .article-footer-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 24px;
+            margin-top: 2rem;
+        }
+        
+        /* Tags */
+        .article-tags {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .article-tags span {
+            font-weight: 600;
+            margin-left: 0.8rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            margin: 0.2rem;
+            transition: all 0.3s;
+        }
+        
+        .tag:hover {
+            background: #1565c0;
+            color: white;
+        }
+        
+        /* Share Buttons */
+        .share-buttons {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .share-btn-group {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.05);
+        }
+        
+        .share-twitter { background: #1DA1F2; color: white; }
+        .share-facebook { background: #1877F2; color: white; }
+        .share-whatsapp { background: #25D366; color: white; }
+        .share-linkedin { background: #0077B5; color: white; }
+        .share-copy { background: #6c757d; color: white; }
+        
+        /* Author Box */
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 20px;
+            margin-top: 1.5rem;
+        }
+        
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1565c0, #0d47a1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .author-info h4 {
+            color: #1565c0;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+        }
+        
+        .rating i {
+            color: #ffc107;
+        }
+        
+        /* Back Button */
+        .back-button {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #1565c0, #0d47a1);
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(21,101,192,0.3);
+        }
+        
+        /* Footer */
+        .site-footer {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1565c0, #0d47a1);
+            color: white;
+            margin-top: 2rem;
+            border-radius: 28px 28px 0 0;
+        }
+        
+        @media (max-width: 768px) {
+            .article-header h1 { font-size: 1.5rem; }
+            .article-content { padding: 1.5rem; }
+            .featured-image { height: 200px; }
+            .author-box { flex-direction: column; text-align: center; }
+            .medicine-table { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="article-wrapper">
+    <div class="article-card">
+        
+        <!-- Header -->
+        <div class="article-header">
+            <h1><i class="fas fa-lungs"></i> أمراض الجهاز التنفسي الموسمية</h1>
+            <div class="subtitle">كيفية الوقاية من نزلات البرد والإنفلونزا في الشتاء</div>
+            <div class="article-meta">
+                <span><i class="fas fa-user-md"></i> د. سميرة عبدالله</span>
+                <span><i class="fas fa-calendar-alt"></i> 15 فبراير 2026</span>
+                <span><i class="fas fa-clock"></i> وقت القراءة: 9 دقائق</span>
+                <span><i class="fas fa-chart-line"></i> مستوى متوسط</span>
+            </div>
+        </div>
+        
+        <!-- Featured Image -->
+        <div class="featured-image">
+            <i class="fas fa-head-side-cough"></i>
+        </div>
+        
+        <!-- Content -->
+        <div class="article-content">
+            
+            <!-- Introduction -->
+            <p>مع دخول فصل الشتاء، تزداد حالات الإصابة بأمراض الجهاز التنفسي الموسمية مثل نزلات البرد والإنفلونزا والتهاب الشعب الهوائية. هذه الأمراض قد تكون بسيطة في معظم الحالات، ولكنها قد تتحول إلى مضاعفات خطيرة لدى الفئات الأكثر عرضة مثل الأطفال وكبار السن ومرضى المناعة الضعيفة.</p>
+            
+            <!-- Statistics -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">1B+</div>
+                    <div class="stat-label">إصابة سنوياً بنزلات البرد</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">60%</div>
+                    <div class="stat-label">انخفاض العدوى بغسل اليدين</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3-7</div>
+                    <div class="stat-label">أيام مدة المرض</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">40%</div>
+                    <div class="stat-label">فعالية لقاح الإنفلونزا</div>
+                </div>
+            </div>
+            
+            <!-- Section 1 - Types -->
+            <h2><i class="fas fa-virus"></i> أنواع أمراض الجهاز التنفسي الموسمية</h2>
+            
+            <div class="info-box">
+                <i class="fas fa-thermometer-half"></i>
+                <strong>نزلات البرد (Common Cold):</strong> عدوى فيروسية تصيب الجهاز التنفسي العلوي، أعراضها خفيفة وتستمر 3-7 أيام. تسببها أكثر من 200 نوع من الفيروسات، أشهرها فيروس الأنف (Rhinovirus).
+            </div>
+            
+            <div class="warning-box">
+                <i class="fas fa-temperature-high"></i>
+                <strong>الإنفلونزا (Influenza):</strong> مرض فيروسي أكثر حدة من نزلات البرد، يصاحبه حمى مرتفعة وآلام في الجسم. قد تؤدي إلى مضاعفات خطيرة مثل الالتهاب الرئوي.
+            </div>
+            
+            <div class="info-box">
+                <i class="fas fa-lungs"></i>
+                <strong>التهاب الشعب الهوائية (Bronchitis):</strong> التهاب في الممرات الهوائية التي تنقل الهواء إلى الرئتين، يسبب سعالاً مستمراً مع بلغم.
+            </div>
+            
+            <div class="danger-box">
+                <i class="fas fa-head-side-mask"></i>
+                <strong>كوفيد-19 (COVID-19):</strong> لا يزال فيروس كورونا موجوداً، ويسبب أعراضاً تنفسية تتراوح بين الخفيفة والحادة.
+            </div>
+            
+            <!-- Section 2 - Symptoms -->
+            <h2><i class="fas fa-stethoscope"></i> أعراض أمراض الجهاز التنفسي</h2>
+            
+            <div class="symptoms-grid">
+                <div class="symptom-card">
+                    <div class="symptom-icon">🤧</div>
+                    <h4>العطس وسيلان الأنف</h4>
+                    <p>من أكثر الأعراض شيوعاً في نزلات البرد</p>
+                </div>
+                <div class="symptom-card">
+                    <div class="symptom-icon">🌡️</div>
+                    <h4>الحمى</h4>
+                    <p>ارتفاع درجة الحرارة (خاصة في الإنفلونزا)</p>
+                </div>
+                <div class="symptom-card">
+                    <div class="symptom-icon">😫</div>
+                    <h4>آلام الجسم</h4>
+                    <p>ألم في العضلات والمفاصل</p>
+                </div>
+                <div class="symptom-card">
+                    <div class="symptom-icon">🗣️</div>
+                    <h4>السعال والتهاب الحلق</h4>
+                    <p>جفاف وألم في الحلق مع سعال جاف أو رطب</p>
+                </div>
+                <div class="symptom-card">
+                    <div class="symptom-icon">😴</div>
+                    <h4>الإرهاق والتعب</h4>
+                    <p>شعور عام بالإعياء وفقدان الطاقة</p>
+                </div>
+                <div class="symptom-card">
+                    <div class="symptom-icon">🤕</div>
+                    <h4>الصداع</h4>
+                    <p>صداع في مقدمة الرأس أو خلف العينين</p>
+                </div>
+            </div>
+            
+            <!-- Section 3 - Prevention -->
+            <h2><i class="fas fa-shield-virus"></i> طرق الوقاية من أمراض الجهاز التنفسي</h2>
+            
+            <ul class="prevention-list">
+                <li><i class="fas fa-hand-holding-heart"></i> <strong>غسل اليدين بانتظام:</strong> بالماء والصابون لمدة 20 ثانية على الأقل</li>
+                <li><i class="fas fa-head-side-mask"></i> <strong>ارتداء الكمامة:</strong> في الأماكن المزدحمة وعند ظهور الأعراض</li>
+                <li><i class="fas fa-wind"></i> <strong>التهوية الجيدة:</strong> فتح النوافذ لتهوية المنازل والأماكن المغلقة</li>
+                <li><i class="fas fa-people-arrows"></i> <strong>التباعد الاجتماعي:</strong> تجنب الاقتراب من المرضى</li>
+                <li><i class="fas fa-syringe"></i> <strong>لقاح الإنفلونزا:</strong> التطعيم السنوي للفئات الأكثر عرضة</li>
+                <li><i class="fas fa-apple-alt"></i> <strong>تعزيز المناعة:</strong> التغذية الجيدة والنوم الكافي وممارسة الرياضة</li>
+                <li><i class="fas fa-tint"></i> <strong>شرب السوائل الدافئة:</strong> للحفاظ على رطوبة الجسم وتخفيف الاحتقان</li>
+                <li><i class="fas fa-hand-peace"></i> <strong>تغطية الفم عند العطس:</strong> استخدام منديل أو ثني الكوع</li>
+            </ul>
+            
+            <div class="success-box">
+                <i class="fas fa-check-circle"></i>
+                <strong>نصيحة ذهبية:</strong> غسل اليدين بانتظام يقلل خطر الإصابة بالعدوى بنسبة تصل إلى 60%!
+            </div>
+            
+            <!-- Section 4 - Treatment -->
+            <h2><i class="fas fa-prescription-bottle"></i> العلاج والرعاية المنزلية</h2>
+            
+            <h3>أدوية تخفيف الأعراض:</h3>
+            <table class="medicine-table">
+                <thead>
+                    <tr><th>الدواء</th><th>الاستخدام</th><th>ملاحظات</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>مسكنات الألم (باراسيتامول، إيبوبروفين)</td><td>خفض الحرارة وتسكين الآلام</td><td>لا تعطى للأطفال دون استشارة طبيب</td></tr>
+                    <tr><td>مضادات الاحتقان</td><td>تخفيف انسداد الأنف</td><td>لا تستخدم لأكثر من 3 أيام</td></tr>
+                    <tr><td>طاردات البلغم</td><td>تسييل البلغم لتسهيل خروجه</td><td>اشرب الكثير من الماء معها</td></tr>
+                    <tr><td>مضادات السعال</td><td>تخفيف السعال الجاف المزعج</td><td>لا تستخدم للسعال الرطب</td></tr>
+                </tbody>
+            </table>
+            
+            <h3>الرعاية المنزلية:</h3>
+            <ul>
+                <li><strong>الراحة التامة:</strong> النوم الكافي يساعد الجسم على محاربة العدوى</li>
+                <li><strong>شرب السوائل الدافئة:</strong> شوربة الدجاج، اليانسون، الزنجبيل، العسل مع الليمون</li>
+                <li><strong>استخدام المرطب:</strong> لترطيب الهواء وتخفيف احتقان الصدر</li>
+                <li><strong>الغرغرة بالماء والملح:</strong> لتخفيف التهاب الحلق</li>
+            </ul>
+            
+            <div class="info-box">
+                <i class="fas fa-flask"></i>
+                <strong>وصفات طبيعية مفيدة:</strong>
+                <ul style="margin-top: 10px;">
+                    <li><strong>الزنجبيل بالعسل:</strong> ملعقة عسل + نصف ملعقة زنجبيل مبشور + ماء دافئ</li>
+                    <li><strong>اليانسون:</strong> يساعد على تهدئة السعال وتوسيع الشعب الهوائية</li>
+                    <li><strong>شوربة الدجاج:</strong> تقلل الالتهاب وتخفف الاحتقان</li>
+                </ul>
+            </div>
+            
+            <!-- Section 5 - When to See Doctor -->
+            <h2><i class="fas fa-ambulance"></i> متى يجب مراجعة الطبيب؟</h2>
+            
+            <div class="danger-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>علامات خطيرة تستدعي مراجعة الطوارئ:</strong>
+                <ul style="margin-top: 10px;">
+                    <li><strong>صعوبة في التنفس:</strong> أو سرعة في التنفس</li>
+                    <li><strong>ألم شديد في الصدر:</strong> أو ضغط على الصدر</li>
+                    <li><strong>حمى مرتفعة:</strong> أكثر من 39.5 درجة مئوية لمدة تزيد عن 3 أيام</li>
+                    <li><strong>ارتباك أو دوخة شديدة:</strong> أو فقدان الوعي</li>
+                    <li><strong>زرقة في الشفاه أو الوجه:</strong> علامة على نقص الأكسجين</li>
+                    <li><strong>عدم القدرة على شرب السوائل:</strong> علامات الجفاف</li>
+                    <li><strong>تدهور الحالة بعد تحسن مؤقت:</strong> قد يشير إلى مضاعفات</li>
+                </ul>
+            </div>
+            
+            <!-- Section 6 - High Risk Groups -->
+            <h2><i class="fas fa-users"></i> الفئات الأكثر عرضة للمضاعفات</h2>
+            <ul>
+                <li><strong>الأطفال أقل من 5 سنوات:</strong> خاصة أقل من سنتين</li>
+                <li><strong>كبار السن فوق 65 سنة:</strong> ضعف المناعة المرتبط بالعمر</li>
+                <li><strong>الحوامل:</strong> تغيرات في جهاز المناعة والجهاز التنفسي</li>
+                <li><strong>مرضى الأمراض المزمنة:</strong> الربو، السكري، أمراض القلب والرئة</li>
+                <li><strong>مرضى نقص المناعة:</strong> بسبب أمراض أو أدوية مثبطة للمناعة</li>
+            </ul>
+            
+            <!-- Section 7 - Myths vs Facts -->
+            <h2><i class="fas fa-question-circle"></i> حقائق وأخطاء شائعة</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">❌</div>
+                    <div class="stat-label">البرد يسبب نزلات البرد</div>
+                    <div style="font-size:0.7rem;">✅ الحقيقة: الفيروسات هي السبب</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">❌</div>
+                    <div class="stat-label">المضادات الحيوية تعالج البرد</div>
+                    <div style="font-size:0.7rem;">✅ الحقيقة: للفيروسات لا للبكتيريا</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">✅</div>
+                    <div class="stat-label">لقاح الإنفلونزا آمن</div>
+                    <div style="font-size:0.7rem;">✅ يقي من المضاعفات الخطيرة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">✅</div>
+                    <div class="stat-label">فيتامين C مفيد</div>
+                    <div style="font-size:0.7rem;">✅ يقصر مدة المرض قليلاً</div>
+                </div>
+            </div>
+            
+            <!-- Section 8 -->
+            <h2><i class="fas fa-calendar-alt"></i> موسم الأنفلونزا في العدين</h2>
+            <p>يبدأ موسم انتشار الإنفلونزا في مديرية العدين عادة من <strong>أكتوبر حتى مارس</strong>. وقد سجل مكتب الصحة زيادة في الحالات خلال شهري ديسمبر ويناير. ننصح المواطنين بتلقي لقاح الإنفلونزا قبل بداية الموسم (سبتمبر-أكتوبر).</p>
+            
+            <!-- ====== ARTICLE FOOTER ====== -->
+            <div class="article-footer-section">
+                
+                <!-- Tags -->
+                <div class="article-tags">
+                    <span><i class="fas fa-tags"></i> الوسوم:</span>
+                    <a href="#" class="tag">#أمراض_الجهاز_التنفسي</a>
+                    <a href="#" class="tag">#نزلات_البرد</a>
+                    <a href="#" class="tag">#الإنفلونزا</a>
+                    <a href="#" class="tag">#الوقاية</a>
+                    <a href="#" class="tag">#المناعة</a>
+                    <a href="#" class="tag">#الشتاء</a>
+                </div>
+                
+                <!-- Share Buttons -->
+                <div class="share-buttons">
+                    <p><i class="fas fa-share-alt"></i> شارك هذا المقال:</p>
+                    <div class="share-btn-group">
+                        <button class="share-btn share-twitter" onclick="shareOnTwitter()">
+                            <i class="fab fa-twitter"></i> تويتر
+                        </button>
+                        <button class="share-btn share-facebook" onclick="shareOnFacebook()">
+                            <i class="fab fa-facebook-f"></i> فيسبوك
+                        </button>
+                        <button class="share-btn share-whatsapp" onclick="shareOnWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                        <button class="share-btn share-linkedin" onclick="shareOnLinkedIn()">
+                            <i class="fab fa-linkedin-in"></i> لينكد إن
+                        </button>
+                        <button class="share-btn share-copy" onclick="copyLink()">
+                            <i class="fas fa-link"></i> نسخ الرابط
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Author Box -->
+                <div class="author-box">
+                    <div class="author-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="author-info">
+                        <h4>د. سميرة عبدالله</h4>
+                        <p>استشارية أمراض الصدر والجهاز التنفسي</p>
+                        <p>رئيس قسم الأمراض الصدرية - مستشفى العدين المركزي</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span style="margin-right: 0.5rem; color: #666;">5.0 (523 تقييم)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back Button -->
+            <div class="back-button">
+                <a href="../../index.html" class="btn-back">
+                    <i class="fas fa-arrow-right"></i> العودة إلى المجلة
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Site Footer -->
+    <div class="site-footer">
+        <p>© 2026 مجلة آفاق الصحية - مكتب الصحة والبيئة | مديرية العدين</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem;">بإشراف د. سميرة عبدالله - استشارية أمراض الصدر</p>
+    </div>
+</div>
+
+<script>
+    function shareOnTwitter() {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent('أمراض الجهاز التنفسي الموسمية');
+        window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnFacebook() {
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnWhatsApp() {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent('أمراض الجهاز التنفسي الموسمية');
+        window.open(`https://wa.me/?text=${title}%20${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function shareOnLinkedIn() {
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=600,height=400');
+    }
+    
+    function copyLink() {
+        navigator.clipboard.writeText(window.location.href);
+        alert('✅ تم نسخ رابط المقال بنجاح');
+    }
+</script>
+
+</body>
+</html>
