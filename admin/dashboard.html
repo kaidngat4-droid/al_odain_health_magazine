@@ -2,23 +2,919 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>لوحة التحكم - آفاق الصحية</title>
-    <link rel="stylesheet" href="../assets/css/admin.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم | آفاق الصحية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cairo:wght@600;800;900&family=Tajawal:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', 'Tajawal', sans-serif;
+            background: #f1f5f9;
+            min-height: 100vh;
+        }
+        
+        .admin-header {
+            background: linear-gradient(135deg, #0a2540, #0066cc);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .admin-header h1 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.5rem;
+        }
+        
+        .admin-nav {
+            background: white;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .nav-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: #f1f5f9;
+            color: #475569;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-btn.active {
+            background: #0066cc;
+            color: white;
+        }
+        
+        .admin-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .stat-card h3 {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0a2540;
+        }
+        
+        .actions-bar {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,102,204,0.3);
+        }
+        
+        .articles-table {
+            background: white;
+            border-radius: 16px;
+            overflow-x: auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        
+        th {
+            background: #f8fafc;
+            padding: 1rem;
+            text-align: right;
+            font-weight: 600;
+            color: #475569;
+            font-size: 0.875rem;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        tr:hover {
+            background: #f8fafc;
+        }
+        
+        .article-thumb {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        
+        .article-thumb-placeholder {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .btn-action {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 0 0.25rem;
+        }
+        
+        .btn-edit {
+            background: #e0f2fe;
+            color: #0284c7;
+        }
+        
+        .btn-delete {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+        
+        .btn-view {
+            background: #f3e8ff;
+            color: #9333ea;
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal {
+            background: white;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h2 {
+            font-family: 'Cairo', sans-serif;
+            color: #0a2540;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #64748b;
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            outline: none;
+            border-color: #0066cc;
+        }
+        
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .image-upload {
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .image-upload:hover {
+            border-color: #0066cc;
+            background: #f0f7ff;
+        }
+        
+        .image-upload i {
+            font-size: 2rem;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+        
+        .image-preview {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+        }
+        
+        .modal-footer {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+        
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #475569;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-box input {
+            padding: 0.5rem 2.5rem 0.5rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            width: 250px;
+        }
+        
+        .search-box i {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .badge-published {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .badge-draft {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #64748b;
+        }
+        
+        @media (max-width: 768px) {
+            .admin-nav { justify-content: center; }
+            .actions-bar { flex-direction: column; }
+            .search-box input { width: 100%; }
+        }
+    </style>
 </head>
-<body onload="checkAdminAuth()">
-    <div style="padding: 2rem;">
-        <h1>📊 لوحة تحكم آفاق الصحية</h1>
-        <div style="display: flex; gap: 1rem; margin: 2rem 0;">
-            <a href="articles-manager.html" style="background: #2e7d32; color: white; padding: 10px 20px; text-decoration: none; border-radius: 10px;">📝 إدارة المقالات</a>
-            <a href="users.html" style="background: #0288d1; color: white; padding: 10px 20px; text-decoration: none; border-radius: 10px;">👥 المستخدمين</a>
-            <a href="../index.html" style="background: #666; color: white; padding: 10px 20px; text-decoration: none; border-radius: 10px;">🏠 الموقع الرئيسي</a>
+<body>
+
+<header class="admin-header">
+    <h1><i class="fas fa-cog"></i> لوحة تحكم آفاق الصحية</h1>
+    <div>
+        <span>مرحباً، د. صلاح</span>
+        <a href="../index.html" style="color: white; margin-right: 1rem;"><i class="fas fa-sign-out-alt"></i> خروج</a>
+    </div>
+</header>
+
+<nav class="admin-nav">
+    <button class="nav-btn active" onclick="showSection('articles')">
+        <i class="fas fa-newspaper"></i> المقالات
+    </button>
+    <button class="nav-btn" onclick="showSection('submissions')">
+        <i class="fas fa-inbox"></i> البحوث المستلمة
+    </button>
+</nav>
+
+<div class="admin-container">
+    <!-- Statistics -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>إجمالي المقالات</h3>
+            <div class="stat-number" id="totalArticles">0</div>
         </div>
-        <div style="background: #e8f5e9; padding: 2rem; border-radius: 15px;">
-            <h3>مرحباً بك في لوحة التحكم</h3>
-            <p>يمكنك إدارة المقالات والمستخدمين من هنا</p>
+        <div class="stat-card">
+            <h3>المقالات المنشورة</h3>
+            <div class="stat-number" id="publishedArticles">0</div>
+        </div>
+        <div class="stat-card">
+            <h3>البحوث المستلمة</h3>
+            <div class="stat-number" id="totalSubmissions">0</div>
+        </div>
+        <div class="stat-card">
+            <h3>إجمالي المشاهدات</h3>
+            <div class="stat-number" id="totalViews">0</div>
         </div>
     </div>
-    <script src="../assets/js/admin.js"></script>
+
+    <!-- Actions Bar -->
+    <div class="actions-bar">
+        <button class="btn-primary" onclick="openModal('add')">
+            <i class="fas fa-plus"></i> مقال جديد
+        </button>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="بحث في المقالات..." onkeyup="searchArticles()">
+            <i class="fas fa-search"></i>
+        </div>
+    </div>
+
+    <!-- Articles Table -->
+    <div class="articles-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>الصورة</th>
+                    <th>العنوان</th>
+                    <th>الكاتب</th>
+                    <th>التاريخ</th>
+                    <th>المشاهدات</th>
+                    <th>الحالة</th>
+                    <th>الإجراءات</th>
+                </tr>
+            </thead>
+            <tbody id="articlesTableBody">
+                <!-- سيتم ملؤها بالـ JavaScript -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal for Add/Edit Article -->
+<div class="modal-overlay" id="articleModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h2 id="modalTitle">إضافة مقال جديد</h2>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="articleForm">
+                <input type="hidden" id="articleId">
+                
+                <div class="form-group">
+                    <label class="form-label">عنوان المقال</label>
+                    <input type="text" class="form-input" id="articleTitle" required>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label">الكاتب</label>
+                        <input type="text" class="form-input" id="articleAuthor" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">التصنيف</label>
+                        <select class="form-select" id="articleCategory">
+                            <option value="قلب وأوعية دموية">أمراض القلب</option>
+                            <option value="صحة عامة">الصحة العامة</option>
+                            <option value="بيئة">صحة البيئة</option>
+                            <option value="تغذية">التغذية</option>
+                            <option value="صحة نفسية">الصحة النفسية</option>
+                            <option value="مسالك بولية">أمراض المسالك</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">الملخص</label>
+                    <textarea class="form-textarea" id="articleExcerpt" required></textarea>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label">وقت القراءة (دقائق)</label>
+                        <input type="number" class="form-input" id="articleReadingTime" min="1" value="5">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">تاريخ النشر</label>
+                        <input type="date" class="form-input" id="articleDate">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">حالة المقال</label>
+                    <select class="form-select" id="articleStatus">
+                        <option value="published">منشور</option>
+                        <option value="draft">مسودة</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">صورة المقال</label>
+                    <div class="image-upload" onclick="document.getElementById('imageInput').click()">
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;" onchange="handleImageUpload(event)">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>اضغط هنا لرفع الصورة</p>
+                    </div>
+                    <img id="imagePreview" class="image-preview" style="display: none;">
+                    <input type="hidden" id="articleImage" value="">
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-secondary" onclick="closeModal()">إلغاء</button>
+            <button class="btn-primary" onclick="saveArticle()">
+                <i class="fas fa-save"></i> حفظ المقال
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal-overlay" id="deleteModal">
+    <div class="modal" style="max-width: 400px;">
+        <div class="modal-header">
+            <h2>تأكيد الحذف</h2>
+            <button class="modal-close" onclick="closeDeleteModal()">&times;</button>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+            <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #dc2626; margin-bottom: 1rem;"></i>
+            <p>هل أنت متأكد من حذف هذا المقال؟</p>
+            <p id="deleteArticleTitle" style="font-weight: 600; color: #0a2540; margin-top: 0.5rem;"></p>
+        </div>
+        <div class="modal-footer" style="justify-content: center;">
+            <button class="btn-secondary" onclick="closeDeleteModal()">إلغاء</button>
+            <button class="btn-primary" style="background: #dc2626;" onclick="confirmDelete()">
+                <i class="fas fa-trash"></i> نعم، احذف
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+// ============================================
+// المتغيرات العامة
+// ============================================
+let articles = [];
+let deleteId = null;
+
+// ============================================
+// البيانات الافتراضية (متزامنة مع الصفحة الرئيسية)
+// ============================================
+const defaultArticles = [
+    { id: 1, title: "النظافة البيئية وأثرها على الصحة العامة", category: "بيئة", author: "د. أحمد السعيدي", date: "2026-01-15", excerpt: "دراسة تبحث في العلاقة بين الإصحاح البيئي وانخفاض معدلات الأمراض المعدية.", image: "assets/images/articles/article-001.jpg", fallbackIcon: "🌿", views: 245, readingTime: 6, status: "published" },
+    { id: 2, title: "التطعيمات الوقائية: حماية للمجتمع", category: "صحة عامة", author: "د. منى الشرعبي", date: "2026-01-20", excerpt: "تقييم التغطية باللقاحات وأثرها على مناعة المجتمع.", image: "assets/images/articles/article-002.jpg", fallbackIcon: "💉", views: 189, readingTime: 5, status: "published" },
+    { id: 3, title: "مكافحة التلوث في مديرية العدين", category: "بيئة", author: "مهندس علي الحمادي", date: "2026-01-25", excerpt: "استراتيجيات الحد من التلوث وحماية البيئة.", image: "assets/images/articles/article-003.jpg", fallbackIcon: "🏭", views: 312, readingTime: 7, status: "published" },
+    { id: 4, title: "التغذية السليمة للأطفال", category: "تغذية", author: "أ. فاطمة عباس", date: "2026-02-01", excerpt: "إرشادات غذائية متكاملة للأطفال لتعزيز المناعة.", image: "assets/images/articles/article-004.jpg", fallbackIcon: "🍎", views: 567, readingTime: 5, status: "published" },
+    { id: 5, title: "الوعي البيئي في المدارس", category: "بيئة", author: "أ. خالد النهاري", date: "2026-02-10", excerpt: "برامج التوعية البيئية المدرسية وتأثيرها.", image: "assets/images/articles/article-005.jpg", fallbackIcon: "📚", views: 234, readingTime: 4, status: "published" },
+    { id: 6, title: "أمراض الجهاز التنفسي الموسمية", category: "صحة عامة", author: "د. سميرة عبدالله", date: "2026-02-15", excerpt: "طرق الوقاية وإدارة التهابات الجهاز التنفسي.", image: "assets/images/articles/article-006.jpg", fallbackIcon: "🤧", views: 421, readingTime: 6, status: "published" },
+    { id: 7, title: "دليلك الشامل للقسطرة القلبية", category: "قلب وأوعية دموية", author: "د. صلاح الأهدل", date: "2026-03-01", excerpt: "دليل شامل للقسطرة القلبية: دواعي إجرائها، خطوات الإجراء، المخاطر.", image: "assets/images/articles/article-007.jpg", fallbackIcon: "🫀", views: 678, readingTime: 8, status: "published" },
+    { id: 8, title: "الدعامات القلبية: أنواعها وفوائدها", category: "قلب وأوعية دموية", author: "د. خالد المنصوري", date: "2026-03-10", excerpt: "أنواع الدعامات التاجية ونتائجها السريرية.", image: "assets/images/articles/article-008.jpg", fallbackIcon: "🩺", views: 534, readingTime: 6, status: "published" },
+    { id: 9, title: "انسداد الشرايين: الأسباب والعلاج", category: "قلب وأوعية دموية", author: "د. ياسر القحطاني", date: "2026-03-15", excerpt: "المسببات، التشخيص، والأساليب العلاجية الحديثة.", image: "assets/images/articles/article-009.jpg", fallbackIcon: "⚠️", views: 445, readingTime: 7, status: "published" },
+    { id: 10, title: "فوائد الرياضة للصحة النفسية", category: "صحة نفسية", author: "أ. سارة علي", date: "2026-03-20", excerpt: "تأثير ممارسة النشاط البدني على تحسين الصحة النفسية.", image: "assets/images/articles/article-010.jpg", fallbackIcon: "🏃‍♀️", views: 389, readingTime: 5, status: "published" },
+    { id: 11, title: "أمراض وعلامات أمراض الجهاز البولي", category: "مسالك بولية", author: "د. ياسر القحطاني", date: "2026-04-16", excerpt: "العلامات والأعراض السريرية لأمراض المسالك البولية.", image: "assets/images/articles/article-011.jpg", fallbackIcon: "🩺", views: 212, readingTime: 6, status: "published" }
+];
+
+// ============================================
+// تحميل المقالات من localStorage
+// ============================================
+function loadArticles() {
+    const stored = localStorage.getItem('articles');
+    
+    if (stored) {
+        try {
+            articles = JSON.parse(stored);
+            console.log('✅ تم تحميل', articles.length, 'مقال من localStorage');
+        } catch (e) {
+            console.error('❌ خطأ في قراءة localStorage:', e);
+            articles = [...defaultArticles];
+            saveToStorage();
+        }
+    } else {
+        articles = [...defaultArticles];
+        saveToStorage();
+        console.log('⚠️ تم تهيئة البيانات الافتراضية');
+    }
+    
+    updateStats();
+    renderTable();
+}
+
+// ============================================
+// حفظ في localStorage (نفس مفتاح الصفحة الرئيسية)
+// ============================================
+function saveToStorage() {
+    localStorage.setItem('articles', JSON.stringify(articles));
+    console.log('💾 تم حفظ', articles.length, 'مقال في localStorage');
+}
+
+// ============================================
+// تحديث الإحصائيات
+// ============================================
+function updateStats() {
+    document.getElementById('totalArticles').textContent = articles.length;
+    document.getElementById('publishedArticles').textContent = 
+        articles.filter(a => a.status === 'published').length;
+    
+    const submissions = JSON.parse(localStorage.getItem('research_submissions') || '[]');
+    document.getElementById('totalSubmissions').textContent = submissions.length;
+    
+    const totalViews = articles.reduce((sum, a) => sum + (a.views || 0), 0);
+    document.getElementById('totalViews').textContent = totalViews.toLocaleString();
+}
+
+// ============================================
+// عرض الجدول
+// ============================================
+function renderTable(searchTerm = '') {
+    const tbody = document.getElementById('articlesTableBody');
+    let filtered = [...articles];
+    
+    if (searchTerm) {
+        filtered = articles.filter(a => 
+            (a.title || '').toLowerCase().includes(searchTerm.toLowerCase()) || 
+            (a.author || '').toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    }
+    
+    // ترتيب حسب التاريخ (الأحدث أولاً)
+    filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+    
+    if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="empty-state">📭 لا توجد مقالات</td></tr>`;
+        return;
+    }
+    
+    tbody.innerHTML = filtered.map(article => `
+        <tr>
+            <td>
+                ${article.image ? 
+                    `<img src="${article.image}" class="article-thumb" onerror="this.src=''">` :
+                    `<div class="article-thumb-placeholder">${article.fallbackIcon || '📄'}</div>`
+                }
+            </td>
+            <td style="font-weight: 600; color: #0a2540;">${article.title}</td>
+            <td>${article.author}</td>
+            <td>${article.date}</td>
+            <td>${(article.views || 0).toLocaleString()}</td>
+            <td>
+                <span class="badge badge-${article.status === 'published' ? 'published' : 'draft'}">
+                    ${article.status === 'published' ? 'منشور' : 'مسودة'}
+                </span>
+            </td>
+            <td>
+                <button class="btn-action btn-view" onclick="viewArticle(${article.id})" title="عرض">
+                    <i class="fas fa-eye"></i>
+                </button>
+                <button class="btn-action btn-edit" onclick="openModal('edit', ${article.id})" title="تعديل">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn-action btn-delete" onclick="openDeleteModal(${article.id})" title="حذف">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    `).join('');
+}
+
+// ============================================
+// فتح Modal الإضافة/التعديل
+// ============================================
+function openModal(mode, id = null) {
+    const modal = document.getElementById('articleModal');
+    const title = document.getElementById('modalTitle');
+    const form = document.getElementById('articleForm');
+    
+    modal.classList.add('active');
+    
+    if (mode === 'add') {
+        title.textContent = 'إضافة مقال جديد';
+        form.reset();
+        document.getElementById('articleId').value = '';
+        document.getElementById('articleDate').value = new Date().toISOString().split('T')[0];
+        document.getElementById('imagePreview').style.display = 'none';
+        document.getElementById('articleImage').value = '';
+    } else {
+        title.textContent = 'تعديل المقال';
+        const article = articles.find(a => a.id === id);
+        if (article) {
+            document.getElementById('articleId').value = article.id;
+            document.getElementById('articleTitle').value = article.title || '';
+            document.getElementById('articleAuthor').value = article.author || '';
+            document.getElementById('articleCategory').value = article.category || 'صحة عامة';
+            document.getElementById('articleExcerpt').value = article.excerpt || '';
+            document.getElementById('articleReadingTime').value = article.readingTime || 5;
+            document.getElementById('articleDate').value = article.date || new Date().toISOString().split('T')[0];
+            document.getElementById('articleStatus').value = article.status || 'published';
+            
+            if (article.image && article.image.startsWith('data:image')) {
+                document.getElementById('articleImage').value = article.image;
+                document.getElementById('imagePreview').src = article.image;
+                document.getElementById('imagePreview').style.display = 'block';
+            } else if (article.image && !article.image.startsWith('data:image')) {
+                document.getElementById('articleImage').value = '';
+                document.getElementById('imagePreview').style.display = 'none';
+            } else {
+                document.getElementById('imagePreview').style.display = 'none';
+            }
+        }
+    }
+}
+
+// ============================================
+// إغلاق Modal
+// ============================================
+function closeModal() {
+    document.getElementById('articleModal').classList.remove('active');
+}
+
+// ============================================
+// معالجة رفع الصورة
+// ============================================
+function handleImageUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    
+    if (!file.type.startsWith('image/')) {
+        alert('يرجى اختيار ملف صورة صالح');
+        return;
+    }
+    
+    if (file.size > 5 * 1024 * 1024) {
+        alert('حجم الصورة كبير جداً. الحد الأقصى 5MB');
+        return;
+    }
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const base64 = e.target.result;
+        document.getElementById('articleImage').value = base64;
+        document.getElementById('imagePreview').src = base64;
+        document.getElementById('imagePreview').style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+}
+
+// ============================================
+// حفظ المقال
+// ============================================
+function saveArticle() {
+    const id = document.getElementById('articleId').value;
+    const title = document.getElementById('articleTitle').value.trim();
+    const author = document.getElementById('articleAuthor').value.trim();
+    const category = document.getElementById('articleCategory').value;
+    const excerpt = document.getElementById('articleExcerpt').value.trim();
+    const readingTime = parseInt(document.getElementById('articleReadingTime').value) || 5;
+    const date = document.getElementById('articleDate').value || new Date().toISOString().split('T')[0];
+    const status = document.getElementById('articleStatus').value;
+    const image = document.getElementById('articleImage').value;
+    
+    if (!title || !author || !excerpt) {
+        alert('يرجى ملء جميع الحقول المطلوبة');
+        return;
+    }
+    
+    const getFallbackIcon = (cat) => {
+        const icons = {
+            'قلب وأوعية دموية': '🫀',
+            'صحة عامة': '🏥',
+            'بيئة': '🌿',
+            'تغذية': '🍎',
+            'صحة نفسية': '🧠',
+            'مسالك بولية': '🩺'
+        };
+        return icons[cat] || '📄';
+    };
+    
+    const articleData = {
+        id: id ? parseInt(id) : Date.now(),
+        title,
+        author,
+        category,
+        excerpt,
+        readingTime,
+        date,
+        status,
+        image: image || null,
+        fallbackIcon: getFallbackIcon(category),
+        views: id ? (articles.find(a => a.id == id)?.views || 0) : 0
+    };
+    
+    if (id) {
+        const index = articles.findIndex(a => a.id == id);
+        if (index !== -1) {
+            articles[index] = articleData;
+        }
+    } else {
+        articles.push(articleData);
+    }
+    
+    saveToStorage();
+    updateStats();
+    renderTable();
+    closeModal();
+    
+    showToast(id ? '✅ تم تعديل المقال بنجاح' : '✅ تم إضافة المقال بنجاح');
+}
+
+// ============================================
+// فتح Modal الحذف
+// ============================================
+function openDeleteModal(id) {
+    deleteId = id;
+    const article = articles.find(a => a.id === id);
+    document.getElementById('deleteArticleTitle').textContent = article?.title || '';
+    document.getElementById('deleteModal').classList.add('active');
+}
+
+// ============================================
+// إغلاق Modal الحذف
+// ============================================
+function closeDeleteModal() {
+    document.getElementById('deleteModal').classList.remove('active');
+    deleteId = null;
+}
+
+// ============================================
+// تأكيد الحذف
+// ============================================
+function confirmDelete() {
+    if (!deleteId) return;
+    
+    articles = articles.filter(a => a.id !== deleteId);
+    saveToStorage();
+    updateStats();
+    renderTable();
+    closeDeleteModal();
+    
+    showToast('🗑️ تم حذف المقال بنجاح');
+}
+
+// ============================================
+// عرض المقال
+// ============================================
+function viewArticle(id) {
+    window.open(`../content/articles/article-${String(id).padStart(3, '0')}.html`, '_blank');
+}
+
+// ============================================
+// البحث
+// ============================================
+function searchArticles() {
+    const term = document.getElementById('searchInput').value;
+    renderTable(term);
+}
+
+// ============================================
+// Toast Notification
+// ============================================
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #059669;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 9999;
+        font-size: 0.875rem;
+    `;
+    toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
+// ============================================
+// تبديل الأقسام
+// ============================================
+function showSection(section) {
+    document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    if (section === 'submissions') {
+        window.location.href = 'submissions.html';
+    }
+}
+
+// ============================================
+// إغلاق Modal عند النقر خارجها
+// ============================================
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            overlay.classList.remove('active');
+        }
+    });
+});
+
+// ============================================
+// تهيئة الصفحة
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    loadArticles();
+});
+</script>
+
 </body>
 </html>
