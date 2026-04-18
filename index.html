@@ -1046,49 +1046,143 @@
         { id: 11, title: "أمراض وعلامات أمراض الجهاز البولي", category: "Urology", author: "د. ياسر القحطاني", date: "2026-04-16", excerpt: "العلامات والأعراض السريرية لأمراض المسالك البولية.", image: "assets/images/articles/article-011.jpg", fallbackIcon: "🩺", views: 212, readingTime: 6 }
     ];
 
-    function loadArticles() {
-        const grid = document.getElementById('articlesGrid');
-        let articles = [...articlesData];
-        articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-        
-        grid.innerHTML = articles.map((article, index) => {
-            const currentFontClass = fontClasses[index % fontClasses.length];
-            const imageHtml = `<img src="${article.image}" alt="${article.title}" style="width:100%; height:100%; object-fit:cover; border-radius:8px;" onerror="this.onerror=null; this.parentElement.innerHTML='${article.fallbackIcon}'; this.parentElement.style.fontSize='2.5rem'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">`;
-            
-            return `
-            <div class="article-item" onclick="viewArticle(${article.id})">
-                <div class="article-image-small">${imageHtml}</div>
-                <div class="article-content-small">
-                    <div class="article-meta">
-                        <span><i class="fas fa-user-md"></i> ${article.author}</span>
-                        <span><i class="fas fa-calendar-alt"></i> ${article.date}</span>
-                        <span><i class="fas fa-clock"></i> ${article.readingTime} دقائق</span>
-                        <span><i class="fas fa-eye"></i> ${article.views}</span>
-                    </div>
-                    <h3 class="article-title-small ${currentFontClass}">${article.title}</h3>
-                    <p class="article-excerpt-small">${article.excerpt}</p>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem;">
-                        <span class="article-link">قراءة المقال كاملاً ←</span>
-                        <div class="rating-stars" data-id="${article.id}" style="direction: ltr;">
-                            <i class="far fa-star" data-rate="1"></i>
-                            <i class="far fa-star" data-rate="2"></i>
-                            <i class="far fa-star" data-rate="3"></i>
-                            <i class="far fa-star" data-rate="4"></i>
-                            <i class="far fa-star" data-rate="5"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>`;
-        }).join('');
-        initRatings();
+    // ============================================
+// إصدار المقالات الثابتة
+// ============================================
+const STATIC_ARTICLES_VERSION = '1.0.0';
+
+// ============================================
+// دالة تحميل المقالات المحسّنة
+// ============================================
+function loadArticles() {
+    const grid = document.getElementById('articlesGrid');
+    if (!grid) {
+        console.error('❌ عنصر articlesGrid غير موجود');
+        return;
     }
 
-    function initRatings() {
-        document.querySelectorAll('.rating-stars').forEach(container => {
-            const articleId = container.dataset.id;
-            const savedRating = localStorage.getItem(`rating_${articleId}`) || 0;
-            for (let i = 1; i <= 5; i++) {
-                const star = container.querySelector(`[data-rate="${i}"]`);
+    // 1. التحقق من الإصدار
+    const savedVersion = localStorage.getItem('static_articles_version');
+    const currentVersion = STATIC_ARTICLES_VERSION;
+
+    if (savedVersion !== currentVersion) {
+        console.log(`🔄 تحديث من الإصدار ${savedVersion || 'none'} إلى ${currentVersion}`);
+        localStorage.removeItem('articles');
+        localStorage.setItem('static_articles_version', currentVersion);
+    }
+
+    // 2. المقالات الثابتة
+    const staticArticles = [...articlesData];
+
+    // 3. قراءة من localStorage
+    let storedArticles = [];
+    const stored = localStorage.getItem('articles');
+
+    if (stored) {
+        try {
+            storedArticles = JSON.parse(stored);
+            if (!Array.isArray(storedArticles)) storedArticles = [];
+        } catch (e) {
+            console.error('❌ خطأ في قراءة localStorage:', e);
+        }
+    }
+
+    // 4. دمج المقالات
+    const staticIds = new Set(staticArticles.map(a => a.id));
+    const storedStatic = storedArticles.filter(a => staticIds.has(a.id));
+    const storedDynamic = storedArticles.filter(a => !staticIds.has(a.id));
+
+    const mergedStatic = staticArticles.map(staticArticle => {
+        const storedVersion = storedStatic.find(s => s.id === staticArticle.id);
+        if (storedVersion) {
+            return {
+                ...staticArticle,
+                views: storedVersion.views || staticArticle.views || 0
+            };
+        }
+        return staticArticle;
+    });
+
+    const allArticles = [...mergedStatic, ...storedDynamic];
+
+    // 5. ترتيب حسب التاريخ
+    allArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    // 6. حفظ
+    localStorage.setItem('articles', JSON.stringify(allArticles));
+
+    console.log('✅ تم تحميل', allArticles.length, 'مقال');
+
+    // 7. عرض المقالات
+    renderArticlesList(allArticles, grid);
+}
+
+// ============================================
+// دالة عرض المقالات
+// ============================================
+function renderArticlesList(articles, container) {
+    if (!container) return;
+
+    if (articles.length === 0) {
+        container.innerHTML = `
+            <div style="text-align: center; padding: 3rem; color: #64748b;">
+                <i class="fas fa-inbox fa-3x" style="margin-bottom: 1rem; opacity: 0.5;"></i>
+                <p>لا توجد مقالات متاحة حالياً</p>
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = articles.map((article, index) => {
+        const currentFontClass = fontClasses[index % fontClasses.length];
+        const isDynamic = !articlesData.some(a => a.id === article.id);
+        
+        const imageHtml = article.image ?
+            `<img src="${article.image}" alt="${article.title}" style="width:100%; height:100%; object-fit:cover; border-radius:8px;" onerror="this.onerror=null; this.parentElement.innerHTML='${article.fallbackIcon || '📄'}'; this.parentElement.style.fontSize='2.5rem'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">` :
+            `<div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:2.5rem; background:#f1f5f9; border-radius:8px;">${article.fallbackIcon || '📄'}</div>`;
+
+        return `
+        <div class="article-item ${isDynamic ? 'article-dynamic' : ''}" 
+             onclick="viewArticle(${article.id})" 
+             data-id="${article.id}">
+            <div class="article-image-small">${imageHtml}</div>
+            <div class="article-content-small">
+                <div class="article-meta">
+                    <span><i class="fas fa-user-md"></i> ${article.author || 'غير معروف'}</span>
+                    <span><i class="fas fa-calendar-alt"></i> ${article.date || 'غير محدد'}</span>
+                    <span><i class="fas fa-clock"></i> ${article.readingTime || 5} دقائق</span>
+                    <span class="view-count"><i class="fas fa-eye"></i> ${article.views || 0}</span>
+                    ${isDynamic ? '<span class="badge-new">جديد</span>' : ''}
+                </div>
+                <h3 class="article-title-small ${currentFontClass}">${article.title}</h3>
+                <p class="article-excerpt-small">${article.excerpt || 'لا يوجد وصف'}</p>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem;">
+                    <span class="article-link">قراءة المقال كاملاً ←</span>
+                    <div class="rating-stars" data-id="${article.id}" style="direction: ltr;">
+                        ${[1, 2, 3, 4, 5].map(i => {
+                            const savedRating = localStorage.getItem(`rating_${article.id}`) || 0;
+                            return `<i class="${i <= savedRating ? 'fas' : 'far'} fa-star" data-rate="${i}" style="${i <= savedRating ? 'color: #ffc107;' : 'color: #ddd;'}"></i>`;
+                        }).join('')}
+                    </div>
+                </div>
+            </div>
+        </div>`;
+    }).join('');
+
+    initRatings();
+}
+
+// ============================================
+// دالة التقييم
+// ============================================
+function initRatings() {
+    document.querySelectorAll('.rating-stars').forEach(container => {
+        const articleId = container.dataset.id;
+        const savedRating = localStorage.getItem(`rating_${articleId}`) || 0;
+        
+        for (let i = 1; i <= 5; i++) {
+            const star = container.querySelector(`[data-rate="${i}"]`);
+            if (star) {
                 if (i <= savedRating) {
                     star.className = 'fas fa-star';
                     star.style.color = '#ffc107';
@@ -1096,6 +1190,7 @@
                     star.className = 'far fa-star';
                     star.style.color = '#ddd';
                 }
+                
                 star.onclick = (e) => {
                     e.stopPropagation();
                     const rate = parseInt(star.dataset.rate);
@@ -1104,8 +1199,33 @@
                     showToast(`⭐ شكراً لتقييمك ${rate}/5`);
                 };
             }
-        });
+        }
+    });
+}
+
+// ============================================
+// CSS إضافي
+// ============================================
+const additionalStyles = `
+    .article-dynamic {
+        border-right: 3px solid #0d9488;
     }
+    .badge-new {
+        background: #0d9488;
+        color: white;
+        padding: 0.15rem 0.5rem;
+        border-radius: 12px;
+        font-size: 0.7rem;
+        margin-right: 0.5rem;
+    }
+    .view-count {
+        transition: all 0.3s ease;
+    }
+`;
+
+const styleElement = document.createElement('style');
+styleElement.textContent = additionalStyles;
+document.head.appendChild(styleElement);
 
     function viewArticle(id) {
         window.location.href = `content/articles/article-${String(id).padStart(3, '0')}.html`;
