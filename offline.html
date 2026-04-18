@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a2540">
+  <title>غير متصل | مجلة آفاق الصحية</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/responsive.css">
+  <style>
+    .offline-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+    
+    .offline-icon {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 2rem;
+      animation: pulse 2s infinite;
+    }
+    
+    .offline-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: #0d9488;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+    }
+    
+    .offline-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0a2540;
+      margin-bottom: 1rem;
+      font-family: 'Almarai', sans-serif;
+    }
+    
+    .offline-message {
+      font-size: 1.25rem;
+      color: #475569;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      line-height: 1.8;
+    }
+    
+    .offline-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.5rem;
+      background: #0d9488;
+      color: white;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      background: #0f766e;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+    }
+    
+    .btn--outline {
+      background: transparent;
+      color: #0d9488;
+      border: 2px solid #0d9488;
+    }
+    
+    .btn--outline:hover {
+      background: #0d9488;
+      color: white;
+    }
+    
+    .cached-content {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-top: 2rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+    
+    .cached-content h2 {
+      color: #0a2540;
+      margin-bottom: 1rem;
+    }
+    
+    .cached-articles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+    
+    .cached-article {
+      background: #f8fafc;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      border-right: 3px solid #0d9488;
+    }
+    
+    .cached-article h3 {
+      font-size: 1rem;
+      color: #0a2540;
+      margin-bottom: 0.5rem;
+    }
+    
+    .cached-article p {
+      font-size: 0.875rem;
+      color: #64748b;
+      margin: 0;
+    display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <main class="offline-page">
+    <div class="offline-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M1 4a2 2 0 0 1 2-2h18a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4z"></path>
+        <line x1="1" y1="10" x2="23" y2="10"></line>
+        <line x1="1" y1="14" x2="23" y2="14"></line>
+      </svg>
+    </div>
+    
+    <h1 class="offline-title">أنت غير متصل بالإنترنت</h1>
+    
+    <p class="offline-message">
+      لا يمكن الوصول إلى محتوى مجلة آفاق الصحية حالياً.<br>
+      بعض الميزات قد لا تعمل بشكل كامل دون اتصال بالشبكة.<br>
+      يمكنك قراءة المقالات المخزنة مؤقتاً أدناه أو المحاولة مرة أخرى لاحقاً.
+    </p>
+    
+    <div class="offline-actions">
+      <button onclick="window.location.reload()" class="btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+          <path d="M23 4v6h-6"></path>
+          <path d="M1 20v-6h6"></path>
+          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l9.01 9.36A9 9 0 0 0 20.49 15"></path>
+        </svg>
+        إعادة المحاولة
+      </button>
+      <a href="/" class="btn btn--outline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        الصفحة الرئيسية
+      </a>
+    </div>
+    
+    <section class="cached-content" id="cached-articles">
+      <h2>📚 مقالات متاحة حالياً</h2>
+      <div class="cached-articles">
+        <!-- سيتم ملء هذا القسم ديناميكياً عبر JavaScript -->
+        <article class="cached-article">
+          <h3>آليات مكافحة العدوى في المجتمعات المحلية</h3>
+          <p>دراسة تحليلية لاستراتيجيات الوقاية من الأمراض المعدية في المناطق الريفية...</p>
+        </article>
+        <article class="cached-article">
+          <h3>التغذية السليمة ودورها في تعزيز المناعة</h3>
+          <p>نظرة شاملة على العلاقة بين النظام الغذائي والصحة العامة...</p>
+        </article>
+        <article class="cached-article">
+          <h3>الصحة النفسية في بيئة العمل</h3>
+          <p>كيفية التعامل مع الضغوط المهنية واستراتيجيات الحفاظ على التواز النفسي...</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  
+  <script>
+    // عرض المقالات المخزنة مؤقتاً
+    async function displayCachedArticles() {
+      try {
+        const cache = await caches.open('afaaq-health-v1.0.2');
+        const articles = [];
+        
+        // البحث عن المقالات في الكاش
+        const keys = await cache.keys();
+        for (const request of keys) {
+          if (request.url.includes('/article/') || request.url.includes('/current-issue.html')) {
+            const response = await cache.match(request);
+            if (response) {
+          const html = await response.text();
+          // استخراج العنوان والوصف
+          const titleMatch = html.match(/<h1[^>]*>([^<]+)<\/h1>/);
+          const descMatch = html.match(/<meta[^>]*name="description"[^>]*content="([^"]*)"/);
+          
+          articles.push({
+            title: TitleMatch ? TitleMatch[1] : 'مقال من آفاق الصحية',
+            description: descMatch ? descMatch[1] : 'محتوى علمي متميز',
+            url: request.url
+          });
+        }
+      }
+    }
+    
+    // عرض المقالات
+    const container = document.getElementById('cached-articles');
+    if (articles.length > 0 && container) {
+      container.innerHTML = articles.slice(0, 6).map(article => `
+        <article class="cached-article">
+          <h3>${article.title}</h3>
+          <p>${article.description}</p>
+        </article>
+      `).join('');
+    }
+    
+    // تنفيذ
+    displayCachedArticles();
+  </script>
+</body>
+</html>
